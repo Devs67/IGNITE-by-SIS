@@ -1,9 +1,12 @@
-import { Calendar, MapPin, ArrowRight, ArrowDown, Sparkles, Flame, Code2, Wrench } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Sparkles, Flame, Code2, Wrench } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router';
 import IgniteLogo from './IgniteLogo';
 import AccreditationPills from './AccreditationPills';
 import CountdownTimer from './CountdownTimer';
 import { IGNITE_DATA } from '../data/igniteData';
+
+const MotionLink = motion.create(Link);
 
 interface HeroProps {
   onOpenRegister: () => void;
@@ -163,14 +166,14 @@ export default function Hero({ onOpenRegister }: HeroProps) {
               <ArrowRight className="w-4 h-4 stroke-[3]" />
             </motion.button>
 
-            <motion.a
+            <MotionLink
               whileHover={{ scale: 1.04, y: -2 }}
-              href="#challenges"
+              to="/challenges"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/25 text-white font-display text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all"
             >
               <span>Explore Challenges</span>
-              <ArrowDown className="w-4 h-4 stroke-[2.5]" />
-            </motion.a>
+              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+            </MotionLink>
           </motion.div>
         </div>
       </div>

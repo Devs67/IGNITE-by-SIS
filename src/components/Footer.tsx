@@ -1,5 +1,7 @@
 import { ArrowUp } from 'lucide-react';
+import { Link } from 'react-router';
 import IgniteLogo from './IgniteLogo';
+import { PAGES } from '../pages';
 import { IGNITE_DATA } from '../data/igniteData';
 
 interface FooterProps {
@@ -44,57 +46,19 @@ export default function Footer({ onOpenRegister }: FooterProps) {
             </div>
           </div>
 
-          {/* Col 2: Document Navigation */}
+          {/* Col 2: Pages */}
           <div>
             <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#8fb9aa] font-bold mb-3">
-              Document Sections
+              Pages
             </h4>
             <ul className="space-y-2 font-medium">
-              <li>
-                <a href="#what-is-ignite" className="hover:text-[#f6a44e] transition-colors">
-                  What is IGNITE?
-                </a>
-              </li>
-              <li>
-                <a href="#when-and-who" className="hover:text-[#f6a44e] transition-colors">
-                  When & Who? (Event Flow)
-                </a>
-              </li>
-              <li>
-                <a href="#structure" className="hover:text-[#f6a44e] transition-colors">
-                  IGNITE Structure (4 Pathways)
-                </a>
-              </li>
-              <li>
-                <a href="#theme" className="hover:text-[#f6a44e] transition-colors">
-                  Overarching Theme
-                </a>
-              </li>
-              <li>
-                <a href="#challenges" className="hover:text-[#f6a44e] transition-colors">
-                  Junior & Senior Challenges
-                </a>
-              </li>
-              <li>
-                <a href="#idea-to-impact" className="hover:text-[#f6a44e] transition-colors">
-                  From Idea to Impact
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" className="hover:text-[#f6a44e] transition-colors">
-                  IGNITE in Action
-                </a>
-              </li>
-              <li>
-                <a href="#checklist" className="hover:text-[#f6a44e] transition-colors">
-                  Participant Checklist
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-[#f6a44e] transition-colors">
-                  FAQs
-                </a>
-              </li>
+              {PAGES.map((page) => (
+                <li key={page.path}>
+                  <Link to={page.path} className="hover:text-[#f6a44e] transition-colors">
+                    {page.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhatIsIgnite from './components/WhatIsIgnite';
@@ -11,8 +12,20 @@ import Gallery from './components/Gallery';
 import ParticipantChecklist from './components/ParticipantChecklist';
 import FAQ from './components/FAQ';
 import ReadyToIgnite from './components/ReadyToIgnite';
+import PageNav from './components/PageNav';
 import Footer from './components/Footer';
 import RegisterModal from './components/RegisterModal';
+import { PAGES } from './pages';
+
+// On every page change: jump to the top and set the browser tab title
+function PageChange() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.title = (PAGES.find((p) => p.path === pathname) ?? PAGES[0]).title;
+  }, [pathname]);
+  return null;
+}
 
 export default function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -36,63 +49,79 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f0e8] text-[#172220] selection:bg-[#f28c28]/30 selection:text-[#0b302e] relative">
-      {/* Global Navbar with uploaded logo */}
-      <Navbar onOpenRegister={() => handleOpenRegister()} />
+    <BrowserRouter>
+      <PageChange />
+      <div className="min-h-screen bg-[#f4f0e8] text-[#172220] selection:bg-[#f28c28]/30 selection:text-[#0b302e] relative">
+        {/* Global Navbar with uploaded logo */}
+        <Navbar onOpenRegister={() => handleOpenRegister()} />
 
-      {/* Main Content strictly following Pages 1 through 10 of the attached document */}
-      <main>
-        {/* Page 1 & Overview: Hero with Logo, Title, Dates, School, Accreditations */}
-        <Hero onOpenRegister={() => handleOpenRegister()} />
+        <main>
+          <Routes>
+            {/* Home: overview, dates, who can take part */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero onOpenRegister={() => handleOpenRegister()} />
+                  <WhatIsIgnite />
+                  <WhenAndWho />
+                  <ReadyToIgnite onOpenRegister={() => handleOpenRegister()} />
+                </>
+              }
+            />
 
-        {/* Page 2: What is IGNITE? (Definition, Hackathon & Makeathon) */}
-        <WhatIsIgnite />
+            {/* Challenges: structure, flow chart, challenge guides, theme */}
+            <Route
+              path="/challenges"
+              element={
+                <>
+                  <IgniteStructure
+                    activePathwayId={highlightedPathwayId}
+                    onSelectNode={handleFlowChartSelect}
+                  >
+                    {/* Junior & Senior Challenge guides */}
+                    <ChallengesDetailSection
+                      onRegisterPathway={() => handleOpenRegister()}
+                      activeFilter={activeFilter}
+                      setActiveFilter={setActiveFilter}
+                      highlightedPathwayId={highlightedPathwayId}
+                      setHighlightedPathwayId={setHighlightedPathwayId}
+                    />
+                  </IgniteStructure>
+                  <OverarchingTheme />
+                </>
+              }
+            />
 
-        {/* Page 3: When & Who? (Event Flow, Categories, Grade Levels, Themes) */}
-        <WhenAndWho />
+            {/* Journey: innovation process and participant checklist */}
+            <Route
+              path="/journey"
+              element={
+                <>
+                  <IdeaToImpact />
+                  <ParticipantChecklist />
+                </>
+              }
+            />
 
-        {/* Page 4: IGNITE Structure (4 Challenge Pathways) */}
-        <IgniteStructure
-          activePathwayId={highlightedPathwayId}
-          onSelectNode={handleFlowChartSelect}
-        >
-          {/* Junior & Senior Challenge guides */}
-          <ChallengesDetailSection
-            onRegisterPathway={() => handleOpenRegister()}
-            activeFilter={activeFilter}
-            setActiveFilter={setActiveFilter}
-            highlightedPathwayId={highlightedPathwayId}
-            setHighlightedPathwayId={setHighlightedPathwayId}
-          />
-        </IgniteStructure>
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
 
-        {/* Page 5: Overarching Theme (Engage, Challenge, Connect) */}
-        <OverarchingTheme />
+          {/* Previous / next page and all pages */}
+          <PageNav />
+        </main>
 
-        {/* Page 8: From Idea to Impact (6-Step Innovation Journey) */}
-        <IdeaToImpact />
+        {/* Footer with Logo, Tagline, Accreditations */}
+        <Footer onOpenRegister={() => handleOpenRegister()} />
 
-        {/* Photo gallery */}
-        <Gallery />
-
-        {/* Page 9: Participant Checklist (Before IGNITE & At IGNITE) */}
-        <ParticipantChecklist />
-
-        {/* FAQs */}
-        <FAQ />
-
-        {/* Page 10: Ready to ignite? (Final Call to Action) */}
-        <ReadyToIgnite onOpenRegister={() => handleOpenRegister()} />
-      </main>
-
-      {/* Footer with Logo, Tagline, Accreditations */}
-      <Footer onOpenRegister={() => handleOpenRegister()} />
-
-      {/* Team Registration (Google Form) */}
-      <RegisterModal
-        isOpen={isRegisterOpen}
-        onClose={() => setIsRegisterOpen(false)}
-      />
-    </div>
+        {/* Team Registration (Google Form) */}
+        <RegisterModal
+          isOpen={isRegisterOpen}
+          onClose={() => setIsRegisterOpen(false)}
+        />
+      </div>
+    </BrowserRouter>
   );
 }

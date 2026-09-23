@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link, NavLink } from 'react-router';
 import IgniteLogo from './IgniteLogo';
+import { PAGES } from '../pages';
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -19,17 +21,6 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { label: 'What is IGNITE?', href: '#what-is-ignite' },
-    { label: 'When & Who', href: '#when-and-who' },
-    { label: 'Structure', href: '#structure' },
-    { label: 'Theme', href: '#theme' },
-    { label: 'Challenges', href: '#challenges' },
-    { label: 'Idea to Impact', href: '#idea-to-impact' },
-    { label: 'Checklist', href: '#checklist' },
-    { label: 'FAQs', href: '#faq' },
-  ];
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -41,23 +32,26 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo with uploaded branding */}
-          <a
-            href="#"
+          <Link
+            to="/"
             className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] rounded-lg"
           >
             <IgniteLogo variant="horizontal" className="h-12" />
-          </a>
+          </Link>
 
-          {/* Navigation links based solely on document sections */}
+          {/* Page links */}
           <nav className="hidden lg:flex items-center gap-3 xl:gap-6 text-xs font-display font-bold uppercase tracking-wide xl:tracking-wider text-[#0b302e]">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-[#0b302e]/85 hover:text-[#f28c28] transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] rounded"
+            {PAGES.map((page) => (
+              <NavLink
+                key={page.path}
+                to={page.path}
+                end
+                className={({ isActive }) =>
+                  `${isActive ? 'text-[#f28c28]' : 'text-[#0b302e]/85'} hover:text-[#f28c28] transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] rounded`
+                }
               >
-                {item.label}
-              </a>
+                {page.label}
+              </NavLink>
             ))}
           </nav>
 
@@ -94,15 +88,18 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
             className="lg:hidden border-b-2 border-[#0b302e]/15 bg-[#faf8f3] px-4 pt-3 pb-6 shadow-xl"
           >
             <div className="flex flex-col gap-2.5">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
+              {PAGES.map((page) => (
+                <NavLink
+                  key={page.path}
+                  to={page.path}
+                  end
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-xs font-display font-bold uppercase tracking-wider text-[#0b302e] hover:text-[#f28c28] hover:bg-[#0b302e]/5 rounded-lg transition-colors"
+                  className={({ isActive }) =>
+                    `px-3 py-2 text-xs font-display font-bold uppercase tracking-wider ${isActive ? 'text-[#f28c28] bg-[#0b302e]/5' : 'text-[#0b302e]'} hover:text-[#f28c28] hover:bg-[#0b302e]/5 rounded-lg transition-colors`
+                  }
                 >
-                  {item.label}
-                </a>
+                  {page.label}
+                </NavLink>
               ))}
               <div className="pt-2 border-t border-[#0b302e]/10">
                 <button
