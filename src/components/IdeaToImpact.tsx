@@ -1,7 +1,50 @@
-import { useState } from 'react';
-import { Search, Lightbulb, PenTool, Wrench, CheckSquare, Presentation, Sparkles, ChevronRight } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Lightbulb, PenTool, Wrench, CheckSquare, Presentation, Sparkles, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
+import identifyVideo from '../assets/videos/identify.mp4';
+
+// Looping icon video: plays while on screen, pauses when scrolled away
+function IdentifyVideo() {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    // React doesn't set the `muted` attribute, which browsers require for autoplay
+    el.muted = true;
+    el.setAttribute('muted', '');
+    let visible = false;
+    const playIfVisible = () => {
+      if (visible) el.play().catch(() => {});
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) playIfVisible();
+      else el.pause();
+    });
+    observer.observe(el);
+    // Retry once the video has loaded, in case it came into view first
+    el.addEventListener('canplay', playIfVisible);
+    return () => {
+      observer.disconnect();
+      el.removeEventListener('canplay', playIfVisible);
+    };
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={identifyVideo}
+      loop
+      muted
+      playsInline
+      preload="auto"
+      aria-hidden="true"
+      className="w-full h-full object-cover"
+    />
+  );
+}
 
 export default function IdeaToImpact() {
   const { journey } = IGNITE_DATA;
@@ -10,7 +53,7 @@ export default function IdeaToImpact() {
   const getStepIcon = (num: string) => {
     switch (num) {
       case '01':
-        return <Search className="w-8 h-8 stroke-[2.5]" />;
+        return <IdentifyVideo />;
       case '02':
         return <Lightbulb className="w-8 h-8 stroke-[2.5]" />;
       case '03':
@@ -126,7 +169,7 @@ export default function IdeaToImpact() {
                   </div>
 
                   <div
-                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-4 mx-auto border-2 transition-transform duration-300 group-hover:scale-110 ${
+                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden flex items-center justify-center mb-4 mx-auto border-2 transition-transform duration-300 group-hover:scale-110 ${
                       isSelected
                         ? 'bg-white/10 text-[#f6a44e] border-white/20'
                         : isTeal
@@ -159,7 +202,7 @@ export default function IdeaToImpact() {
               className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e] flex flex-col sm:flex-row items-center justify-between gap-6"
             >
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#0b302e] text-[#f6a44e] flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-16 h-16 rounded-2xl overflow-hidden bg-[#0b302e] text-[#f6a44e] flex items-center justify-center shrink-0 shadow-md">
                   {getStepIcon(current.num)}
                 </div>
                 <div>
