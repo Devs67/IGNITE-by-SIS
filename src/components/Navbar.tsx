@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router';
 import IgniteLogo from './IgniteLogo';
 import { PAGES } from '../pages';
 
@@ -12,6 +12,42 @@ interface NavbarProps {
 export default function Navbar({ onOpenRegister }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Sliding active pill: it moves as soon as a link is clicked, and the page
+  // changes a frame later, so the slide isn't held up by the new page rendering.
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const [activePath, setActivePath] = useState(pathname);
+  const [pill, setPill] = useState<{ x: number; width: number } | null>(null);
+  const [pillReady, setPillReady] = useState(false);
+  const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+
+  useEffect(() => setActivePath(pathname), [pathname]);
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const el = linkRefs.current[activePath];
+      setPill(el ? { x: el.offsetLeft, width: el.offsetWidth } : null);
+    };
+    measure();
+    // Re-measure when link sizes change (web fonts finishing loading, window resizes)
+    const observer = new ResizeObserver(measure);
+    Object.values(linkRefs.current).forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, [activePath]);
+
+  // Enable the slide transition only after the first placement (no slide-in on load)
+  useEffect(() => {
+    if (pill && !pillReady) requestAnimationFrame(() => setPillReady(true));
+  }, [pill, pillReady]);
+
+  const goTo = (e: React.MouseEvent, path: string) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // allow open-in-new-tab
+    e.preventDefault();
+    if (path === pathname) return;
+    setActivePath(path);
+    requestAnimationFrame(() => requestAnimationFrame(() => navigate(path)));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,19 +76,36 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
           </Link>
 
           {/* Page links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-xs font-display font-bold uppercase tracking-wide xl:tracking-wider text-[#0b302e]">
-            {PAGES.map((page) => (
-              <NavLink
-                key={page.path}
-                to={page.path}
-                end
-                className={({ isActive }) =>
-                  `px-4 py-2 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] ${isActive ? 'bg-[#0b302e] text-[#f4f0e8] shadow-[2px_2px_0px_#f28c28]' : 'text-[#0b302e] hover:bg-[#0b302e]/10'}`
-                }
-              >
-                {page.label}
-              </NavLink>
-            ))}
+          <nav className="relative hidden lg:flex items-center gap-1 xl:gap-2 text-xs font-display font-bold uppercase tracking-wide xl:tracking-wider text-[#0b302e]">
+            {/* One pill that slides under the active link (transform runs on the compositor) */}
+            {pill && (
+              <span
+                aria-hidden="true"
+                className={`absolute top-0 left-0 h-full rounded-full bg-[#0b302e] shadow-[2px_2px_0px_#f28c28] ${
+                  pillReady ? 'transition-[transform,width] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]' : ''
+                }`}
+                style={{ transform: `translateX(${pill.x}px)`, width: pill.width }}
+              />
+            )}
+            {PAGES.map((page) => {
+              const isActive = page.path === activePath;
+              return (
+                <NavLink
+                  key={page.path}
+                  ref={(el) => {
+                    linkRefs.current[page.path] = el;
+                  }}
+                  to={page.path}
+                  end
+                  onClick={(e) => goTo(e, page.path)}
+                  className={`relative px-4 py-2 rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] ${
+                    isActive ? 'text-[#f4f0e8]' : 'text-[#0b302e] hover:bg-[#0b302e]/10'
+                  }`}
+                >
+                  {page.label}
+                </NavLink>
+              );
+            })}
           </nav>
 
           {/* Primary Action Button */}
