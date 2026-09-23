@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Original full-resolution photos (web copies live in src/assets/images/gallery)
+Images/*.JPG

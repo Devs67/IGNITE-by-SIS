@@ -7,6 +7,7 @@ import IgniteStructure from './components/IgniteStructure';
 import OverarchingTheme from './components/OverarchingTheme';
 import ChallengesDetailSection, { type PathwayFilter } from './components/ChallengesDetailSection';
 import IdeaToImpact from './components/IdeaToImpact';
+import Gallery from './components/Gallery';
 import ParticipantChecklist from './components/ParticipantChecklist';
 import FAQ from './components/FAQ';
 import ReadyToIgnite from './components/ReadyToIgnite';
@@ -15,14 +16,8 @@ import RegisterModal from './components/RegisterModal';
 
 export default function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [selectedPathwayId, setSelectedPathwayId] = useState('junior-hackathon');
 
-  const handleOpenRegister = (pathwayId?: string) => {
-    if (pathwayId) {
-      setSelectedPathwayId(pathwayId);
-    }
-    setIsRegisterOpen(true);
-  };
+  const handleOpenRegister = () => setIsRegisterOpen(true);
 
   // Flow chart (in IGNITE Structure) drives the filters in the Challenges section
   const [activeFilter, setActiveFilter] = useState<PathwayFilter>('all');
@@ -63,7 +58,7 @@ export default function App() {
         >
           {/* Junior & Senior Challenge guides */}
           <ChallengesDetailSection
-            onRegisterPathway={(id) => handleOpenRegister(id)}
+            onRegisterPathway={() => handleOpenRegister()}
             activeFilter={activeFilter}
             setActiveFilter={setActiveFilter}
             highlightedPathwayId={highlightedPathwayId}
@@ -76,6 +71,9 @@ export default function App() {
 
         {/* Page 8: From Idea to Impact (6-Step Innovation Journey) */}
         <IdeaToImpact />
+
+        {/* Photo gallery */}
+        <Gallery />
 
         {/* Page 9: Participant Checklist (Before IGNITE & At IGNITE) */}
         <ParticipantChecklist />
@@ -90,11 +88,10 @@ export default function App() {
       {/* Footer with Logo, Tagline, Accreditations */}
       <Footer onOpenRegister={() => handleOpenRegister()} />
 
-      {/* Team Registration & Official Pass Generation */}
+      {/* Team Registration (Google Form) */}
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}
-        defaultPathwayId={selectedPathwayId}
       />
     </div>
   );

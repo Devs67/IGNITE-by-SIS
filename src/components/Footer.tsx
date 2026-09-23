@@ -81,6 +81,11 @@ export default function Footer({ onOpenRegister }: FooterProps) {
                 </a>
               </li>
               <li>
+                <a href="#gallery" className="hover:text-[#f6a44e] transition-colors">
+                  IGNITE in Action
+                </a>
+              </li>
+              <li>
                 <a href="#checklist" className="hover:text-[#f6a44e] transition-colors">
                   Participant Checklist
                 </a>

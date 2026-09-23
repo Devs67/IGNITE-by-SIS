@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Flame, Code2, Wrench, Gamepad2, Smartphone, Cog, Box, Sparkles, ChevronDown } from 'lucide-react';
 
@@ -7,9 +7,33 @@ interface IgniteFlowChartProps {
   onSelectNode: (filter: 'all' | 'junior' | 'senior' | 'hackathon' | 'makeathon', pathwayId?: string) => void;
 }
 
+const TREE_WIDTH = 896;
+
 export default function IgniteFlowChart({ activePathwayId, onSelectNode }: IgniteFlowChartProps) {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+  const [treeHeight, setTreeHeight] = useState<number | undefined>(undefined);
+
+  // Scale the tree down on narrow screens so the whole chart stays visible
+  useLayoutEffect(() => {
+    const outer = outerRef.current;
+    const inner = innerRef.current;
+    if (!outer || !inner) return;
+    const update = () => {
+      const s = Math.min(1, outer.clientWidth / TREE_WIDTH);
+      setScale(s);
+      setTreeHeight(inner.offsetHeight * s);
+    };
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(outer);
+    observer.observe(inner);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="w-full max-w-5xl mx-auto my-10 p-6 sm:p-10 rounded-3xl bg-[#faf8f3] border-3 border-[#0b302e] shadow-[8px_8px_0px_#0b302e] relative overflow-hidden">
+    <div className="w-full max-w-5xl mx-auto my-10 p-4 sm:p-10 rounded-3xl bg-[#faf8f3] border-3 border-[#0b302e] shadow-[8px_8px_0px_#0b302e] relative overflow-hidden">
       {/* Decorative background grid and glow */}
       <div 
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -32,7 +56,13 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
       </div>
 
       {/* THE TREE STRUCTURE */}
-      <div className="relative z-10 flex flex-col items-center">
+      {/* Laid out at desktop width, then scaled down to fit smaller screens */}
+      <div ref={outerRef} className="relative z-10 flex justify-center items-start" style={{ height: treeHeight }}>
+      <div
+        ref={innerRef}
+        className="flex flex-col items-center shrink-0 origin-top"
+        style={{ width: TREE_WIDTH, transform: `scale(${scale})` }}
+      >
         
         {/* ================= LEVEL 1: ROOT NODE (IGNITE) ================= */}
         <motion.div
@@ -52,11 +82,11 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
                 </span>
                 <span className="h-1 w-4 bg-[#f28c28] rounded-full" />
               </div>
-              <h3 className="font-display text-xl sm:text-2xl font-black tracking-tight text-white leading-none">
+              <h3 className="font-display text-2xl font-black tracking-tight text-white leading-none">
                 IGNITE
               </h3>
             </div>
-            <span className="hidden sm:inline-block ml-3 px-2 py-0.5 rounded-md bg-white/15 text-[10px] font-mono font-bold text-white/90">
+            <span className="inline-block ml-3 px-2 py-0.5 rounded-md bg-white/15 text-[10px] font-mono font-bold text-white/90">
               2026-27
             </span>
           </div>
@@ -64,7 +94,7 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
 
         {/* Stem 1: Connecting Root to Level 2 (Desktop SVG Tree / Mobile Lines) */}
         <div className="w-full flex justify-center py-2 relative">
-          <svg className="w-full max-w-2xl h-12 hidden md:block" viewBox="0 0 600 48" fill="none">
+          <svg className="w-full max-w-2xl h-12 block" viewBox="0 0 600 48" fill="none">
             {/* Center vertical stem down */}
             <path d="M 300 0 L 300 24" stroke="#0b302e" strokeWidth="3" strokeLinecap="round" />
             {/* Horizontal split bar */}
@@ -76,11 +106,11 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
             {/* Center marker dot */}
             <circle cx="300" cy="24" r="4" fill="#f28c28" />
           </svg>
-          <div className="w-0.5 h-6 bg-[#0b302e] md:hidden" />
+          <div className="hidden" />
         </div>
 
         {/* ================= LEVEL 2: 2 SECTIONS (JUNIOR & SENIOR) ================= */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl">
+        <div className="w-full grid grid-cols-2 gap-12 max-w-4xl">
           
           {/* ----- LEFT BRANCH: JUNIOR ----- */}
           <div className="flex flex-col items-center">
@@ -89,11 +119,11 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => onSelectNode('junior')}
-              className="cursor-pointer group w-full sm:w-auto"
+              className="cursor-pointer group w-auto"
             >
               <div className="px-6 py-3 rounded-2xl bg-[#0b302e] text-white border-2 border-[#0b302e] shadow-[4px_4px_0px_#0b302e] group-hover:shadow-[6px_6px_0px_#0b302e] transition-all flex items-center justify-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#8fb9aa] animate-ping" />
-                <div className="text-center sm:text-left">
+                <div className="text-left">
                   <div className="font-display text-lg font-black tracking-tight leading-tight">
                     JUNIOR
                   </div>
@@ -106,18 +136,18 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
 
             {/* Connecting lines from Junior to its 2 themes */}
             <div className="w-full flex justify-center py-2 relative">
-              <svg className="w-full max-w-[280px] h-10 hidden sm:block" viewBox="0 0 280 40" fill="none">
+              <svg className="w-full max-w-[280px] h-10 block" viewBox="0 0 280 40" fill="none">
                 <path d="M 140 0 L 140 20" stroke="#0b302e" strokeWidth="2.5" strokeLinecap="round" />
                 <path d="M 70 20 L 210 20" stroke="#0b302e" strokeWidth="2.5" strokeLinecap="round" />
                 <path d="M 70 20 L 70 40" stroke="#0b302e" strokeWidth="2.5" strokeLinecap="round" />
                 <path d="M 210 20 L 210 40" stroke="#0b302e" strokeWidth="2.5" strokeLinecap="round" />
                 <circle cx="140" cy="20" r="3.5" fill="#0b302e" />
               </svg>
-              <div className="w-0.5 h-4 bg-[#0b302e] sm:hidden" />
+              <div className="hidden" />
             </div>
 
             {/* LEVEL 3: In Junior, 2 Themes (Hackathon & Makeathon) */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="w-full grid grid-cols-2 gap-3.5">
               
               {/* Junior Theme 1: Hackathon */}
               <motion.div
@@ -191,11 +221,11 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => onSelectNode('senior')}
-              className="cursor-pointer group w-full sm:w-auto"
+              className="cursor-pointer group w-auto"
             >
               <div className="px-6 py-3 rounded-2xl bg-[#e26f1e] text-[#172220] border-2 border-[#0b302e] shadow-[4px_4px_0px_#0b302e] group-hover:shadow-[6px_6px_0px_#0b302e] transition-all flex items-center justify-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#172220] animate-ping" />
-                <div className="text-center sm:text-left">
+                <div className="text-left">
                   <div className="font-display text-lg font-black tracking-tight leading-tight">
                     SENIOR
                   </div>
@@ -208,18 +238,18 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
 
             {/* Connecting lines from Senior to its 2 themes */}
             <div className="w-full flex justify-center py-2 relative">
-              <svg className="w-full max-w-[280px] h-10 hidden sm:block" viewBox="0 0 280 40" fill="none">
+              <svg className="w-full max-w-[280px] h-10 block" viewBox="0 0 280 40" fill="none">
                 <path d="M 140 0 L 140 20" stroke="#0b302e" strokeWidth="2.5" strokeLinecap="round" />
                 <path d="M 70 20 L 210 20" stroke="#0b302e" strokeWidth="2.5" strokeLinecap="round" />
                 <path d="M 70 20 L 70 40" stroke="#0b302e" strokeWidth="2.5" strokeLinecap="round" />
                 <path d="M 210 20 L 210 40" stroke="#0b302e" strokeWidth="2.5" strokeLinecap="round" />
                 <circle cx="140" cy="20" r="3.5" fill="#e26f1e" />
               </svg>
-              <div className="w-0.5 h-4 bg-[#0b302e] sm:hidden" />
+              <div className="hidden" />
             </div>
 
             {/* LEVEL 3: In Senior, 2 Themes (Hackathon & Makeathon) */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="w-full grid grid-cols-2 gap-3.5">
               
               {/* Senior Theme 1: Hackathon */}
               <motion.div
@@ -288,6 +318,7 @@ export default function IgniteFlowChart({ activePathwayId, onSelectNode }: Ignit
 
         </div>
 
+      </div>
       </div>
     </div>
   );
