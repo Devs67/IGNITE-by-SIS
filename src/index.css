@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Manrope", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  
+  --color-cream: #f4f0e8;
+  --color-paper: #faf8f3;
+  --color-teal: #0b302e;
+  --color-teal-light: #164e4b;
+  --color-orange: #f28c28;
+  --color-orange-light: #f6a44e;
+  --color-sage: #8fb9aa;
+  --color-sage-light: #b3d5c9;
+  --color-ink: #172220;
+  --color-line: rgba(11, 48, 46, 0.16);
+}
+
+:root {
+  --cream: #f4f0e8;
+  --paper: #faf8f3;
+  --teal: #0b302e;
+  --orange: #f28c28;
+  --orange-light: #f6a44e;
+  --sage: #8fb9aa;
+  --ink: #172220;
+  --line: rgba(11, 48, 46, 0.16);
+  --display: "Space Grotesk", sans-serif;
+  --body: "Manrope", sans-serif;
+  --mono: "DM Mono", monospace;
+}
+
+@layer base {
+  * {
+    border-color: rgba(11, 48, 46, 0.15);
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    background-color: #f4f0e8;
+    color: #172220;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+  }
+
+  .font-mono, [data-mono] {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Authentic IGNITE tactile button with physics hover */
+.ignite-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 22px;
+  background-color: #f28c28;
+  color: #172220;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0 16px 16px 16px;
+  border: 1.5px solid #0b302e;
+  box-shadow: 4px 4px 0 #0b302e;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.ignite-btn-primary:hover {
+  background-color: #f6a44e;
+  transform: translate3d(-2px, -3px, 0);
+  box-shadow: 7px 8px 0 #0b302e;
+}
+
+.ignite-btn-primary:active {
+  transform: translate3d(2px, 2px, 0);
+  box-shadow: 2px 2px 0 #0b302e;
+}
+
+.ignite-btn-teal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 22px;
+  background-color: #0b302e;
+  color: #f4f0e8;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0 16px 16px 16px;
+  border: 1.5px solid #0b302e;
+  box-shadow: 4px 4px 0 #f28c28;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.ignite-btn-teal:hover {
+  background-color: #144643;
+  color: #faf8f3;
+  transform: translate3d(-2px, -3px, 0);
+  box-shadow: 7px 8px 0 #f28c28;
+}
+
+.ignite-btn-teal:active {
+  transform: translate3d(2px, 2px, 0);
+  box-shadow: 2px 2px 0 #f28c28;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f0e8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(11, 48, 46, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f28c28;
+}

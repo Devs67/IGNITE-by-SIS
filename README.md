@@ -1,5 +1,20 @@
-# Sreenidhi IGNITE static website
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-This is a static, Hostinger-ready site. Upload the full folder contents to the domain's `public_html` directory.
+# Run and deploy your AI Studio app
 
-Before publishing, replace every square-bracketed placeholder, update the `#` links in Rubrics and Resources, and connect `register/index.html` to the official registration service or a server-side handler. The form deliberately does not collect or transmit submissions until that destination is specified.
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/64df3c4a-b9b0-4b20-b893-e704269d2516
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

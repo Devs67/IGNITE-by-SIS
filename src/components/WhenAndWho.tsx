@@ -1,0 +1,172 @@
+import { Calendar, ArrowRight, Sparkles, Code2, Wrench } from 'lucide-react';
+import { motion } from 'motion/react';
+import { IGNITE_DATA } from '../data/igniteData';
+
+export default function WhenAndWho() {
+  const { event, eventFlow } = IGNITE_DATA;
+
+  return (
+    <section id="when-and-who" className="py-24 sm:py-32 relative bg-[#f4f0e8] border-t-2 border-[#0b302e]/10 text-[#172220]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Title */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <motion.span 
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f28c28]/15 border border-[#f28c28]/30 font-mono text-xs uppercase tracking-widest text-[#c2410c] font-bold mb-3"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Page 03 · Timeline &amp; Participation</span>
+          </motion.span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-black text-[#0b302e] tracking-tight">
+            When &amp; Who?
+          </h2>
+
+          <motion.div 
+            whileHover={{ scale: 1.03 }}
+            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-[#0b302e] text-[#f4f0e8] font-mono text-sm sm:text-base font-bold mt-6 shadow-[5px_5px_0px_#f28c28]"
+          >
+            <Calendar className="w-5 h-5 text-[#f6a44e]" />
+            <span>{event.dates}</span>
+          </motion.div>
+        </div>
+
+        {/* Animated 5-step Event Flow from Page 3 */}
+        <div className="max-w-5xl mx-auto mb-16">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e]">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#c2410c] font-black block mb-6 text-center">
+              OFFICIAL EVENT FLOW (DOCUMENT PAGE 03)
+            </span>
+
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 items-center">
+              {eventFlow.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{ y: -4 }}
+                  className="relative group"
+                >
+                  <div className="p-4 rounded-2xl bg-[#f4f0e8] border-2 border-[#0b302e]/25 group-hover:border-[#0b302e] group-hover:bg-white text-center transition-all shadow-xs">
+                    <span className="font-mono text-[10px] sm:text-xs text-[#0b302e]/60 font-bold block">
+                      {step.step}
+                    </span>
+                    <span className="font-display text-xs sm:text-sm font-black text-[#0b302e] block mt-1">
+                      {step.title}
+                    </span>
+                  </div>
+
+                  {idx < eventFlow.length - 1 && (
+                    <div className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 z-10 text-[#f28c28] font-black text-base animate-pulse">
+                      →
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* The Exact Comparison Matrix matching Page 3 Table */}
+        <div className="max-w-5xl mx-auto space-y-6">
+          {/* Hackathon Row */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -4, scale: 1.01 }}
+            className="rounded-3xl p-6 sm:p-8 bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e] hover:shadow-[10px_10px_0px_#0b302e] transition-all grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-center"
+          >
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
+                EVENT TYPE
+              </span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0b302e] text-[#f4f0e8] font-display text-sm font-black shadow-xs">
+                <Code2 className="w-4 h-4 text-[#f6a44e]" />
+                <span>Hackathon</span>
+              </div>
+            </div>
+
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
+                CATEGORY
+              </span>
+              <p className="font-display text-lg font-black text-[#0b302e]">
+                Junior
+              </p>
+            </div>
+
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
+                GRADE LEVEL
+              </span>
+              <p className="font-mono text-base font-extrabold text-[#0b302e] bg-[#f4f0e8] px-3 py-1 rounded-md inline-block border border-[#0b302e]/20">
+                MYP 1–3
+              </p>
+            </div>
+
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#c2410c] font-black block mb-1">
+                THEME
+              </span>
+              <p className="font-display text-xs sm:text-sm font-extrabold text-[#0b302e]">
+                Code. Collaborate. Create impact.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Makeathon Row */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -4, scale: 1.01 }}
+            className="rounded-3xl p-6 sm:p-8 bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e] hover:shadow-[10px_10px_0px_#0b302e] transition-all grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-center"
+          >
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
+                EVENT TYPE
+              </span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f28c28] text-[#172220] font-display text-sm font-black shadow-xs">
+                <Wrench className="w-4 h-4 text-[#0b302e]" />
+                <span>Makeathon</span>
+              </div>
+            </div>
+
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
+                CATEGORY
+              </span>
+              <p className="font-display text-lg font-black text-[#0b302e]">
+                Senior
+              </p>
+            </div>
+
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
+                GRADE LEVEL
+              </span>
+              <p className="font-mono text-base font-extrabold text-[#0b302e] bg-[#f4f0e8] px-3 py-1 rounded-md inline-block border border-[#0b302e]/20">
+                MYP 4–DP 2
+              </p>
+            </div>
+
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#c2410c] font-black block mb-1">
+                THEME
+              </span>
+              <p className="font-display text-xs sm:text-sm font-extrabold text-[#0b302e]">
+                Design. Build. Bring ideas to life.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
