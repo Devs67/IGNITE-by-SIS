@@ -27,6 +27,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
     { label: 'Challenges', href: '#challenges' },
     { label: 'Idea to Impact', href: '#idea-to-impact' },
     { label: 'Checklist', href: '#checklist' },
+    { label: 'FAQs', href: '#faq' },
   ];
 
   return (
@@ -48,7 +49,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
           </a>
 
           {/* Navigation links based solely on document sections */}
-          <nav className="hidden lg:flex items-center gap-6 text-xs font-display font-bold uppercase tracking-wider text-[#0b302e]">
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-6 text-xs font-display font-bold uppercase tracking-wide xl:tracking-wider text-[#0b302e]">
             {navItems.map((item) => (
               <a
                 key={item.label}

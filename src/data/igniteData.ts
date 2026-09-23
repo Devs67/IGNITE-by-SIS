@@ -23,8 +23,57 @@ export const IGNITE_DATA = {
     tagline: 'Kindle the innovation within',
     definition: 'A platform where students transform ideas into interactive systems, creative solutions, and meaningful experiences.',
     about: "Organised by the Design Department, IGNITE 2026–27 is a two-day innovation marathon held on 15–16 October 2026 in the New Design Block at the SIS campus. It brings together students from different schools to think creatively, work as a team, and turn ideas into practical solutions for real-world problems. This year's challenges span Game Development, App Development, Rube Goldberg Machines, and CAD Design, all built around one theme: designing interactive systems that engage, challenge, and connect people.",
-    finalCall: 'Turn your ideas into something that engages, challenges, and connects. Step into IGNITE and kindle the innovation within.'
+    finalCall: 'Turn your ideas into something that engages, challenges, and connects. Step into IGNITE and kindle the innovation within.',
+    vision: 'To make IGNITE a place where every student sees themselves as an innovator: confident enough to take an idea from a first sketch to a working game, app, machine, or product design.',
+    mission: 'To inspire and empower young innovators through hands-on challenges in coding and making, building creativity, critical thinking, and teamwork as they design solutions that engage, challenge, and connect people.'
   },
+
+  faqs: [
+    {
+      question: 'Who can participate?',
+      answer: 'IGNITE is open to students from MYP 1 to DP 2. Participants compete in two divisions: Junior (MYP 1–3) and Senior (MYP 4–DP 2). Each division has both a Hackathon and a Makeathon challenge.'
+    },
+    {
+      question: 'Do I need programming experience to participate?',
+      answer: 'It depends on your challenge. The Junior Hackathon uses Scratch or code.org, so beginners are welcome. The Senior Hackathon (App Development) expects basic programming knowledge. The Makeathons need no coding: juniors build a Rube Goldberg machine by hand, and seniors should be comfortable with the basics of Fusion 360 or SketchUp.'
+    },
+    {
+      question: 'What kind of projects can I create?',
+      answer: 'Juniors build a game that is fun, teaches a skill, or shifts how players see an issue, or a Rube Goldberg machine that completes a simple task through a chain reaction. Seniors build an app that solves a personal, community, or process problem, or use CAD to improve or redesign an everyday object.'
+    },
+    {
+      question: 'Are there mentors available?',
+      answer: 'Yes. Faculty from the Design Department will be on hand throughout the event to guide teams, answer questions, and help you keep moving when you get stuck.'
+    },
+    {
+      question: 'What materials do I need to bring?',
+      answer: 'Hackathon and CAD teams should bring laptops and chargers, with the required software installed. Junior Makeathon teams should bring recycled or everyday household materials for their machine, as bought parts are not allowed.'
+    },
+    {
+      question: 'Is transportation provided?',
+      answer: 'Transportation is not provided. Participating schools and students are responsible for their own travel to and from the SIS campus.'
+    },
+    {
+      question: 'Are the food stalls free?',
+      answer: 'Meals for registered participants are included. Food stalls on campus are open to everyone and are paid.'
+    },
+    {
+      question: 'What does the registration fee include?',
+      answer: 'The registration fee covers participation in both days of the event, meals and refreshments for participants, event materials, and a certificate of participation.'
+    },
+    {
+      question: 'Is there an emergency evacuation plan?',
+      answer: 'Yes. The SIS campus follows a documented emergency evacuation plan. Exits are clearly marked, and staff and volunteers will guide everyone to safety if needed.'
+    },
+    {
+      question: 'Can I continue working on my project at home?',
+      answer: 'You are encouraged to research, plan, and prepare ideas before IGNITE, but all building, coding, and prototyping must happen at the event. This keeps the competition fair for every team.'
+    },
+    {
+      question: 'Is there a specific dress code?',
+      answer: 'Participants should wear their school uniform. Makeathon teams should wear closed-toe shoes for safety.'
+    }
+  ],
 
   accreditations: [
     { label: 'IB Continuum', sub: 'Continuum de l\'IB' },

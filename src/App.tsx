@@ -8,6 +8,7 @@ import OverarchingTheme from './components/OverarchingTheme';
 import ChallengesDetailSection, { type PathwayFilter } from './components/ChallengesDetailSection';
 import IdeaToImpact from './components/IdeaToImpact';
 import ParticipantChecklist from './components/ParticipantChecklist';
+import FAQ from './components/FAQ';
 import ReadyToIgnite from './components/ReadyToIgnite';
 import Footer from './components/Footer';
 import RegisterModal from './components/RegisterModal';
@@ -79,6 +80,9 @@ export default function App() {
 
         {/* Page 9: Participant Checklist (Before IGNITE & At IGNITE) */}
         <ParticipantChecklist />
+
+        {/* FAQs */}
+        <FAQ />
 
         {/* Page 10: Ready to ignite? (Final Call to Action) */}
         <ReadyToIgnite onOpenRegister={() => handleOpenRegister()} />

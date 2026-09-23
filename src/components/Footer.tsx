@@ -85,6 +85,11 @@ export default function Footer({ onOpenRegister }: FooterProps) {
                   Participant Checklist
                 </a>
               </li>
+              <li>
+                <a href="#faq" className="hover:text-[#f6a44e] transition-colors">
+                  FAQs
+                </a>
+              </li>
             </ul>
           </div>
 

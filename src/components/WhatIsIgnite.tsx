@@ -1,4 +1,4 @@
-import { Cpu, Lightbulb, Sparkles, ArrowRight } from 'lucide-react';
+import { Cpu, Lightbulb, Sparkles, ArrowRight, Eye, Target } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -28,7 +28,16 @@ export default function WhatIsIgnite() {
             {event.definition}
           </p>
           <p className="text-sm sm:text-base text-[#0b302e]/75 mt-6 font-medium leading-relaxed max-w-3xl mx-auto">
-            {event.about}
+            {event.about.split('Design Department').map((part, i) => (
+              <span key={i}>
+                {i > 0 && (
+                  <span className="font-extrabold text-[#c2410c] bg-[#f28c28]/15 px-1.5 py-0.5 rounded-md">
+                    Design Department
+                  </span>
+                )}
+                {part}
+              </span>
+            ))}
           </p>
         </div>
 
@@ -110,6 +119,35 @@ export default function WhatIsIgnite() {
               </span>
             </div>
           </motion.div>
+        </div>
+
+        {/* Vision & Mission */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-12">
+          {[
+            { label: 'Vision', icon: <Eye className="w-6 h-6 stroke-[2.5]" />, text: event.vision },
+            { label: 'Mission', icon: <Target className="w-6 h-6 stroke-[2.5]" />, text: event.mission },
+          ].map((item, idx) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              className="rounded-3xl p-8 sm:p-10 bg-[#f4f0e8] border-3 border-[#0b302e] shadow-[7px_7px_0px_#f28c28]"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#f28c28]/15 text-[#c2410c] border-2 border-[#f28c28]/40 flex items-center justify-center">
+                  {item.icon}
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-display font-black text-[#0b302e] uppercase tracking-tight">
+                  {item.label}
+                </h3>
+              </div>
+              <p className="text-sm sm:text-base text-[#0b302e]/85 font-medium leading-relaxed">
+                {item.text}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
       </div>
