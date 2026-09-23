@@ -1,8 +1,7 @@
-import { Calendar, MapPin, ArrowRight, Sparkles, Flame, Code2, Wrench } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Sparkles, Flame } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import IgniteLogo from './IgniteLogo';
-import AccreditationPills from './AccreditationPills';
 import CountdownTimer from './CountdownTimer';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -13,7 +12,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenRegister }: HeroProps) {
-  const { event } = IGNITE_DATA;
+  const { event, accreditations } = IGNITE_DATA;
 
   return (
     <section className="relative pt-24 pb-20 sm:pt-32 sm:pb-28 overflow-hidden bg-radial-[at_50%_0%] from-[#0f3d3a] via-[#0b302e] to-[#082423] text-[#f4f0e8]">
@@ -46,37 +45,8 @@ export default function Hero({ onOpenRegister }: HeroProps) {
         className="absolute top-1/3 -right-24 w-[450px] h-[450px] rounded-full bg-[#10b981] blur-[140px] pointer-events-none -z-0"
       />
 
-      {/* Floating Innovation Icons with Motion */}
-      <motion.div
-        animate={{ y: [0, -12, 0], rotate: [0, 6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="hidden lg:flex absolute top-36 left-[8%] items-center gap-2 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl text-xs font-mono font-bold text-[#f6a44e]"
-      >
-        <Code2 className="w-4 h-4 text-[#f28c28]" />
-        <span>Hackathon · Code Impact</span>
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 14, 0], rotate: [0, -6, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="hidden lg:flex absolute top-48 right-[8%] items-center gap-2 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl text-xs font-mono font-bold text-[#8fb9aa]"
-      >
-        <Wrench className="w-4 h-4 text-[#8fb9aa]" />
-        <span>Makeathon · Build Physical</span>
-      </motion.div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Animated Moving Colorful Accreditation Pills (IB, NEASC, CIS, Google) */}
-        <div className="mb-10 sm:mb-12">
-          <div className="text-center mb-2">
-            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#8fb9aa] font-bold">
-              Global Accreditations & Honors
-            </span>
-          </div>
-          <AccreditationPills />
-        </div>
-
         {/* Master Showcase: Official IGNITE Logo Spotlight */}
         <div className="text-center max-w-4xl mx-auto">
           <motion.div
@@ -181,6 +151,17 @@ export default function Hero({ onOpenRegister }: HeroProps) {
               <ArrowRight className="w-4 h-4 stroke-[2.5]" />
             </MotionLink>
           </motion.div>
+
+          {/* Accreditations: one quiet static line */}
+          <div className="mt-14 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-[11px] sm:text-xs uppercase tracking-widest">
+            <span className="text-[#8fb9aa]/70 font-bold">Accredited by</span>
+            {accreditations.map((acc) => (
+              <span key={acc.label} className="flex items-center gap-3 text-[#f4f0e8]/80 font-bold">
+                <span className="text-[#f28c28]">·</span>
+                {acc.label.replace(' Accredited', '')}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
