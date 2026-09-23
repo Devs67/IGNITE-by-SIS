@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Lightbulb, Wrench, CheckSquare, Presentation, Sparkles, ChevronRight } from 'lucide-react';
+import { Lightbulb, Wrench, CheckSquare, Presentation, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 import identifyWebm from '../assets/videos/identify.webm';
@@ -121,15 +121,6 @@ export default function IdeaToImpact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span 
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f28c28]/15 border border-[#f28c28]/30 font-mono text-xs uppercase tracking-widest text-[#c2410c] font-bold mb-3"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>The Innovation Process</span>
-          </motion.span>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-black text-[#0b302e] tracking-tight">
             From Idea to Impact
           </h2>

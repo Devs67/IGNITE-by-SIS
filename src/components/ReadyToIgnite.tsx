@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Calendar, MapPin, Flame } from 'lucide-react';
+import { ArrowRight, Calendar, MapPin, Flame } from 'lucide-react';
 import { motion } from 'motion/react';
 import IgniteLogo from './IgniteLogo';
 import { IGNITE_DATA } from '../data/igniteData';
@@ -24,10 +24,6 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#f28c28]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-[#f6a44e] font-bold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Final Call to Action</span>
-            </div>
 
             <div className="flex justify-center mb-2">
               <motion.div

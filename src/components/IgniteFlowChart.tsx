@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { Code2, Wrench, Smartphone, Box, Sparkles, X } from 'lucide-react';
+import { Code2, Wrench, Smartphone, Box, X } from 'lucide-react';
 import IgniteLogo from './IgniteLogo';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -197,10 +197,6 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
 
       {/* Flow Chart Header Badge */}
       <div className="text-center mb-8 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0b302e]/10 border border-[#0b302e]/20 text-[11px] font-mono font-bold text-[#0b302e] uppercase tracking-wider mb-2">
-          <Sparkles className="w-3.5 h-3.5 text-[#f28c28]" />
-          <span>Interactive Innovation Flow Chart</span>
-        </div>
         <p className="text-xs text-[#0b302e]/70 font-mono">
           Click a challenge to open its guide right here
         </p>
