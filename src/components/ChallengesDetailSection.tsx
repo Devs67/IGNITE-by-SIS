@@ -1,17 +1,26 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { Quote, Sparkles, ArrowRight, Code2, Wrench, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
-import IgniteFlowChart from './IgniteFlowChart';
+
+export type PathwayFilter = 'all' | 'junior' | 'senior' | 'hackathon' | 'makeathon';
 
 interface ChallengesDetailProps {
   onRegisterPathway?: (pathwayId: string) => void;
+  activeFilter: PathwayFilter;
+  setActiveFilter: (filter: PathwayFilter) => void;
+  highlightedPathwayId: string | null;
+  setHighlightedPathwayId: (pathwayId: string | null) => void;
 }
 
-export default function ChallengesDetailSection({ onRegisterPathway }: ChallengesDetailProps) {
+export default function ChallengesDetailSection({
+  onRegisterPathway,
+  activeFilter,
+  setActiveFilter,
+  highlightedPathwayId,
+  setHighlightedPathwayId,
+}: ChallengesDetailProps) {
   const { pathways } = IGNITE_DATA;
-  const [activeFilter, setActiveFilter] = useState<'all' | 'junior' | 'senior' | 'hackathon' | 'makeathon'>('all');
-  const [highlightedPathwayId, setHighlightedPathwayId] = useState<string | null>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
   const filteredPathways = pathways.filter((p) => {
@@ -30,31 +39,12 @@ export default function ChallengesDetailSection({ onRegisterPathway }: Challenge
     return true;
   });
 
-  const handleFlowChartSelect = (
-    filter: 'all' | 'junior' | 'senior' | 'hackathon' | 'makeathon',
-    pathwayId?: string
-  ) => {
-    setActiveFilter(filter);
-    if (pathwayId) {
-      setHighlightedPathwayId(pathwayId);
-      // Smooth scroll to the specific card
-      setTimeout(() => {
-        const el = document.getElementById(`pathway-card-${pathwayId}`);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }, 100);
-    } else {
-      setHighlightedPathwayId(null);
-    }
-  };
-
   return (
     <section id="challenges" className="py-24 sm:py-32 relative bg-[#faf8f3] border-t-2 border-[#0b302e]/10 text-[#172220]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Title */}
-        <div className="text-center max-w-3xl mx-auto mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <motion.span 
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,16 +58,9 @@ export default function ChallengesDetailSection({ onRegisterPathway }: Challenge
             Challenge Guides &amp; Criteria
           </h2>
           <p className="text-base sm:text-lg text-[#0b302e]/80 mt-4 font-medium leading-relaxed">
-            Select a pathway from the flow chart or filters to inspect the philosophy, toolkits, grade levels, and core directions.
+            Select a pathway from the flow chart above or the filters to inspect the philosophy, toolkits, grade levels, and core directions.
           </p>
         </div>
-
-        {/* ================= OFFICIAL FLOW CHART HERE ================= */}
-        {/* Hierarchy: IGNITE -> Junior & Senior -> Hackathon & Makeathon (Game Dev, Rube Goldberg, App Dev, CAD) */}
-        <IgniteFlowChart
-          activePathwayId={highlightedPathwayId}
-          onSelectNode={handleFlowChartSelect}
-        />
 
         {/* Interactive Filter Pills */}
         <div className="flex items-center justify-center gap-2 sm:gap-3 mb-10 flex-wrap">

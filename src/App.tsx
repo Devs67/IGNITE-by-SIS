@@ -5,7 +5,7 @@ import WhatIsIgnite from './components/WhatIsIgnite';
 import WhenAndWho from './components/WhenAndWho';
 import IgniteStructure from './components/IgniteStructure';
 import OverarchingTheme from './components/OverarchingTheme';
-import ChallengesDetailSection from './components/ChallengesDetailSection';
+import ChallengesDetailSection, { type PathwayFilter } from './components/ChallengesDetailSection';
 import IdeaToImpact from './components/IdeaToImpact';
 import ParticipantChecklist from './components/ParticipantChecklist';
 import ReadyToIgnite from './components/ReadyToIgnite';
@@ -21,6 +21,22 @@ export default function App() {
       setSelectedPathwayId(pathwayId);
     }
     setIsRegisterOpen(true);
+  };
+
+  // Flow chart (in IGNITE Structure) drives the filters in the Challenges section
+  const [activeFilter, setActiveFilter] = useState<PathwayFilter>('all');
+  const [highlightedPathwayId, setHighlightedPathwayId] = useState<string | null>(null);
+
+  const handleFlowChartSelect = (filter: PathwayFilter, pathwayId?: string) => {
+    setActiveFilter(filter);
+    setHighlightedPathwayId(pathwayId ?? null);
+    // Smooth scroll to the specific card, or to the challenges section
+    setTimeout(() => {
+      const el = document.getElementById(pathwayId ? `pathway-card-${pathwayId}` : 'challenges');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: pathwayId ? 'center' : 'start' });
+      }
+    }, 100);
   };
 
   return (
@@ -40,13 +56,23 @@ export default function App() {
         <WhenAndWho />
 
         {/* Page 4: IGNITE Structure (4 Challenge Pathways) */}
-        <IgniteStructure onSelectPathway={(id) => handleOpenRegister(id)} />
+        <IgniteStructure
+          onSelectPathway={(id) => handleOpenRegister(id)}
+          activePathwayId={highlightedPathwayId}
+          onSelectNode={handleFlowChartSelect}
+        />
 
         {/* Page 5: Overarching Theme (Engage, Challenge, Connect) */}
         <OverarchingTheme />
 
         {/* Pages 6 & 7: Junior & Senior Challenges Details */}
-        <ChallengesDetailSection onRegisterPathway={(id) => handleOpenRegister(id)} />
+        <ChallengesDetailSection
+          onRegisterPathway={(id) => handleOpenRegister(id)}
+          activeFilter={activeFilter}
+          setActiveFilter={setActiveFilter}
+          highlightedPathwayId={highlightedPathwayId}
+          setHighlightedPathwayId={setHighlightedPathwayId}
+        />
 
         {/* Page 8: From Idea to Impact (6-Step Innovation Journey) */}
         <IdeaToImpact />

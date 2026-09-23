@@ -1,12 +1,16 @@
 import { Gamepad2, Smartphone, Cog, Box, ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
+import IgniteFlowChart from './IgniteFlowChart';
+import type { PathwayFilter } from './ChallengesDetailSection';
 
 interface IgniteStructureProps {
   onSelectPathway?: (pathwayId: string) => void;
+  activePathwayId: string | null;
+  onSelectNode: (filter: PathwayFilter, pathwayId?: string) => void;
 }
 
-export default function IgniteStructure({ onSelectPathway }: IgniteStructureProps) {
+export default function IgniteStructure({ onSelectPathway, activePathwayId, onSelectNode }: IgniteStructureProps) {
   const { pathways } = IGNITE_DATA;
 
   const getPathwayIcon = (id: string) => {
@@ -77,6 +81,12 @@ export default function IgniteStructure({ onSelectPathway }: IgniteStructureProp
           <p className="text-base sm:text-xl text-[#0b302e]/80 mt-3 font-medium">
             Four challenge pathways. One spirit of innovation.
           </p>
+        </div>
+
+        {/* ================= OFFICIAL FLOW CHART HERE ================= */}
+        {/* Hierarchy: IGNITE -> Junior & Senior -> Hackathon & Makeathon (Game Dev, Rube Goldberg, App Dev, CAD) */}
+        <div className="mb-16">
+          <IgniteFlowChart activePathwayId={activePathwayId} onSelectNode={onSelectNode} />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
