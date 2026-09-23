@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Quote, Sparkles, ArrowRight, Code2, Wrench, CheckCircle } from 'lucide-react';
+import { Quote, ArrowRight, Code2, Wrench, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -40,28 +40,7 @@ export default function ChallengesDetailSection({
   });
 
   return (
-    <section id="challenges" className="py-24 sm:py-32 relative bg-[#faf8f3] border-t-2 border-[#0b302e]/10 text-[#172220]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header Title */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <motion.span 
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0b302e]/10 border border-[#0b302e]/20 font-mono text-xs uppercase tracking-widest text-[#0b302e] font-bold mb-3"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#f28c28]" />
-            <span>Pages 06 &amp; 07 · The 4 Official Pathways</span>
-          </motion.span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-black text-[#0b302e] tracking-tight">
-            Challenge Guides &amp; Criteria
-          </h2>
-          <p className="text-base sm:text-lg text-[#0b302e]/80 mt-4 font-medium leading-relaxed">
-            Select a pathway from the flow chart above or the filters to inspect the philosophy, toolkits, grade levels, and core directions.
-          </p>
-        </div>
-
+    <div id="challenges" className="scroll-mt-28">
         {/* Interactive Filter Pills */}
         <div className="flex items-center justify-center gap-2 sm:gap-3 mb-10 flex-wrap">
           {[
@@ -96,7 +75,6 @@ export default function ChallengesDetailSection({
           <AnimatePresence mode="popLayout">
             {filteredPathways.map((p) => {
               const isHackathon = p.type === 'Hackathon';
-              const isJunior = p.division === 'Junior';
               const isHighlighted = highlightedPathwayId === p.id;
 
               return (
@@ -163,9 +141,6 @@ export default function ChallengesDetailSection({
                         <span className="font-mono text-xs uppercase tracking-wider text-[#0b302e] font-extrabold flex items-center gap-1.5">
                           <span>Core Directions &amp; Criteria:</span>
                         </span>
-                        <span className="font-mono text-[10px] text-[#0b302e]/60 font-bold">
-                          Document Page {isJunior ? '06' : '07'}
-                        </span>
                       </div>
 
                       <div className="space-y-2.5">
@@ -217,8 +192,6 @@ export default function ChallengesDetailSection({
             })}
           </AnimatePresence>
         </div>
-
-      </div>
-    </section>
+    </div>
   );
 }

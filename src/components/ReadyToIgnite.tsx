@@ -26,7 +26,7 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
           <div className="relative z-10 max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-[#f6a44e] font-bold">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Page 10 · Final Call to Action</span>
+              <span>Final Call to Action</span>
             </div>
 
             <div className="flex justify-center mb-2">

@@ -18,7 +18,7 @@ export default function WhenAndWho() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f28c28]/15 border border-[#f28c28]/30 font-mono text-xs uppercase tracking-widest text-[#c2410c] font-bold mb-3"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Page 03 · Timeline &amp; Participation</span>
+            <span>Timeline &amp; Participation</span>
           </motion.span>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-black text-[#0b302e] tracking-tight">
             When &amp; Who?
@@ -37,7 +37,7 @@ export default function WhenAndWho() {
         <div className="max-w-5xl mx-auto">
           <div className="p-6 sm:p-8 rounded-3xl bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e]">
             <span className="font-mono text-xs uppercase tracking-widest text-[#c2410c] font-black block mb-6 text-center">
-              OFFICIAL EVENT FLOW (DOCUMENT PAGE 03)
+              OFFICIAL EVENT FLOW
             </span>
 
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 items-center">

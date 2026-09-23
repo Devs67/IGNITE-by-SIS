@@ -58,22 +58,21 @@ export default function App() {
 
         {/* Page 4: IGNITE Structure (4 Challenge Pathways) */}
         <IgniteStructure
-          onSelectPathway={(id) => handleOpenRegister(id)}
           activePathwayId={highlightedPathwayId}
           onSelectNode={handleFlowChartSelect}
-        />
+        >
+          {/* Junior & Senior Challenge guides */}
+          <ChallengesDetailSection
+            onRegisterPathway={(id) => handleOpenRegister(id)}
+            activeFilter={activeFilter}
+            setActiveFilter={setActiveFilter}
+            highlightedPathwayId={highlightedPathwayId}
+            setHighlightedPathwayId={setHighlightedPathwayId}
+          />
+        </IgniteStructure>
 
         {/* Page 5: Overarching Theme (Engage, Challenge, Connect) */}
         <OverarchingTheme />
-
-        {/* Pages 6 & 7: Junior & Senior Challenges Details */}
-        <ChallengesDetailSection
-          onRegisterPathway={(id) => handleOpenRegister(id)}
-          activeFilter={activeFilter}
-          setActiveFilter={setActiveFilter}
-          highlightedPathwayId={highlightedPathwayId}
-          setHighlightedPathwayId={setHighlightedPathwayId}
-        />
 
         {/* Page 8: From Idea to Impact (6-Step Innovation Journey) */}
         <IdeaToImpact />

@@ -19,7 +19,7 @@ export default function WhatIsIgnite() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f28c28]/15 border border-[#f28c28]/30 font-mono text-xs uppercase tracking-widest text-[#c2410c] font-bold mb-3"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Page 02 · Vision &amp; Foundations</span>
+            <span>Vision &amp; Foundations</span>
           </motion.span>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-black text-[#0b302e] tracking-tight">
             What is IGNITE?
