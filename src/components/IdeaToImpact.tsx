@@ -1,11 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
-import { Lightbulb, PenTool, Wrench, CheckSquare, Presentation, Sparkles, ChevronRight } from 'lucide-react';
+import { Lightbulb, Wrench, CheckSquare, Presentation, Sparkles, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
-import identifyVideo from '../assets/videos/identify.mp4';
+import identifyWebm from '../assets/videos/identify.webm';
+import identifyMp4 from '../assets/videos/identify.mp4';
+import ideateWebm from '../assets/videos/ideate.webm';
+import ideateMp4 from '../assets/videos/ideate.mp4';
+import designWebm from '../assets/videos/design.webm';
+import designMp4 from '../assets/videos/design.mp4';
 
 // Looping icon video: plays while on screen, pauses when scrolled away
-function IdentifyVideo() {
+function IconVideo({ webm, mp4 }: { webm: string; mp4: string }) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -35,14 +40,16 @@ function IdentifyVideo() {
   return (
     <video
       ref={ref}
-      src={identifyVideo}
       loop
       muted
       playsInline
       preload="auto"
       aria-hidden="true"
       className="w-full h-full object-cover"
-    />
+    >
+      <source src={webm} type="video/webm" />
+      <source src={mp4} type="video/mp4" />
+    </video>
   );
 }
 
@@ -53,11 +60,11 @@ export default function IdeaToImpact() {
   const getStepIcon = (num: string) => {
     switch (num) {
       case '01':
-        return <IdentifyVideo />;
+        return <IconVideo webm={identifyWebm} mp4={identifyMp4} />;
       case '02':
-        return <Lightbulb className="w-8 h-8 stroke-[2.5]" />;
+        return <IconVideo webm={ideateWebm} mp4={ideateMp4} />;
       case '03':
-        return <PenTool className="w-8 h-8 stroke-[2.5]" />;
+        return <IconVideo webm={designWebm} mp4={designMp4} />;
       case '04':
         return <Wrench className="w-8 h-8 stroke-[2.5]" />;
       case '05':
