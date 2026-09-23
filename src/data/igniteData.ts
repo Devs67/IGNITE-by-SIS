@@ -22,6 +22,7 @@ export const IGNITE_DATA = {
     school: 'Sreenidhi International School',
     tagline: 'Kindle the innovation within',
     definition: 'A platform where students transform ideas into interactive systems, creative solutions, and meaningful experiences.',
+    about: "Organised by the Design Department, IGNITE 2026–27 is a two-day innovation marathon held on 15–16 October 2026 in the New Design Block at the SIS campus. It brings together students from different schools to think creatively, work as a team, and turn ideas into practical solutions for real-world problems. This year's challenges span Game Development, App Development, Rube Goldberg Machines, and CAD Design, all built around one theme: designing interactive systems that engage, challenge, and connect people.",
     finalCall: 'Turn your ideas into something that engages, challenges, and connects. Step into IGNITE and kindle the innovation within.'
   },
 
@@ -37,6 +38,7 @@ export const IGNITE_DATA = {
       type: 'Hackathon',
       theme: 'Code. Collaborate. Create impact.',
       description: 'Build smart digital solutions to solve real-world challenges.',
+      detail: 'Teams turn a problem into a working digital product. Juniors build games in Scratch or code.org, and seniors develop apps. Over two days they brainstorm, code, test, and present a working prototype. It is competitive, but the best results come from teams that think fast and build together.',
       category: 'Junior & Senior',
       gradeLevel: 'MYP 1–DP 2'
     },
@@ -44,6 +46,7 @@ export const IGNITE_DATA = {
       type: 'Makeathon',
       theme: 'Design. Build. Bring ideas to life.',
       description: 'Create tangible prototypes that inspire and make a difference.',
+      detail: 'Teams design and build something physical. Juniors construct a Rube Goldberg machine from recycled, everyday materials, and seniors use Fusion 360 or SketchUp to redesign an everyday object. The focus is hands-on engineering, creative problem-solving, and rapid prototyping for real-life problems.',
       category: 'Junior & Senior',
       gradeLevel: 'MYP 1–DP 2'
     }

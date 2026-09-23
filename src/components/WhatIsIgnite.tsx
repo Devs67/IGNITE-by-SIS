@@ -27,6 +27,9 @@ export default function WhatIsIgnite() {
           <p className="text-lg sm:text-2xl text-[#0b302e]/85 mt-4 font-semibold leading-relaxed max-w-3xl mx-auto">
             {event.definition}
           </p>
+          <p className="text-sm sm:text-base text-[#0b302e]/75 mt-6 font-medium leading-relaxed max-w-3xl mx-auto">
+            {event.about}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -55,6 +58,9 @@ export default function WhatIsIgnite() {
               </p>
               <p className="text-sm sm:text-base text-[#f4f0e8]/90 font-medium leading-relaxed">
                 {hackathon.description}
+              </p>
+              <p className="text-sm text-[#f4f0e8]/70 font-medium leading-relaxed mt-3">
+                {hackathon.detail}
               </p>
             </div>
 
@@ -91,6 +97,9 @@ export default function WhatIsIgnite() {
               </p>
               <p className="text-sm sm:text-base text-[#172220]/90 font-semibold leading-relaxed">
                 {makeathon.description}
+              </p>
+              <p className="text-sm text-[#172220]/80 font-medium leading-relaxed mt-3">
+                {makeathon.detail}
               </p>
             </div>
 

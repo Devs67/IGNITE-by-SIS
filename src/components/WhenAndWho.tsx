@@ -1,4 +1,4 @@
-import { Calendar, ArrowRight, Sparkles, Code2, Wrench } from 'lucide-react';
+import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -34,7 +34,7 @@ export default function WhenAndWho() {
         </div>
 
         {/* Animated 5-step Event Flow from Page 3 */}
-        <div className="max-w-5xl mx-auto mb-16">
+        <div className="max-w-5xl mx-auto">
           <div className="p-6 sm:p-8 rounded-3xl bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e]">
             <span className="font-mono text-xs uppercase tracking-widest text-[#c2410c] font-black block mb-6 text-center">
               OFFICIAL EVENT FLOW (DOCUMENT PAGE 03)
@@ -70,102 +70,6 @@ export default function WhenAndWho() {
             </div>
           </div>
         </div>
-
-        {/* The Exact Comparison Matrix matching Page 3 Table */}
-        <div className="max-w-5xl mx-auto space-y-6">
-          {/* Hackathon Row */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -4, scale: 1.01 }}
-            className="rounded-3xl p-6 sm:p-8 bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e] hover:shadow-[10px_10px_0px_#0b302e] transition-all grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-center"
-          >
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
-                EVENT TYPE
-              </span>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0b302e] text-[#f4f0e8] font-display text-sm font-black shadow-xs">
-                <Code2 className="w-4 h-4 text-[#f6a44e]" />
-                <span>Hackathon</span>
-              </div>
-            </div>
-
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
-                CATEGORY
-              </span>
-              <p className="font-display text-lg font-black text-[#0b302e]">
-                Junior
-              </p>
-            </div>
-
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
-                GRADE LEVEL
-              </span>
-              <p className="font-mono text-base font-extrabold text-[#0b302e] bg-[#f4f0e8] px-3 py-1 rounded-md inline-block border border-[#0b302e]/20">
-                MYP 1–3
-              </p>
-            </div>
-
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#c2410c] font-black block mb-1">
-                THEME
-              </span>
-              <p className="font-display text-xs sm:text-sm font-extrabold text-[#0b302e]">
-                Code. Collaborate. Create impact.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Makeathon Row */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -4, scale: 1.01 }}
-            className="rounded-3xl p-6 sm:p-8 bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e] hover:shadow-[10px_10px_0px_#0b302e] transition-all grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-center"
-          >
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
-                EVENT TYPE
-              </span>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f28c28] text-[#172220] font-display text-sm font-black shadow-xs">
-                <Wrench className="w-4 h-4 text-[#0b302e]" />
-                <span>Makeathon</span>
-              </div>
-            </div>
-
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
-                CATEGORY
-              </span>
-              <p className="font-display text-lg font-black text-[#0b302e]">
-                Senior
-              </p>
-            </div>
-
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#0b302e]/60 font-bold block mb-1">
-                GRADE LEVEL
-              </span>
-              <p className="font-mono text-base font-extrabold text-[#0b302e] bg-[#f4f0e8] px-3 py-1 rounded-md inline-block border border-[#0b302e]/20">
-                MYP 4–DP 2
-              </p>
-            </div>
-
-            <div>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#c2410c] font-black block mb-1">
-                THEME
-              </span>
-              <p className="font-display text-xs sm:text-sm font-extrabold text-[#0b302e]">
-                Design. Build. Bring ideas to life.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
       </div>
     </section>
   );
