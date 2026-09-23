@@ -26,7 +26,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-[#f4f0e8]/95 backdrop-blur-md border-b-2 border-[#0b302e]/15 shadow-sm py-2.5'
-          : 'bg-[#f4f0e8]/60 backdrop-blur-xs py-4'
+          : 'bg-[#f4f0e8]/95 backdrop-blur-md border-b-2 border-[#0b302e]/10 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,14 +40,14 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
           </Link>
 
           {/* Page links */}
-          <nav className="hidden lg:flex items-center gap-3 xl:gap-6 text-xs font-display font-bold uppercase tracking-wide xl:tracking-wider text-[#0b302e]">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-xs font-display font-bold uppercase tracking-wide xl:tracking-wider text-[#0b302e]">
             {PAGES.map((page) => (
               <NavLink
                 key={page.path}
                 to={page.path}
                 end
                 className={({ isActive }) =>
-                  `${isActive ? 'text-[#f28c28]' : 'text-[#0b302e]/85'} hover:text-[#f28c28] transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] rounded`
+                  `px-4 py-2 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] ${isActive ? 'bg-[#0b302e] text-[#f4f0e8] shadow-[2px_2px_0px_#f28c28]' : 'text-[#0b302e] hover:bg-[#0b302e]/10'}`
                 }
               >
                 {page.label}
@@ -95,7 +95,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
                   end
                   onClick={() => setMobileMenuOpen(false)}
                   className={({ isActive }) =>
-                    `px-3 py-2 text-xs font-display font-bold uppercase tracking-wider ${isActive ? 'text-[#f28c28] bg-[#0b302e]/5' : 'text-[#0b302e]'} hover:text-[#f28c28] hover:bg-[#0b302e]/5 rounded-lg transition-colors`
+                    `px-4 py-2.5 text-xs font-display font-bold uppercase tracking-wider rounded-full transition-colors ${isActive ? 'bg-[#0b302e] text-[#f4f0e8]' : 'text-[#0b302e] hover:bg-[#0b302e]/10'}`
                   }
                 >
                   {page.label}
