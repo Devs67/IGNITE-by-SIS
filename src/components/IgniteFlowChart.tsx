@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { Flame, Code2, Wrench, Smartphone, Box, Sparkles, X } from 'lucide-react';
+import { Code2, Wrench, Smartphone, Box, Sparkles, X } from 'lucide-react';
+import IgniteLogo from './IgniteLogo';
 import { IGNITE_DATA } from '../data/igniteData';
 
 type Division = 'Junior' | 'Senior';
@@ -219,18 +220,9 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
             onClick={() => setSelection(null)}
             className="cursor-pointer group relative"
           >
-            <div className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[#0b302e] via-[#0e3f3b] to-[#0b302e] text-white border-2 border-[#0b302e] shadow-[5px_5px_0px_#f28c28] group-hover:shadow-[7px_7px_0px_#f28c28] transition-all flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#f28c28] to-[#e26f1e] text-[#172220] flex items-center justify-center shadow-xs">
-                <Flame className="w-5 h-5 fill-current" />
-              </div>
-              <div className="text-left">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-display text-xs font-black tracking-widest text-[#f6a44e] uppercase">SREENIDHI</span>
-                  <span className="h-1 w-4 bg-[#f28c28] rounded-full" />
-                </div>
-                <h3 className="font-display text-2xl font-black tracking-tight text-white leading-none">IGNITE</h3>
-              </div>
-              <span className="inline-block ml-3 px-2 py-0.5 rounded-md bg-white/15 text-[10px] font-mono font-bold text-white/90">
+            <div className="px-6 py-3 rounded-2xl bg-[#faf8f3] border-2 border-[#0b302e] shadow-[5px_5px_0px_#f28c28] group-hover:shadow-[7px_7px_0px_#f28c28] transition-all flex items-center gap-4">
+              <IgniteLogo variant="horizontal" className="h-16" />
+              <span className="inline-block px-2.5 py-1 rounded-md bg-[#0b302e] text-[11px] font-mono font-bold text-[#f4f0e8]">
                 2026-27
               </span>
             </div>

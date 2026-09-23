@@ -116,14 +116,20 @@ export default function Hero({ onOpenRegister }: HeroProps) {
 
             {/* Date & Location Badges with Hover Micro-interactions */}
             <div className="flex items-center justify-center gap-3 sm:gap-4 pt-2 pb-4 flex-wrap">
+              {/* Highlighted event date */}
               <motion.div
                 whileHover={{ scale: 1.04, y: -2 }}
-                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/25 backdrop-blur-md shadow-lg text-xs sm:text-sm font-display font-bold text-white transition-all cursor-default"
+                className="inline-flex items-center gap-3 px-5 sm:px-6 py-3 rounded-2xl bg-[#f28c28] border-2 border-[#f6a44e] shadow-[5px_5px_0px_#0b302e] text-[#172220] transition-all cursor-default"
               >
-                <div className="p-1.5 rounded-lg bg-[#f28c28]/20 text-[#f6a44e]">
-                  <Calendar className="w-4 h-4 stroke-[2.5]" />
+                <div className="p-2 rounded-xl bg-[#0b302e] text-[#f6a44e]">
+                  <Calendar className="w-5 h-5 stroke-[2.5]" />
                 </div>
-                <span>{event.dates}</span>
+                <div className="text-left leading-tight">
+                  <span className="block font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-[#0b302e]/75">
+                    Save the date
+                  </span>
+                  <span className="block font-display text-lg sm:text-2xl font-black tracking-tight">{event.dates}</span>
+                </div>
               </motion.div>
 
               <motion.div
