@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Space Grotesk", sans-serif;
-  --font-sans: "Manrope", sans-serif;
+  --font-display: "Space Grotesk Variable", "Space Grotesk", sans-serif;
+  --font-sans: "Manrope Variable", "Manrope", sans-serif;
   --font-mono: "DM Mono", monospace;
   
   --color-cream: #f4f0e8;
@@ -26,8 +26,8 @@
   --sage: #8fb9aa;
   --ink: #172220;
   --line: rgba(11, 48, 46, 0.16);
-  --display: "Space Grotesk", sans-serif;
-  --body: "Manrope", sans-serif;
+  --display: "Space Grotesk Variable", "Space Grotesk", sans-serif;
+  --body: "Manrope Variable", "Manrope", sans-serif;
   --mono: "DM Mono", monospace;
 }
 

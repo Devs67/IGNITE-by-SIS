@@ -1,27 +1,38 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhatIsIgnite from './components/WhatIsIgnite';
 import WhenAndWho from './components/WhenAndWho';
-import IgniteStructure from './components/IgniteStructure';
-import OverarchingTheme from './components/OverarchingTheme';
-import IdeaToImpact from './components/IdeaToImpact';
 import Gallery from './components/Gallery';
-import ParticipantChecklist from './components/ParticipantChecklist';
-import FAQ from './components/FAQ';
 import ReadyToIgnite from './components/ReadyToIgnite';
 import PageNav from './components/PageNav';
 import Footer from './components/Footer';
 import RegisterModal from './components/RegisterModal';
 import { PAGES } from './pages';
 
-// On every page change: jump to the top and set the browser tab title
+// Other pages load their code only when visited, keeping the first load small
+const IgniteStructure = lazy(() => import('./components/IgniteStructure'));
+const OverarchingTheme = lazy(() => import('./components/OverarchingTheme'));
+const IdeaToImpact = lazy(() => import('./components/IdeaToImpact'));
+const ParticipantChecklist = lazy(() => import('./components/ParticipantChecklist'));
+const FAQ = lazy(() => import('./components/FAQ'));
+
+// Home keeps the description from index.html; other pages get their own
+const meta = typeof document !== 'undefined' ? document.querySelector('meta[name="description"]') : null;
+const homeDescription = meta?.getAttribute('content') ?? '';
+
+// On every page change: jump to the top and set the browser tab title and description
 function PageChange() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-    document.title = (PAGES.find((p) => p.path === pathname) ?? PAGES[0]).title;
+    const page = PAGES.find((p) => p.path === pathname) ?? PAGES[0];
+    document.title = page.title;
+    meta?.setAttribute(
+      'content',
+      page.path === '/' ? homeDescription : `${page.blurb}. Sreenidhi IGNITE 2026-27 Hackathon & Makeathon, 15-16 October 2026.`,
+    );
   }, [pathname]);
   return null;
 }
@@ -39,6 +50,7 @@ export default function App() {
         <Navbar onOpenRegister={() => handleOpenRegister()} />
 
         <main>
+          <Suspense fallback={<div className="min-h-screen" />}>
           <Routes>
             {/* Home: overview, dates, who can take part, gallery */}
             <Route
@@ -80,6 +92,7 @@ export default function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
+          </Suspense>
 
           {/* Previous / next page and all pages */}
           <PageNav />

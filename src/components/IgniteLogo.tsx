@@ -54,6 +54,8 @@ export default function IgniteLogo({
     return (
       <img
         src={logoImage}
+        width={841}
+        height={465}
         alt="Sreenidhi IGNITE — Kindle the Innovation Within"
         className={`w-64 sm:w-96 md:w-[28rem] h-auto select-none ${className}`}
         draggable={false}
@@ -88,6 +90,8 @@ export default function IgniteLogo({
   return (
     <img
       src={logoImage}
+      width={841}
+      height={465}
       alt="Sreenidhi IGNITE"
       className={`w-auto select-none ${className}`}
       draggable={false}

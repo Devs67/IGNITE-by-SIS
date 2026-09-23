@@ -26,7 +26,7 @@ export default function PageNav() {
                 <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
               </span>
               <span className="text-left">
-                <span className="block font-mono text-[11px] uppercase tracking-wider text-[#0b302e]/60 font-bold">
+                <span className="block font-mono text-[11px] uppercase tracking-wider text-[#0b302e]/80 font-bold">
                   Previous
                 </span>
                 <span className="block font-display text-xl font-black text-[#0b302e]">{prev.label}</span>
@@ -58,7 +58,7 @@ export default function PageNav() {
 
         {/* All pages */}
         <div className="mt-10 text-center">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-[#0b302e]/60 font-bold">
+          <span className="font-mono text-[11px] uppercase tracking-widest text-[#0b302e]/80 font-bold">
             All pages
           </span>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
@@ -75,7 +75,7 @@ export default function PageNav() {
                       : 'bg-[#faf8f3] text-[#0b302e] border-[#0b302e]/20 hover:border-[#0b302e]'
                   }`}
                 >
-                  <span className="font-mono text-[10px] opacity-60 mr-1.5">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-[10px] opacity-80 mr-1.5">{String(i + 1).padStart(2, '0')}</span>
                   {page.label}
                 </Link>
               );

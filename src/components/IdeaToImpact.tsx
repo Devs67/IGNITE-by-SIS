@@ -223,10 +223,10 @@ export default function IdeaToImpact() {
               </div>
 
               <div className="sm:text-right shrink-0 w-full sm:w-auto pt-4 sm:pt-0 border-t sm:border-t-0 border-[#0b302e]/10">
-                <span className="font-mono text-[10px] uppercase font-bold text-[#0b302e]/60 block mb-1">
+                <span className="font-mono text-[10px] uppercase font-bold text-[#0b302e]/80 block mb-1">
                   Primary Milestone
                 </span>
-                <span className="inline-block px-3.5 py-1.5 rounded-xl bg-[#f28c28]/20 border border-[#f28c28]/40 font-display text-xs font-black text-[#c2410c]">
+                <span className="inline-block px-3.5 py-1.5 rounded-xl bg-[#f28c28]/20 border border-[#f28c28]/40 font-display text-xs font-black text-[#9a3412]">
                   {details.deliverable}
                 </span>
               </div>

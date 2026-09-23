@@ -22,7 +22,7 @@ export default function WhatIsIgnite() {
             {event.about.split('Design Department').map((part, i) => (
               <span key={i}>
                 {i > 0 && (
-                  <span className="font-extrabold text-[#c2410c] bg-[#f28c28]/15 px-1.5 py-0.5 rounded-md">
+                  <span className="font-extrabold text-[#9a3412] bg-[#f28c28]/15 px-1.5 py-0.5 rounded-md">
                     Design Department
                   </span>
                 )}

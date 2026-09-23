@@ -48,9 +48,9 @@ export default function Footer({ onOpenRegister }: FooterProps) {
 
           {/* Col 2: Pages */}
           <div>
-            <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#8fb9aa] font-bold mb-3">
+            <h2 className="font-mono text-[11px] uppercase tracking-wider text-[#8fb9aa] font-bold mb-3">
               Pages
-            </h4>
+            </h2>
             <ul className="space-y-2 font-medium">
               {PAGES.map((page) => (
                 <li key={page.path}>
@@ -64,9 +64,9 @@ export default function Footer({ onOpenRegister }: FooterProps) {
 
           {/* Col 3: Take Part & Action */}
           <div>
-            <h4 className="font-mono text-[11px] uppercase tracking-wider text-[#8fb9aa] font-bold mb-3">
+            <h2 className="font-mono text-[11px] uppercase tracking-wider text-[#8fb9aa] font-bold mb-3">
               Participation
-            </h4>
+            </h2>
             <div className="space-y-3">
               <button
                 onClick={onOpenRegister}

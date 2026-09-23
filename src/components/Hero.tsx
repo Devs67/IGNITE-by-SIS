@@ -95,7 +95,7 @@ export default function Hero({ onOpenRegister }: HeroProps) {
                   <Calendar className="w-5 h-5 stroke-[2.5]" />
                 </div>
                 <div className="text-left leading-tight">
-                  <span className="block font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-[#0b302e]/75">
+                  <span className="block font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-[#0b302e]">
                     Save the date
                   </span>
                   <span className="block font-display text-lg sm:text-2xl font-black tracking-tight">{event.dates}</span>

@@ -1,20 +1,25 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Sreenidhi IGNITE — website
 
-# Run and deploy your AI Studio app
+Source for **https://ignitebysis.com**, the site for Sreenidhi IGNITE 2026–27
+(Hackathon & Makeathon, 15–16 October 2026, Sreenidhi International School).
 
-This contains everything you need to run your app locally.
+Built with Vite, React, Tailwind CSS and Motion.
 
-View your app in AI Studio: https://ai.studio/apps/64df3c4a-b9b0-4b20-b893-e704269d2516
+## Run locally
 
-## Run Locally
+```bash
+npm install
+npm run dev
+```
 
-**Prerequisites:**  Node.js
+## Deploy
 
+Push to `main`. The GitHub Actions workflow in `.github/workflows/deploy.yml`
+builds the site and publishes it to GitHub Pages (custom domain in `public/CNAME`).
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Where things live
+
+- Pages and their order: `src/pages.ts`
+- Text content (FAQs, challenges, vision/mission…): `src/data/igniteData.ts`
+- Sections: `src/components/`
+- Photos: `src/assets/images/gallery/` (web copies; originals are kept in `Images/`, not committed)

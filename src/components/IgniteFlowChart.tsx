@@ -118,6 +118,14 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
         whileHover={{ scale: 1.03, y: -2 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => selectLeaf(id)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectLeaf(id);
+          }
+        }}
+        role="button"
+        tabIndex={0}
         aria-expanded={isOpen}
         className={`p-3.5 rounded-2xl cursor-pointer border-2 transition-all flex flex-col justify-between text-left ${
           dimmed ? 'opacity-40' : ''
@@ -135,18 +143,18 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
               className={`px-2 py-0.5 rounded text-[9px] font-mono font-black uppercase tracking-wider ${
                 isHack
                   ? isOpen ? 'bg-white/20 text-white' : 'bg-[#0b302e]/10 text-[#0b302e]'
-                  : 'bg-[#f28c28]/20 text-[#c2410c]'
+                  : isOpen ? 'bg-[#0b302e]/15 text-[#0b302e]' : 'bg-[#f28c28]/20 text-[#9a3412]'
               }`}
             >
               {t.theme}
             </span>
             {t.icon}
           </div>
-          <h4 className="font-display text-sm font-black tracking-tight leading-snug">{p.subtitle}</h4>
+          <h3 className="font-display text-sm font-black tracking-tight leading-snug">{p.subtitle}</h3>
           <p className="text-[10.5px] font-mono text-current/75 font-semibold mt-0.5">{t.short}</p>
         </div>
         <div className="mt-2.5 pt-2 border-t border-current/15 flex items-center justify-between text-[10px] font-mono font-bold">
-          <span className={isHack ? 'text-[#f28c28]' : 'text-[#c2410c]'}>{p.gradeLevel}</span>
+          <span className={isOpen ? (isHack ? 'text-[#f28c28]' : 'text-[#0b302e]') : 'text-[#c2410c]'}>{p.gradeLevel}</span>
           <span className="underline">{isOpen ? 'Hide Guide ↑' : 'View Guide ↓'}</span>
         </div>
       </motion.div>
@@ -161,6 +169,15 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
         whileHover={{ scale: 1.04, y: -2 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => selectDivision(division)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectDivision(division);
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-pressed={selection?.kind === 'division' && selection.division === division}
         className={`cursor-pointer group w-auto transition-opacity ${dimmed ? 'opacity-40' : ''}`}
       >
         <div
@@ -214,6 +231,15 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setSelection(null)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setSelection(null);
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label="Show all challenges"
             className="cursor-pointer group relative"
           >
             <div className="px-6 py-3 rounded-2xl bg-[#faf8f3] border-2 border-[#0b302e] shadow-[5px_5px_0px_#f28c28] group-hover:shadow-[7px_7px_0px_#f28c28] transition-all flex items-center gap-4">
