@@ -44,7 +44,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
             href="#"
             className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] rounded-lg"
           >
-            <IgniteLogo variant="horizontal" className="h-10" />
+            <IgniteLogo variant="horizontal" className="h-12" />
           </a>
 
           {/* Navigation links based solely on document sections */}

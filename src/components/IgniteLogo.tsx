@@ -1,15 +1,14 @@
 import React from 'react';
+import logoImage from '../assets/images/ignite-logo.png';
 
 interface IgniteLogoProps {
   className?: string;
   variant?: 'full' | 'horizontal' | 'mark' | 'badge';
-  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export default function IgniteLogo({
   className = '',
   variant = 'horizontal',
-  size = 'md',
 }: IgniteLogoProps) {
   // Pure Flame SVG Mark
   const renderFlame = (flameWidth = 44, flameHeight = 44) => (
@@ -50,45 +49,15 @@ export default function IgniteLogo({
     return <div className={`inline-flex items-center justify-center ${className}`}>{renderFlame(40, 40)}</div>;
   }
 
-  // Variant: Full Official Logo Lockup (Flame + Sreenidhi + Bars + IGNITE + Tagline)
+  // Variant: Full Official Logo Lockup (uploaded logo image)
   if (variant === 'full') {
     return (
-      <div
-        className={`flex flex-col items-center justify-center text-center select-none ${className}`}
-      >
-        {/* Top brand header: Flame + Bars & SREENIDHI */}
-        <div className="flex items-center gap-4 sm:gap-5 mb-1.5">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
-            {renderFlame(56, 56)}
-          </div>
-
-          <div className="flex flex-col text-left justify-center">
-            {/* Horizontal accent bars */}
-            <div className="flex flex-col gap-1 mb-1.5">
-              <div className="h-1.5 sm:h-2 w-28 sm:w-32 bg-[#e26f1e] rounded-full shadow-xs" />
-              <div className="h-2 sm:h-2.5 w-40 sm:w-48 bg-[#0b302e] rounded-full shadow-xs" />
-            </div>
-            {/* S R E E N I D H I */}
-            <div className="font-display text-xs sm:text-sm font-extrabold tracking-[0.38em] text-[#0b302e] uppercase">
-              S R E E N I D H I
-            </div>
-          </div>
-        </div>
-
-        {/* Master Wordmark: IGNITE */}
-        <div className="w-full text-center">
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-[#0b302e] leading-none my-1 drop-shadow-xs">
-            IGNITE
-          </h1>
-        </div>
-
-        {/* Tagline: KINDLE THE INNOVATION WITHIN */}
-        <div className="mt-1">
-          <span className="inline-block font-display text-[10px] sm:text-xs md:text-sm font-black tracking-[0.25em] text-[#e26f1e] uppercase">
-            KINDLE THE INNOVATION WITHIN
-          </span>
-        </div>
-      </div>
+      <img
+        src={logoImage}
+        alt="Sreenidhi IGNITE — Kindle the Innovation Within"
+        className={`w-64 sm:w-96 md:w-[28rem] h-auto select-none ${className}`}
+        draggable={false}
+      />
     );
   }
 
@@ -115,38 +84,13 @@ export default function IgniteLogo({
     );
   }
 
-  // Variant: Horizontal (Default for Navigation & Bars)
-  const isSmall = size === 'sm';
+  // Variant: Horizontal (Default for Navigation & Bars) — uploaded logo image
   return (
-    <div className={`inline-flex items-center gap-3 select-none group ${className}`}>
-      <div className="shrink-0">
-        {renderFlame(isSmall ? 32 : 40, isSmall ? 32 : 40)}
-      </div>
-
-      <div className="flex flex-col text-left leading-tight">
-        {/* Top double lines + School Name */}
-        <div className="flex items-center gap-1.5 mb-0.5">
-          <div className="flex flex-col gap-0.5">
-            <div className="h-0.5 w-6 bg-[#e26f1e] rounded-full" />
-            <div className="h-1 w-10 bg-[#0b302e] rounded-full" />
-          </div>
-          <span className="font-display text-[9px] sm:text-[10px] font-extrabold tracking-[0.22em] text-[#0b302e] uppercase">
-            SREENIDHI
-          </span>
-        </div>
-
-        {/* IGNITE Text */}
-        <div className="flex items-baseline gap-1.5">
-          <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-[#0b302e] leading-none group-hover:text-[#e26f1e] transition-colors">
-            IGNITE
-          </span>
-        </div>
-
-        {/* Tagline */}
-        <span className="text-[8px] sm:text-[9px] font-black tracking-[0.18em] text-[#e26f1e] uppercase whitespace-nowrap">
-          KINDLE THE INNOVATION WITHIN
-        </span>
-      </div>
-    </div>
+    <img
+      src={logoImage}
+      alt="Sreenidhi IGNITE"
+      className={`w-auto select-none ${className}`}
+      draggable={false}
+    />
   );
 }

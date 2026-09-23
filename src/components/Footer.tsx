@@ -20,7 +20,7 @@ export default function Footer({ onOpenRegister }: FooterProps) {
           {/* Col 1: Official Logo & Event Statement */}
           <div className="md:col-span-2 space-y-4">
             <div className="inline-block p-4 rounded-2xl bg-[#faf8f3]">
-              <IgniteLogo variant="horizontal" className="h-10" />
+              <IgniteLogo variant="horizontal" className="h-16" />
             </div>
 
             <p className="text-xs text-[#f4f0e8]/75 max-w-sm leading-relaxed font-medium">
