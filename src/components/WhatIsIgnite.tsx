@@ -32,6 +32,61 @@ export default function WhatIsIgnite() {
           </p>
         </div>
 
+        {/* Vision & Mission: the "why", between what IGNITE is and how it works */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+          {[
+            {
+              num: '01',
+              label: 'Our Vision',
+              Icon: Eye,
+              text: event.vision,
+              highlight: 'every student sees themselves as an innovator',
+              accent: 'bg-[#f28c28]',
+            },
+            {
+              num: '02',
+              label: 'Our Mission',
+              Icon: Target,
+              text: event.mission,
+              highlight: 'inspire and empower young innovators',
+              accent: 'bg-[#0b302e]',
+            },
+          ].map(({ num, label, Icon, text, highlight, accent }, idx) => {
+            const [before, after] = text.split(highlight);
+            return (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
+                whileHover={{ y: -4 }}
+                className="relative overflow-hidden rounded-3xl bg-[#f4f0e8] border-2 border-[#0b302e]/15 hover:border-[#0b302e]/40 transition-colors p-7 sm:p-9 pl-9 sm:pl-11"
+              >
+                {/* Accent bar */}
+                <span className={`absolute left-0 top-0 bottom-0 w-1.5 ${accent}`} aria-hidden="true" />
+                {/* Watermark icon */}
+                <Icon
+                  className="absolute -right-6 -bottom-6 w-40 h-40 text-[#0b302e] opacity-[0.05] stroke-[1.5] pointer-events-none"
+                  aria-hidden="true"
+                />
+
+                <div className="relative flex items-center gap-2.5 mb-4 font-mono text-xs uppercase tracking-widest font-black text-[#c2410c]">
+                  <span className="text-[#0b302e]/40">{num}</span>
+                  <span className="w-5 h-px bg-[#c2410c]/40" />
+                  <span>{label}</span>
+                </div>
+
+                <p className="relative font-display text-lg sm:text-xl font-bold text-[#0b302e] leading-snug">
+                  {before}
+                  <span className="text-[#c2410c]">{highlight}</span>
+                  {after}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Hackathon Box with Motion and 3D lift */}
           <motion.div
@@ -110,35 +165,6 @@ export default function WhatIsIgnite() {
               </span>
             </div>
           </motion.div>
-        </div>
-
-        {/* Vision & Mission */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-12">
-          {[
-            { label: 'Vision', icon: <Eye className="w-6 h-6 stroke-[2.5]" />, text: event.vision },
-            { label: 'Mission', icon: <Target className="w-6 h-6 stroke-[2.5]" />, text: event.mission },
-          ].map((item, idx) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="rounded-3xl p-8 sm:p-10 bg-[#f4f0e8] border-3 border-[#0b302e] shadow-[7px_7px_0px_#f28c28]"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#f28c28]/15 text-[#c2410c] border-2 border-[#f28c28]/40 flex items-center justify-center">
-                  {item.icon}
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-display font-black text-[#0b302e] uppercase tracking-tight">
-                  {item.label}
-                </h3>
-              </div>
-              <p className="text-sm sm:text-base text-[#0b302e]/85 font-medium leading-relaxed">
-                {item.text}
-              </p>
-            </motion.div>
-          ))}
         </div>
 
       </div>
