@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Register — Sreenidhi IGNITE</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div data-header></div>
+    <main>
+      <section class="wrap page-hero">
+        <p class="eyebrow">Your idea starts here</p>
+        <h1>READY TO<br />IGNITE?</h1>
+        <p>
+          Register your interest below. Connect this form to the event’s
+          approved registration destination before collecting submissions.
+        </p>
+      </section>
+      <section class="wrap page-content">
+        <form class="form">
+          <div class="form-section">
+            <h2>PARTICIPANT DETAILS</h2>
+            <div class="fields">
+              <label
+                >FULL NAME<input
+                  required
+                  name="name"
+                  placeholder="Your name" /></label
+              ><label
+                >SCHOOL<input required name="school" placeholder="School name"
+              /></label>
+            </div>
+          </div>
+          <div class="form-section">
+            <h2>TEAM DETAILS</h2>
+            <div class="fields">
+              <label
+                >TEAM NAME<input name="team" placeholder="Team name" /></label
+              ><label
+                >TEAM MEMBERS<textarea
+                  name="members"
+                  placeholder="Add team members if applicable"
+                ></textarea>
+              </label>
+            </div>
+          </div>
+          <div class="form-section">
+            <h2>CHALLENGE</h2>
+            <label
+              >CHOOSE A CHALLENGE<select required name="challenge">
+                <option value="">Select one</option>
+                <option>Futuristic Fashion</option>
+                <option>App Development</option>
+                <option>Robotics</option>
+                <option>Game Development</option>
+              </select></label
+            >
+          </div>
+          <div class="form-section">
+            <h2>CONTACT</h2>
+            <div class="fields">
+              <label
+                >EMAIL ADDRESS<input
+                  required
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com" /></label
+              ><label
+                >PHONE NUMBER<input
+                  name="phone"
+                  placeholder="[If required by official process]"
+              /></label>
+            </div>
+          </div>
+          <p class="form-note">
+            This form is currently a safe front-end interface only; submissions
+            will not be sent until the official registration workflow is
+            connected.
+          </p>
+          <button class="button" type="submit">
+            SUBMIT REGISTRATION <span class="arrow">→</span>
+          </button>
+          <p class="form-note" data-form-status aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <div data-footer></div>
+    <script src="../app.js"></script>
+  </body>
+</html>
