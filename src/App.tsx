@@ -6,7 +6,6 @@ import WhatIsIgnite from './components/WhatIsIgnite';
 import WhenAndWho from './components/WhenAndWho';
 import IgniteStructure from './components/IgniteStructure';
 import OverarchingTheme from './components/OverarchingTheme';
-import ChallengesDetailSection, { type PathwayFilter } from './components/ChallengesDetailSection';
 import IdeaToImpact from './components/IdeaToImpact';
 import Gallery from './components/Gallery';
 import ParticipantChecklist from './components/ParticipantChecklist';
@@ -32,22 +31,6 @@ export default function App() {
 
   const handleOpenRegister = () => setIsRegisterOpen(true);
 
-  // Flow chart (in IGNITE Structure) drives the filters in the Challenges section
-  const [activeFilter, setActiveFilter] = useState<PathwayFilter>('all');
-  const [highlightedPathwayId, setHighlightedPathwayId] = useState<string | null>(null);
-
-  const handleFlowChartSelect = (filter: PathwayFilter, pathwayId?: string) => {
-    setActiveFilter(filter);
-    setHighlightedPathwayId(pathwayId ?? null);
-    // Smooth scroll to the specific card, or to the challenges section
-    setTimeout(() => {
-      const el = document.getElementById(pathwayId ? `pathway-card-${pathwayId}` : 'challenges');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: pathwayId ? 'center' : 'start' });
-      }
-    }, 100);
-  };
-
   return (
     <BrowserRouter>
       <PageChange />
@@ -57,7 +40,7 @@ export default function App() {
 
         <main>
           <Routes>
-            {/* Home: overview, dates, who can take part */}
+            {/* Home: overview, dates, who can take part, gallery */}
             <Route
               path="/"
               element={
@@ -66,28 +49,17 @@ export default function App() {
                   <WhatIsIgnite />
                   <WhenAndWho />
                   <ReadyToIgnite onOpenRegister={() => handleOpenRegister()} />
+                  <Gallery />
                 </>
               }
             />
 
-            {/* Challenges: structure, flow chart, challenge guides, theme */}
+            {/* Challenges: structure, flow chart with expandable guides, theme */}
             <Route
               path="/challenges"
               element={
                 <>
-                  <IgniteStructure
-                    activePathwayId={highlightedPathwayId}
-                    onSelectNode={handleFlowChartSelect}
-                  >
-                    {/* Junior & Senior Challenge guides */}
-                    <ChallengesDetailSection
-                      onRegisterPathway={() => handleOpenRegister()}
-                      activeFilter={activeFilter}
-                      setActiveFilter={setActiveFilter}
-                      highlightedPathwayId={highlightedPathwayId}
-                      setHighlightedPathwayId={setHighlightedPathwayId}
-                    />
-                  </IgniteStructure>
+                  <IgniteStructure onSelectPathway={() => handleOpenRegister()} />
                   <OverarchingTheme />
                 </>
               }

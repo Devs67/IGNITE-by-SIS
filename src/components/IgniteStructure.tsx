@@ -1,16 +1,12 @@
-import type { ReactNode } from 'react';
 import { Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import IgniteFlowChart from './IgniteFlowChart';
-import type { PathwayFilter } from './ChallengesDetailSection';
 
 interface IgniteStructureProps {
-  activePathwayId: string | null;
-  onSelectNode: (filter: PathwayFilter, pathwayId?: string) => void;
-  children?: ReactNode;
+  onSelectPathway: (pathwayId: string) => void;
 }
 
-export default function IgniteStructure({ activePathwayId, onSelectNode, children }: IgniteStructureProps) {
+export default function IgniteStructure({ onSelectPathway }: IgniteStructureProps) {
   return (
     <section id="structure" className="py-24 sm:py-32 relative bg-[#f4f0e8] border-t-2 border-[#0b302e]/10 text-[#172220] overflow-clip">
       {/* Subtle geometric circles in background */}
@@ -38,12 +34,7 @@ export default function IgniteStructure({ activePathwayId, onSelectNode, childre
 
         {/* ================= OFFICIAL FLOW CHART HERE ================= */}
         {/* Hierarchy: IGNITE -> Junior & Senior -> Hackathon & Makeathon (Game Dev, Rube Goldberg, App Dev, CAD) */}
-        <div className="mb-16">
-          <IgniteFlowChart activePathwayId={activePathwayId} onSelectNode={onSelectNode} />
-        </div>
-
-        {/* Challenge guides (moved from the former Challenges section) */}
-        {children}
+        <IgniteFlowChart onSelectPathway={onSelectPathway} />
       </div>
     </section>
   );
