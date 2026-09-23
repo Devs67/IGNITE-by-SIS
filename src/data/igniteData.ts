@@ -101,14 +101,6 @@ export const IGNITE_DATA = {
     }
   ],
 
-  eventFlow: [
-    { step: '01', title: 'IGNITE', desc: 'Sreenidhi International School' },
-    { step: '02', title: 'Event Type', desc: 'Hackathon & Makeathon' },
-    { step: '03', title: 'Category', desc: 'Junior & Senior Divisions' },
-    { step: '04', title: 'Grade Level', desc: 'MYP 1–3 & MYP 4–DP 2' },
-    { step: '05', title: 'Theme', desc: 'Engage · Challenge · Connect' }
-  ],
-
   overarchingTheme: {
     statement: 'Designers transform ideas into interactive systems that engage, challenge, and connect people.',
     pillars: [

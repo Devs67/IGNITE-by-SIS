@@ -1,17 +1,38 @@
-import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
+import { Calendar, MapPin, Users, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 
 export default function WhenAndWho() {
-  const { event, eventFlow } = IGNITE_DATA;
+  const { event } = IGNITE_DATA;
+
+  const facts = [
+    {
+      label: 'When',
+      icon: <Calendar className="w-6 h-6 stroke-[2.5]" />,
+      title: event.dates,
+      detail: 'Two days of building, testing, and presenting',
+    },
+    {
+      label: 'Where',
+      icon: <MapPin className="w-6 h-6 stroke-[2.5]" />,
+      title: 'New Design Block',
+      detail: 'SIS campus, Sreenidhi International School',
+    },
+    {
+      label: 'Who',
+      icon: <Users className="w-6 h-6 stroke-[2.5]" />,
+      title: 'MYP 1 – DP 2',
+      detail: 'Junior (MYP 1–3) and Senior (MYP 4–DP 2) divisions',
+    },
+  ];
 
   return (
     <section id="when-and-who" className="py-24 sm:py-32 relative bg-[#f4f0e8] border-t-2 border-[#0b302e]/10 text-[#172220]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -23,52 +44,47 @@ export default function WhenAndWho() {
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-black text-[#0b302e] tracking-tight">
             When &amp; Who?
           </h2>
-
-          <motion.div 
-            whileHover={{ scale: 1.03 }}
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-[#0b302e] text-[#f4f0e8] font-mono text-sm sm:text-base font-bold mt-6 shadow-[5px_5px_0px_#f28c28]"
-          >
-            <Calendar className="w-5 h-5 text-[#f6a44e]" />
-            <span>{event.dates}</span>
-          </motion.div>
         </div>
 
-        {/* Animated 5-step Event Flow from Page 3 */}
-        <div className="max-w-5xl mx-auto">
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#faf8f3] border-3 border-[#0b302e] shadow-[6px_6px_0px_#0b302e]">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#c2410c] font-black block mb-6 text-center">
-              OFFICIAL EVENT FLOW
-            </span>
-
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 items-center">
-              {eventFlow.map((step, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  whileHover={{ y: -4 }}
-                  className="relative group"
+        {/* When / Where / Who */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {facts.map((fact, idx) => (
+            <motion.div
+              key={fact.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className={`p-7 rounded-3xl border-3 border-[#0b302e] ${
+                idx === 0
+                  ? 'bg-[#0b302e] text-[#f4f0e8] shadow-[6px_6px_0px_#f28c28]'
+                  : 'bg-[#faf8f3] text-[#0b302e] shadow-[6px_6px_0px_#0b302e]'
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center border-2 ${
+                    idx === 0
+                      ? 'bg-white/10 text-[#f6a44e] border-white/20'
+                      : 'bg-[#f28c28]/15 text-[#c2410c] border-[#f28c28]/40'
+                  }`}
                 >
-                  <div className="p-4 rounded-2xl bg-[#f4f0e8] border-2 border-[#0b302e]/25 group-hover:border-[#0b302e] group-hover:bg-white text-center transition-all shadow-xs">
-                    <span className="font-mono text-[10px] sm:text-xs text-[#0b302e]/60 font-bold block">
-                      {step.step}
-                    </span>
-                    <span className="font-display text-xs sm:text-sm font-black text-[#0b302e] block mt-1">
-                      {step.title}
-                    </span>
-                  </div>
-
-                  {idx < eventFlow.length - 1 && (
-                    <div className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 z-10 text-[#f28c28] font-black text-base animate-pulse">
-                      →
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                  {fact.icon}
+                </div>
+                <span
+                  className={`font-mono text-xs uppercase tracking-widest font-black ${
+                    idx === 0 ? 'text-[#8fb9aa]' : 'text-[#c2410c]'
+                  }`}
+                >
+                  {fact.label}
+                </span>
+              </div>
+              <h3 className="font-display text-2xl font-black tracking-tight leading-tight">{fact.title}</h3>
+              <p className={`text-sm font-medium leading-relaxed mt-2 ${idx === 0 ? 'text-[#f4f0e8]/80' : 'text-[#0b302e]/75'}`}>
+                {fact.detail}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
