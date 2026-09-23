@@ -37,15 +37,15 @@ export const IGNITE_DATA = {
       type: 'Hackathon',
       theme: 'Code. Collaborate. Create impact.',
       description: 'Build smart digital solutions to solve real-world challenges.',
-      category: 'Junior',
-      gradeLevel: 'MYP 1–3'
+      category: 'Junior & Senior',
+      gradeLevel: 'MYP 1–DP 2'
     },
     {
       type: 'Makeathon',
       theme: 'Design. Build. Bring ideas to life.',
       description: 'Create tangible prototypes that inspire and make a difference.',
-      category: 'Senior',
-      gradeLevel: 'MYP 4–DP 2'
+      category: 'Junior & Senior',
+      gradeLevel: 'MYP 1–DP 2'
     }
   ],
 
