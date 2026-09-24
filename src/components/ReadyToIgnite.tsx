@@ -36,7 +36,7 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
             </div>
 
             <h2 className="text-4xl sm:text-6xl font-display font-black text-[#f4f0e8] tracking-tight leading-tight">
-              Ready to ignite?
+              Want to take part?
             </h2>
 
             <p className="text-xl sm:text-3xl font-display font-black text-[#f6a44e]">
