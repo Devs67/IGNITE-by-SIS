@@ -58,11 +58,11 @@ export const IGNITE_DATA = {
     },
     {
       question: 'Are the food stalls free?',
-      answer: 'Meals for registered participants are included. Food stalls on campus are open to everyone and are paid.'
+      answer: 'No. Meals are not included in the registration fee. Food stalls on campus are open to everyone and are paid.'
     },
     {
       question: 'How much is the registration fee, and what does it include?',
-      answer: 'Registration is ₹6,750 per team. It covers participation on both days of the event, meals and refreshments for participants, event materials, and a certificate of participation. Payment details and instructions are shared after you register.'
+      answer: 'Registration is ₹6,750 per team. It covers participation on both days of the event, event materials, and a certificate of participation. Meals are not included. Payment details and instructions are shared after you register.'
     },
     {
       question: 'Is there prize money?',
