@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import IgniteLogo from './IgniteLogo';
 
 const FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLScgqh2kHVoaYCsLhsKj3ZyObzNA1MS-LOvCfohdOE0kpd7iGg/viewform';
+  'https://docs.google.com/forms/d/e/1FAIpQLSeUCZjWmYd1HTnCY304Tj6twaeY1lZiKuceFpPDo57GLkzWKQ/viewform';
 
 interface RegisterModalProps {
   isOpen: boolean;
