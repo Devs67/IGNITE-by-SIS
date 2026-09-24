@@ -12,7 +12,8 @@ const field =
   'w-full rounded-xl bg-white border-2 border-[#0b302e]/20 focus:border-[#0b302e] focus:outline-none focus:ring-2 focus:ring-[#f28c28]/40 px-4 py-3 text-sm sm:text-base text-[#0b302e] placeholder:text-[#0b302e]/50';
 const label = 'block font-display text-sm font-bold text-[#0b302e] mb-1.5';
 
-export default function ContactForm() {
+// standalone: used on its own (Home) rather than continuing the FAQ section
+export default function ContactForm({ standalone = false }: { standalone?: boolean }) {
   const { contactEmail, instagram, instagramHandle } = IGNITE_DATA.event;
   const [status, setStatus] = useState<Status>('idle');
 
@@ -40,12 +41,17 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="pb-24 sm:pb-32 bg-[#f4f0e8] text-[#172220]">
+    <section
+      id="contact"
+      className={`${standalone ? 'py-24 sm:py-32 border-t-2 border-[#0b302e]/10' : 'pb-24 sm:pb-32'} bg-[#f4f0e8] text-[#172220]`}
+    >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-[#faf8f3] border-3 border-[#0b302e] shadow-[7px_7px_0px_#0b302e] overflow-hidden grid grid-cols-1 md:grid-cols-5">
           {/* Left: intro + other ways to reach us */}
           <div className="md:col-span-2 p-7 sm:p-9 bg-[#0b302e] text-[#f4f0e8]">
-            <h2 className="font-display text-2xl sm:text-3xl font-black tracking-tight">Still have a question?</h2>
+            <h2 className="font-display text-2xl sm:text-3xl font-black tracking-tight">
+              {standalone ? 'Have a question?' : 'Still have a question?'}
+            </h2>
             <p className="mt-3 text-sm sm:text-base text-[#f4f0e8]/85 font-medium leading-relaxed">
               Ask us anything about registration, the challenges, rules or taking part. We'll reply by email.
             </p>
