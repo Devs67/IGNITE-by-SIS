@@ -24,6 +24,8 @@ export const IGNITE_DATA = {
     prizeMoney: 'Up to ₹25,000',
     registrationFee: '₹6,750 per team',
     contactEmail: 'sisignite@sis.edu.in',
+    instagram: 'https://www.instagram.com/sreenidhi_ignite',
+    instagramHandle: '@sreenidhi_ignite',
     definition: 'A platform where students transform ideas into interactive systems, creative solutions, and meaningful experiences.',
     about: "Organised by the Design Department, IGNITE 2026–27 is a two-day innovation marathon held on 15–16 October 2026 in the New Design Block at the SIS campus. It brings together students from different schools to think creatively, work as a team, and turn ideas into practical solutions for real-world problems. This year's challenges span Game Development, App Development, Rube Goldberg Machines, and CAD Design, all built around one theme: designing interactive systems that engage, challenge, and connect people.",
     finalCall: 'Turn your ideas into something that engages, challenges, and connects. Step into IGNITE and kindle the innovation within.',
@@ -82,7 +84,7 @@ export const IGNITE_DATA = {
     },
     {
       question: 'Who do I contact with questions?',
-      answer: 'For any questions about registration, event categories, rules, or taking part, email us at sisignite@sis.edu.in.'
+      answer: 'For any questions about registration, event categories, rules, or taking part, use the question form below, email us at sisignite@sis.edu.in, or message us on Instagram at @sreenidhi_ignite.'
     }
   ],
 

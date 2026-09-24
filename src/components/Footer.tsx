@@ -1,4 +1,4 @@
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Instagram } from 'lucide-react';
 import { Link } from 'react-router';
 import IgniteLogo from './IgniteLogo';
 import { PAGES } from '../pages';
@@ -86,6 +86,15 @@ export default function Footer({ onOpenRegister }: FooterProps) {
                   {event.contactEmail}
                 </a>
               </div>
+              <a
+                href={event.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[11px] font-mono font-semibold text-[#f6a44e] hover:underline"
+              >
+                <Instagram className="w-4 h-4" aria-hidden="true" />
+                {event.instagramHandle}
+              </a>
             </div>
           </div>
         </div>

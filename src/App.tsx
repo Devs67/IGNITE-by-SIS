@@ -17,6 +17,7 @@ const OverarchingTheme = lazy(() => import('./components/OverarchingTheme'));
 const IdeaToImpact = lazy(() => import('./components/IdeaToImpact'));
 const ParticipantChecklist = lazy(() => import('./components/ParticipantChecklist'));
 const FAQ = lazy(() => import('./components/FAQ'));
+const ContactForm = lazy(() => import('./components/ContactForm'));
 
 // Home keeps the description from index.html; other pages get their own
 const meta = typeof document !== 'undefined' ? document.querySelector('meta[name="description"]') : null;
@@ -89,7 +90,15 @@ export default function App() {
             />
 
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/faq" element={<FAQ />} />
+            <Route
+              path="/faq"
+              element={
+                <>
+                  <FAQ />
+                  <ContactForm />
+                </>
+              }
+            />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           </Suspense>

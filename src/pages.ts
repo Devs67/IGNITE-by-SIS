@@ -29,6 +29,6 @@ export const PAGES = [
     path: '/faq',
     label: 'FAQs',
     title: 'FAQs — Sreenidhi IGNITE',
-    blurb: 'Answers to common questions about taking part',
+    blurb: 'Common questions, plus a form to ask your own',
   },
 ];
