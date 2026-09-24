@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Lightbulb, Presentation, ChevronRight } from 'lucide-react';
+import { Lightbulb, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 import identifyWebm from '../assets/videos/identify.webm';
@@ -12,6 +12,8 @@ import createWebm from '../assets/videos/create.webm';
 import createMp4 from '../assets/videos/create.mp4';
 import testWebm from '../assets/videos/test.webm';
 import testMp4 from '../assets/videos/test.mp4';
+import presentWebm from '../assets/videos/present.webm';
+import presentMp4 from '../assets/videos/present.mp4';
 
 // Looping icon video: plays while on screen, pauses when scrolled away
 function IconVideo({ webm, mp4 }: { webm: string; mp4: string }) {
@@ -74,7 +76,7 @@ export default function IdeaToImpact() {
       case '05':
         return <IconVideo webm={testWebm} mp4={testMp4} />;
       case '06':
-        return <Presentation className="w-8 h-8 stroke-[2.5]" />;
+        return <IconVideo webm={presentWebm} mp4={presentMp4} />;
       default:
         return <Lightbulb className="w-8 h-8 stroke-[2.5]" />;
     }
