@@ -138,7 +138,7 @@ export default function Hero({ onOpenRegister }: HeroProps) {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#f28c28] via-[#e26f1e] to-[#f28c28] text-[#172220] font-display text-sm font-black uppercase tracking-wider shadow-[0_10px_30px_rgba(242,140,40,0.4)] hover:shadow-[0_15px_40px_rgba(242,140,40,0.6)] transition-all"
             >
               <Flame className="w-5 h-5 fill-current" />
-              <span>Ready to Ignite?</span>
+              <span>Register Now</span>
               <ArrowRight className="w-4 h-4 stroke-[3]" />
             </motion.button>
 

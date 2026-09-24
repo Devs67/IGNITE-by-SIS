@@ -72,7 +72,7 @@ export default function Footer({ onOpenRegister }: FooterProps) {
                 onClick={onOpenRegister}
                 className="ignite-btn-primary !py-2.5 !px-5 text-xs font-display font-bold uppercase tracking-wider block"
               >
-                Ready to Ignite?
+                Register Now
               </button>
               <p className="text-[11px] text-[#f4f0e8]/60 font-medium">
                 "Turn your ideas into something that engages, challenges, and connects."

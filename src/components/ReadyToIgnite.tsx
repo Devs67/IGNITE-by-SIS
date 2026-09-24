@@ -66,7 +66,7 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
                 onClick={onOpenRegister}
                 className="inline-flex items-center justify-center gap-3 px-10 py-4.5 rounded-2xl bg-[#f28c28] hover:bg-[#e26f1e] text-[#172220] font-display text-sm sm:text-base font-black tracking-wider uppercase shadow-[0_10px_30px_rgba(242,140,40,0.5)] transition-all"
               >
-                <span>Step Into IGNITE</span>
+                <span>Register Now</span>
                 <ArrowRight className="w-4 h-4 stroke-[3]" />
               </motion.button>
             </div>

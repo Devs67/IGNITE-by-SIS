@@ -114,7 +114,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
               onClick={onOpenRegister}
               className="ignite-btn-primary hidden sm:inline-flex !py-2.5 !px-5 text-xs font-display uppercase tracking-wider font-bold"
             >
-              <span>Ready to Ignite?</span>
+              <span>Register Now</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </button>
 
@@ -162,7 +162,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
                   }}
                   className="w-full ignite-btn-primary !py-3 text-xs uppercase font-bold"
                 >
-                  <span>Ready to Ignite?</span>
+                  <span>Register Now</span>
                   <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                 </button>
               </div>

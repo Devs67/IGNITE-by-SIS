@@ -363,7 +363,7 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
                     : 'bg-[#f28c28] text-[#172220] hover:bg-[#e26f1e]'
                 }`}
               >
-                <span>Select Pathway</span>
+                <span>Register for This Challenge</span>
                 <span className="font-bold text-sm">→</span>
               </button>
             </div>
