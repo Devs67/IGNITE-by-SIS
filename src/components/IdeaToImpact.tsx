@@ -129,7 +129,7 @@ export default function IdeaToImpact() {
             From Idea to Impact
           </h2>
           <p className="text-base sm:text-xl text-[#0b302e]/80 mt-3 font-medium">
-            A step-by-step journey from concept to change.
+            Identify a challenge, explore ideas, design your solution, build and test it, refine your work, and present your final creation with impact.
           </p>
         </div>
 

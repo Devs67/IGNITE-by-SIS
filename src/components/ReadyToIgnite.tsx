@@ -69,6 +69,10 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
                 <span>Register Now</span>
                 <ArrowRight className="w-4 h-4 stroke-[3]" />
               </motion.button>
+              <p className="mt-5 text-sm text-[#f4f0e8]/85 font-medium">
+                <span className="font-bold text-[#f6a44e]">{event.registrationFee}</span> · Prizes {event.prizeMoney.toLowerCase()}
+                <span className="block text-xs text-[#f4f0e8]/70 mt-1">Payment details and instructions are shared after you register.</span>
+              </p>
             </div>
           </div>
         </motion.div>

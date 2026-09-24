@@ -1,6 +1,7 @@
 import { X, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import IgniteLogo from './IgniteLogo';
+import { IGNITE_DATA } from '../data/igniteData';
 
 const FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSeUCZjWmYd1HTnCY304Tj6twaeY1lZiKuceFpPDo57GLkzWKQ/viewform';
@@ -56,6 +57,12 @@ export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
             <span>Form not loading? Open it in a new tab</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
+          <p className="mt-1 text-[11px] text-[#0b302e]/80 font-medium">
+            Questions? Email{' '}
+            <a href={`mailto:${IGNITE_DATA.event.contactEmail}`} className="font-bold underline hover:text-[#c2410c]">
+              {IGNITE_DATA.event.contactEmail}
+            </a>
+          </p>
         </div>
       </motion.div>
     </div>

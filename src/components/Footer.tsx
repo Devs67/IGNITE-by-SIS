@@ -80,6 +80,12 @@ export default function Footer({ onOpenRegister }: FooterProps) {
               <div className="text-[11px] text-[#8fb9aa] font-mono font-semibold pt-2">
                 Venue: Sreenidhi International School
               </div>
+              <div className="text-[11px] font-mono font-semibold">
+                <span className="text-[#8fb9aa]">Contact: </span>
+                <a href={`mailto:${event.contactEmail}`} className="text-[#f6a44e] hover:underline">
+                  {event.contactEmail}
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -187,7 +187,7 @@ export default function CountdownTimer() {
           <span className="font-display text-[11px] sm:text-xs font-bold text-white/80">
             {timeLeft.isLive
               ? 'IGNITE is happening right now!'
-              : 'Prepare your team · 48 Hours of Innovation at Sreenidhi'}
+              : 'Prepare your team · Two days of innovation at Sreenidhi'}
           </span>
           <Sparkles className="w-3.5 h-3.5 text-[#f6a44e]" />
         </div>

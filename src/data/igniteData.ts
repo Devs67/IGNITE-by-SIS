@@ -21,6 +21,9 @@ export const IGNITE_DATA = {
     dates: '15-16 October 2026',
     school: 'Sreenidhi International School',
     tagline: 'Kindle the innovation within',
+    prizeMoney: 'Up to ₹25,000',
+    registrationFee: '₹6,750 per team',
+    contactEmail: 'sisignite@sis.edu.in',
     definition: 'A platform where students transform ideas into interactive systems, creative solutions, and meaningful experiences.',
     about: "Organised by the Design Department, IGNITE 2026–27 is a two-day innovation marathon held on 15–16 October 2026 in the New Design Block at the SIS campus. It brings together students from different schools to think creatively, work as a team, and turn ideas into practical solutions for real-world problems. This year's challenges span Game Development, App Development, Rube Goldberg Machines, and CAD Design, all built around one theme: designing interactive systems that engage, challenge, and connect people.",
     finalCall: 'Turn your ideas into something that engages, challenges, and connects. Step into IGNITE and kindle the innovation within.',
@@ -31,11 +34,11 @@ export const IGNITE_DATA = {
   faqs: [
     {
       question: 'Who can participate?',
-      answer: 'IGNITE is open to students from MYP 1 to DP 2. Participants compete in two divisions: Junior (MYP 1–3) and Senior (MYP 4–DP 2). Each division has both a Hackathon and a Makeathon challenge.'
+      answer: 'IGNITE is open to students from MYP 1 to DP 2 (Grades 6 to 12). Participants compete in two divisions: Junior (MYP 1–3, Grades 6–8) and Senior (MYP 4–DP 2, Grades 9–12). Each division has both a Hackathon and a Makeathon challenge.'
     },
     {
       question: 'Do I need programming experience to participate?',
-      answer: 'It depends on your challenge. The Junior Hackathon uses Scratch or code.org, so beginners are welcome. The Senior Hackathon (App Development) expects basic programming knowledge. The Makeathons need no coding: juniors build a Rube Goldberg machine by hand, and seniors should be comfortable with the basics of Fusion 360 or SketchUp.'
+      answer: 'It depends on your challenge. The Junior Hackathon uses Scratch or code.org, so beginners are welcome. The Senior Hackathon (App Development) expects basic programming knowledge. The Makeathons need no coding: juniors build a Rube Goldberg machine by hand, and seniors should be comfortable with the basics of Fusion 360 or Blender.'
     },
     {
       question: 'What kind of projects can I create?',
@@ -58,8 +61,12 @@ export const IGNITE_DATA = {
       answer: 'Meals for registered participants are included. Food stalls on campus are open to everyone and are paid.'
     },
     {
-      question: 'What does the registration fee include?',
-      answer: 'The registration fee covers participation in both days of the event, meals and refreshments for participants, event materials, and a certificate of participation.'
+      question: 'How much is the registration fee, and what does it include?',
+      answer: 'Registration is ₹6,750 per team. It covers participation on both days of the event, meals and refreshments for participants, event materials, and a certificate of participation. Payment details and instructions are shared after you register.'
+    },
+    {
+      question: 'Is there prize money?',
+      answer: 'Yes. Winning teams can take home prizes worth up to ₹25,000.'
     },
     {
       question: 'Is there an emergency evacuation plan?',
@@ -72,6 +79,10 @@ export const IGNITE_DATA = {
     {
       question: 'Is there a specific dress code?',
       answer: 'Participants should wear their school uniform. Makeathon teams should wear closed-toe shoes for safety.'
+    },
+    {
+      question: 'Who do I contact with questions?',
+      answer: 'For any questions about registration, event categories, rules, or taking part, email us at sisignite@sis.edu.in.'
     }
   ],
 
@@ -95,7 +106,7 @@ export const IGNITE_DATA = {
       type: 'Makeathon',
       theme: 'Design. Build. Bring ideas to life.',
       description: 'Create tangible prototypes that inspire and make a difference.',
-      detail: 'Teams design and build something physical. Juniors construct a Rube Goldberg machine from recycled, everyday materials, and seniors use Fusion 360 or SketchUp to redesign an everyday object. The focus is hands-on engineering, creative problem-solving, and rapid prototyping for real-life problems.',
+      detail: 'Teams design and build something physical. Juniors construct a Rube Goldberg machine from recycled, everyday materials, and seniors use Fusion 360 or Blender to redesign an everyday object. The focus is hands-on engineering, creative problem-solving, and rapid prototyping for real-life problems.',
       category: 'Junior & Senior',
       gradeLevel: 'MYP 1–DP 2'
     }
@@ -206,7 +217,7 @@ export const IGNITE_DATA = {
       title: 'Senior Makeathon',
       subtitle: 'CAD Design',
       gradeLevel: 'MYP 4–DP 2',
-      tools: 'Fusion 360, SketchUp',
+      tools: 'Fusion 360, Blender',
       quote: 'A well-designed object doesn’t just work — it decides who it works for, and a good designer can choose to widen that circle.',
       directions: [
         {

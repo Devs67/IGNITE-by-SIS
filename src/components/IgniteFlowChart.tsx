@@ -20,7 +20,7 @@ const TILES: Record<string, { short: string; icon: ReactNode; theme: string }> =
   'junior-hackathon': { short: 'Scratch / code.org', icon: <Code2 className="w-3.5 h-3.5 text-[#f28c28]" />, theme: 'Theme 1 · Hackathon' },
   'junior-makeathon': { short: 'Recycled Materials', icon: <Wrench className="w-3.5 h-3.5 text-[#0b302e]" />, theme: 'Theme 2 · Makeathon' },
   'senior-hackathon': { short: 'Mobile & Web Systems', icon: <Smartphone className="w-3.5 h-3.5 text-[#f28c28]" />, theme: 'Theme 1 · Hackathon' },
-  'senior-makeathon': { short: 'Fusion 360 / SketchUp', icon: <Box className="w-3.5 h-3.5 text-[#0b302e]" />, theme: 'Theme 2 · Makeathon' },
+  'senior-makeathon': { short: 'Fusion 360 / Blender', icon: <Box className="w-3.5 h-3.5 text-[#0b302e]" />, theme: 'Theme 2 · Makeathon' },
 };
 
 // Connector between one parent (centred above) and two children laid out in a
@@ -189,7 +189,7 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
           <div className="text-left">
             <div className="font-display text-lg font-black tracking-tight leading-tight">{division.toUpperCase()}</div>
             <div className={`text-[10px] font-mono font-bold ${isJunior ? 'text-[#8fb9aa]' : 'text-[#172220]/80'}`}>
-              Grade: {isJunior ? 'MYP 1–3' : 'MYP 4–DP 2'}
+              {isJunior ? 'MYP 1–3 · Grades 6–8' : 'MYP 4–DP 2 · Grades 9–12'}
             </div>
           </div>
         </div>

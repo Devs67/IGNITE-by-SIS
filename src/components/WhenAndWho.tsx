@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Users } from 'lucide-react';
+import { Calendar, MapPin, Users, Trophy, Ticket, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -22,7 +22,7 @@ export default function WhenAndWho() {
       label: 'Who',
       icon: <Users className="w-6 h-6 stroke-[2.5]" />,
       title: 'MYP 1 – DP 2',
-      detail: 'Junior (MYP 1–3) and Senior (MYP 4–DP 2) divisions',
+      detail: 'Junior: MYP 1–3 (Grades 6–8) · Senior: MYP 4–DP 2 (Grades 9–12)',
     },
   ];
 
@@ -76,6 +76,33 @@ export default function WhenAndWho() {
               </p>
             </motion.div>
           ))}
+        </div>
+
+        {/* Prize money, fee and contact */}
+        <div className="max-w-5xl mx-auto mt-6 rounded-3xl bg-[#faf8f3] border-2 border-[#0b302e]/15 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#0b302e]/15">
+          <div className="p-5 sm:p-6 flex items-center gap-3">
+            <Trophy className="w-6 h-6 shrink-0 text-[#c2410c]" aria-hidden="true" />
+            <div>
+              <span className="block font-mono text-[11px] uppercase tracking-widest font-black text-[#9a3412]">Prize money</span>
+              <span className="block font-display text-lg font-black text-[#0b302e]">{event.prizeMoney}</span>
+            </div>
+          </div>
+          <div className="p-5 sm:p-6 flex items-center gap-3">
+            <Ticket className="w-6 h-6 shrink-0 text-[#c2410c]" aria-hidden="true" />
+            <div>
+              <span className="block font-mono text-[11px] uppercase tracking-widest font-black text-[#9a3412]">Registration fee</span>
+              <span className="block font-display text-lg font-black text-[#0b302e]">{event.registrationFee}</span>
+            </div>
+          </div>
+          <div className="p-5 sm:p-6 flex items-center gap-3 min-w-0">
+            <Mail className="w-6 h-6 shrink-0 text-[#c2410c]" aria-hidden="true" />
+            <div className="min-w-0">
+              <span className="block font-mono text-[11px] uppercase tracking-widest font-black text-[#9a3412]">Questions?</span>
+              <a href={`mailto:${event.contactEmail}`} className="block font-display text-base font-black text-[#0b302e] underline decoration-[#f28c28] decoration-2 underline-offset-4 hover:text-[#c2410c] break-all">
+                {event.contactEmail}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
