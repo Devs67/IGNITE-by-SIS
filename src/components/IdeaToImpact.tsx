@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Lightbulb, Wrench, CheckSquare, Presentation, ChevronRight } from 'lucide-react';
+import { Lightbulb, Presentation, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 import identifyWebm from '../assets/videos/identify.webm';
@@ -8,6 +8,10 @@ import ideateWebm from '../assets/videos/ideate.webm';
 import ideateMp4 from '../assets/videos/ideate.mp4';
 import designWebm from '../assets/videos/design.webm';
 import designMp4 from '../assets/videos/design.mp4';
+import createWebm from '../assets/videos/create.webm';
+import createMp4 from '../assets/videos/create.mp4';
+import testWebm from '../assets/videos/test.webm';
+import testMp4 from '../assets/videos/test.mp4';
 
 // Looping icon video: plays while on screen, pauses when scrolled away
 function IconVideo({ webm, mp4 }: { webm: string; mp4: string }) {
@@ -66,9 +70,9 @@ export default function IdeaToImpact() {
       case '03':
         return <IconVideo webm={designWebm} mp4={designMp4} />;
       case '04':
-        return <Wrench className="w-8 h-8 stroke-[2.5]" />;
+        return <IconVideo webm={createWebm} mp4={createMp4} />;
       case '05':
-        return <CheckSquare className="w-8 h-8 stroke-[2.5]" />;
+        return <IconVideo webm={testWebm} mp4={testMp4} />;
       case '06':
         return <Presentation className="w-8 h-8 stroke-[2.5]" />;
       default:
