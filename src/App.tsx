@@ -19,9 +19,7 @@ const IdeaToImpact = lazy(() => import('./components/IdeaToImpact'));
 const ParticipantChecklist = lazy(() => import('./components/ParticipantChecklist'));
 const FAQ = lazy(() => import('./components/FAQ'));
 
-// Home keeps the description from index.html; other pages get their own
 const meta = typeof document !== 'undefined' ? document.querySelector('meta[name="description"]') : null;
-const homeDescription = meta?.getAttribute('content') ?? '';
 
 // On every page change: jump to the top and set the browser tab title and description
 function PageChange() {
@@ -30,10 +28,7 @@ function PageChange() {
     window.scrollTo({ top: 0, behavior: 'instant' });
     const page = PAGES.find((p) => p.path === pathname) ?? PAGES[0];
     document.title = page.title;
-    meta?.setAttribute(
-      'content',
-      page.path === '/' ? homeDescription : `${page.blurb}. Sreenidhi IGNITE 2026-27 Hackathon & Makeathon, 15-16 October 2026.`,
-    );
+    meta?.setAttribute('content', page.description);
   }, [pathname]);
   return null;
 }

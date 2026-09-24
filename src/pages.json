@@ -1,0 +1,37 @@
+[
+  {
+    "path": "/",
+    "label": "Home",
+    "title": "Sreenidhi IGNITE — Student Innovation Marathon",
+    "blurb": "What IGNITE is, when it happens, and who can take part",
+    "description": "Sreenidhi IGNITE 2026-27: Hackathon & Makeathon (15-16 October 2026) at Sreenidhi International School. A platform where students transform ideas into interactive systems, creative solutions, and meaningful experiences."
+  },
+  {
+    "path": "/challenges",
+    "label": "Challenges",
+    "title": "Challenges — Sreenidhi IGNITE",
+    "blurb": "The four challenge pathways and the overarching theme",
+    "description": "The four IGNITE 2026-27 challenges: Game Development and Rube Goldberg Machine for Juniors (MYP 1-3, Grades 6-8), App Development and CAD Design for Seniors (MYP 4-DP 2, Grades 9-12)."
+  },
+  {
+    "path": "/journey",
+    "label": "Journey",
+    "title": "Journey — Sreenidhi IGNITE",
+    "blurb": "From idea to impact, plus your participant checklist",
+    "description": "The IGNITE journey: identify a challenge, ideate, design, create, test and present. Plus a participant checklist for the Hackathon and Makeathon."
+  },
+  {
+    "path": "/gallery",
+    "label": "Gallery",
+    "title": "Gallery — Sreenidhi IGNITE",
+    "blurb": "Moments of making, building, and presenting",
+    "description": "Photos from Sreenidhi IGNITE: students prototyping, building and presenting their creations at Sreenidhi International School, Hyderabad."
+  },
+  {
+    "path": "/faq",
+    "label": "FAQs",
+    "title": "FAQs — Sreenidhi IGNITE",
+    "blurb": "Common questions, plus a form to ask your own",
+    "description": "Sreenidhi IGNITE 2026-27 FAQs: who can take part, the ₹6,750 per team registration fee, prize money up to ₹25,000, what to bring, and how to contact the organisers."
+  }
+]
