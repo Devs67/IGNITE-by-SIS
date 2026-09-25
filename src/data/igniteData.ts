@@ -26,6 +26,8 @@ export const IGNITE_DATA = {
     contactEmail: 'sisignite@sis.edu.in',
     instagram: 'https://www.instagram.com/sreenidhi_ignite',
     instagramHandle: '@sreenidhi_ignite',
+    address: 'Aziznagar Village Rd, near TS Police Academy, Moinabad, Telangana 500075',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sreenidhi+International+School+Moinabad+Telangana+500075',
     definition: 'A platform where students transform ideas into interactive systems, creative solutions, and meaningful experiences.',
     about: "Organised by the Design Department, IGNITE 2026–27 is a two-day innovation marathon held on 15–16 October 2026 in the New Design Block at the SIS campus. It brings together students from different schools to think creatively, work as a team, and turn ideas into practical solutions for real-world problems. This year's challenges span Game Development, App Development, Rube Goldberg Machines, and CAD Design, all built around one theme: designing interactive systems that engage, challenge, and connect people.",
     finalCall: 'Turn your ideas into something that engages, challenges, and connects. Step into IGNITE and kindle the innovation within.',
