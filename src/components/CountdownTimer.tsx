@@ -10,8 +10,8 @@ interface TimeLeft {
   isLive: boolean;
 }
 
-// Target: October 15, 2026, 09:00:00 IST (Indian Standard Time: UTC+5:30)
-const TARGET_DATE = new Date('2026-10-15T09:00:00+05:30').getTime();
+// Target: November 5, 2026, 09:00:00 IST (Indian Standard Time: UTC+5:30)
+const TARGET_DATE = new Date('2026-11-05T09:00:00+05:30').getTime();
 
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -64,9 +64,9 @@ export default function CountdownTimer() {
       'IGNITE 2026-27: Kindle the Innovation Within. A flagship marathon featuring Junior and Senior Hackathons & Makeathons.'
     );
     const location = encodeURIComponent('Sreenidhi International School, Hyderabad, Telangana, India');
-    // Start: 2026-10-15 09:00 IST -> 20261015T033000Z
-    // End: 2026-10-16 18:00 IST -> 20261016T123000Z
-    const dates = '20261015T033000Z/20261016T123000Z';
+    // Start: 2026-11-05 09:00 IST -> 20261105T033000Z
+    // End: 2026-11-06 18:00 IST -> 20261106T123000Z
+    const dates = '20261105T033000Z/20261106T123000Z';
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
     
     window.open(googleCalendarUrl, '_blank', 'noopener,noreferrer');
@@ -120,7 +120,7 @@ export default function CountdownTimer() {
             </button>
 
             <span className="hidden sm:inline-block font-mono text-[10px] text-white/50">
-              15 Oct 2026 · 09:00 AM IST
+              5 Nov 2026 · 09:00 AM IST
             </span>
           </div>
         </div>
