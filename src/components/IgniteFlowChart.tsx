@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { Code2, Wrench, Smartphone, Box, X } from 'lucide-react';
+import { Code2, Wrench, Smartphone, Box, X, Pointer } from 'lucide-react';
 import IgniteLogo from './IgniteLogo';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -42,6 +42,8 @@ function Branch({ gap, dot = LINE, thickness = 3 }: { gap: string; dot?: string;
 export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProps) {
   const { pathways } = IGNITE_DATA;
   const [selection, setSelection] = useState<Selection>(null);
+  // Tapping-hand hint on the first challenge, until the visitor clicks something in the chart
+  const [showHint, setShowHint] = useState(true);
 
   const cardRef = useRef<HTMLDivElement>(null);
   const outerRef = useRef<HTMLDivElement>(null);
@@ -96,12 +98,15 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
   }, [selectedLeaf, scale]);
 
   const selectLeaf = (id: string) => {
+    setShowHint(false);
     setSelection((cur) => (cur?.kind === 'leaf' && cur.id === id ? null : { kind: 'leaf', id }));
     setTimeout(() => panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 150);
   };
 
-  const selectDivision = (division: Division) =>
+  const selectDivision = (division: Division) => {
+    setShowHint(false);
     setSelection((cur) => (cur?.kind === 'division' && cur.division === division ? null : { kind: 'division', division }));
+  };
 
   const renderTile = (id: string) => {
     const p = pathways.find((x) => x.id === id)!;
@@ -127,7 +132,7 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
         role="button"
         tabIndex={0}
         aria-expanded={isOpen}
-        className={`p-3.5 rounded-2xl cursor-pointer border-2 transition-all flex flex-col justify-between text-left ${
+        className={`relative p-3.5 rounded-2xl cursor-pointer border-2 transition-all flex flex-col justify-between text-left ${
           dimmed ? 'opacity-40' : ''
         } ${
           isOpen
@@ -157,6 +162,25 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
           <span className={isOpen ? (isHack ? 'text-[#f28c28]' : 'text-[#0b302e]') : 'text-[#c2410c]'}>{p.gradeLevel}</span>
           <span className="underline">{isOpen ? 'Hide Guide ↑' : 'View Guide ↓'}</span>
         </div>
+
+        {showHint && id === 'junior-hackathon' && (
+          // Anchored at the fingertip, which taps the middle of the tile
+          <span aria-hidden="true" className="absolute left-1/2 top-1/2 z-20 pointer-events-none">
+            {/* Ripple where the finger taps */}
+            <motion.span
+              className="absolute -left-6 -top-6 w-12 h-12 rounded-full border-3 border-[#f28c28]"
+              animate={{ scale: [0.3, 1.3], opacity: [0, 0.9, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut', times: [0, 0.4, 1] }}
+            />
+            <motion.span
+              className="block"
+              animate={{ x: [14, 0, 0, 14], y: [14, 0, 0, 14], scale: [1, 0.88, 0.88, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut', times: [0, 0.35, 0.55, 1] }}
+            >
+              <Pointer className="w-12 h-12 -ml-[16px] -mt-[4px] fill-[#f28c28] text-[#0b302e] stroke-[1.5] drop-shadow-[2px_2px_0px_#0b302e]" />
+            </motion.span>
+          </span>
+        )}
       </motion.div>
     );
   };
