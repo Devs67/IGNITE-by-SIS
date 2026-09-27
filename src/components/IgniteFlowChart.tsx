@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { Code2, Wrench, Smartphone, Box, X, Pointer } from 'lucide-react';
+import { Code2, Wrench, Smartphone, Box, X, Pointer, UsersRound } from 'lucide-react';
 import IgniteLogo from './IgniteLogo';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -238,6 +238,10 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
 
       {/* Flow Chart Header Badge */}
       <div className="text-center mb-8 relative z-10">
+        <span className="inline-flex items-center gap-2 mb-3 px-3.5 py-1.5 rounded-full bg-[#0b302e] text-[#f4f0e8] font-mono text-[11px] sm:text-xs font-bold">
+          <UsersRound className="w-3.5 h-3.5 text-[#f6a44e]" aria-hidden="true" />
+          Team size: {IGNITE_DATA.event.teamSize} · individuals welcome
+        </span>
         <p className="text-xs text-[#0b302e]/70 font-mono">
           Click a challenge to open its guide right here
         </p>

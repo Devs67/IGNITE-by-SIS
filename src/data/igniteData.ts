@@ -28,7 +28,7 @@ export const IGNITE_DATA = {
     tagline: 'Kindle the innovation within',
     prizeMoney: 'Up to ₹25,000',
     registrationFee: '₹6,750 per team',
-    teamSize: '1 to 4 students per team',
+    teamSize: '1–4 students',
     contactEmail: 'sisignite@sis.edu.in',
     instagram: 'https://www.instagram.com/sreenidhi_ignite',
     instagramHandle: '@sreenidhi_ignite',

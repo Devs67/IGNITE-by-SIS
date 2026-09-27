@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Users, Trophy, Ticket, Mail } from 'lucide-react';
+import { Calendar, MapPin, Users, UsersRound, Trophy, Ticket, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -22,7 +22,7 @@ export default function WhenAndWho() {
       label: 'Who',
       icon: <Users className="w-6 h-6 stroke-[2.5]" />,
       title: 'MYP 1 – DP 2',
-      detail: `Junior: MYP 1–3 (Grades 6–8) · Senior: MYP 4–DP 2 (Grades 9–12) · ${event.teamSize}, individuals welcome`,
+      detail: `Junior: MYP 1–3 (Grades 6–8) · Senior: MYP 4–DP 2 (Grades 9–12) · Teams of ${event.teamSize}, individuals welcome`,
     },
   ];
 
@@ -78,8 +78,8 @@ export default function WhenAndWho() {
           ))}
         </div>
 
-        {/* Prize money, fee and contact */}
-        <div className="max-w-5xl mx-auto mt-6 rounded-3xl bg-[#faf8f3] border-2 border-[#0b302e]/15 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#0b302e]/15">
+        {/* Prize money, fee, team size and contact */}
+        <div className="max-w-5xl mx-auto mt-6 rounded-3xl bg-[#faf8f3] border-2 border-[#0b302e]/15 grid grid-cols-1 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-[#0b302e]/15">
           <div className="p-5 sm:p-6 flex items-center gap-3">
             <Trophy className="w-6 h-6 shrink-0 text-[#c2410c]" aria-hidden="true" />
             <div>
@@ -92,6 +92,13 @@ export default function WhenAndWho() {
             <div>
               <span className="block font-mono text-[11px] uppercase tracking-widest font-black text-[#9a3412]">Registration fee</span>
               <span className="block font-display text-lg font-black text-[#0b302e]">{event.registrationFee}</span>
+            </div>
+          </div>
+          <div className="p-5 sm:p-6 flex items-center gap-3">
+            <UsersRound className="w-6 h-6 shrink-0 text-[#c2410c]" aria-hidden="true" />
+            <div>
+              <span className="block font-mono text-[11px] uppercase tracking-widest font-black text-[#9a3412]">Team size</span>
+              <span className="block font-display text-lg font-black text-[#0b302e]">{event.teamSize}</span>
             </div>
           </div>
           <div className="p-5 sm:p-6 flex items-center gap-3 min-w-0">

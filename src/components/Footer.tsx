@@ -103,6 +103,7 @@ export default function Footer({ onOpenRegister }: FooterProps) {
             <h2 className={heading}>Register</h2>
             <p className="text-[#f4f0e8]/85">
               <span className="block font-display text-lg font-black text-[#f4f0e8]">{event.registrationFee}</span>
+              <span className="block mt-0.5">Teams of {event.teamSize}</span>
               <span className="block mt-0.5">Prizes {event.prizeMoney.toLowerCase()}</span>
             </p>
             <button
