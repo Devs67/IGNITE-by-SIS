@@ -51,6 +51,10 @@ export const IGNITE_DATA = {
       answer: 'Teams can have a maximum of 4 students. You can also take part on your own as an individual.'
     },
     {
+      question: 'Can students from different grades be in the same team?',
+      answer: 'Yes, as long as everyone is in the same division. A Junior team can mix any grades from MYP 1–3 (Grades 6–8), and a Senior team can mix any grades from MYP 4–DP 2 (Grades 9–12). Junior and Senior students cannot be in the same team.'
+    },
+    {
       question: 'Do I need programming experience to participate?',
       answer: 'It depends on your challenge. The Junior Hackathon uses Scratch or code.org, so beginners are welcome. The Senior Hackathon (App Development) expects basic programming knowledge. The Makeathons need no coding: juniors build a Rube Goldberg machine by hand, and seniors should be comfortable with the basics of Fusion 360 or Blender.'
     },
