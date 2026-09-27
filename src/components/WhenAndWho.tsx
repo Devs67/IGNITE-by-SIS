@@ -22,7 +22,7 @@ export default function WhenAndWho() {
       label: 'Who',
       icon: <Users className="w-6 h-6 stroke-[2.5]" />,
       title: 'MYP 1 – DP 2',
-      detail: 'Junior: MYP 1–3 (Grades 6–8) · Senior: MYP 4–DP 2 (Grades 9–12)',
+      detail: `Junior: MYP 1–3 (Grades 6–8) · Senior: MYP 4–DP 2 (Grades 9–12) · ${event.teamSize}, individuals welcome`,
     },
   ];
 

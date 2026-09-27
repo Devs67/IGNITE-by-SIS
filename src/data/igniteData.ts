@@ -14,6 +14,11 @@ export interface ChallengePathway {
   }[];
 }
 
+export interface Person {
+  name: string;
+  role: string;
+}
+
 export const IGNITE_DATA = {
   event: {
     title: 'IGNITE 2026-27',
@@ -23,6 +28,7 @@ export const IGNITE_DATA = {
     tagline: 'Kindle the innovation within',
     prizeMoney: 'Up to ₹25,000',
     registrationFee: '₹6,750 per team',
+    teamSize: '1 to 4 students per team',
     contactEmail: 'sisignite@sis.edu.in',
     instagram: 'https://www.instagram.com/sreenidhi_ignite',
     instagramHandle: '@sreenidhi_ignite',
@@ -39,6 +45,10 @@ export const IGNITE_DATA = {
     {
       question: 'Who can participate?',
       answer: 'IGNITE is open to students from MYP 1 to DP 2 (Grades 6 to 12). Participants compete in two divisions: Junior (MYP 1–3, Grades 6–8) and Senior (MYP 4–DP 2, Grades 9–12). Each division has both a Hackathon and a Makeathon challenge.'
+    },
+    {
+      question: 'How many students can be in a team?',
+      answer: 'Teams can have a maximum of 4 students. You can also take part on your own as an individual.'
     },
     {
       question: 'Do I need programming experience to participate?',
@@ -89,6 +99,10 @@ export const IGNITE_DATA = {
       answer: 'For any questions about registration, event categories, rules, or taking part, use the question form below, email us at sisignite@sis.edu.in, or message us on Instagram at @sreenidhi_ignite.'
     }
   ],
+
+  // Add people as { name: '...', role: '...' }. While a list is empty its page says "announced soon".
+  committee: [] as Person[],
+  judges: [] as Person[],
 
   accreditations: [
     { label: 'IB Continuum', sub: 'Continuum de l\'IB' },

@@ -11,6 +11,7 @@ import PageNav from './components/PageNav';
 import Footer from './components/Footer';
 import RegisterModal from './components/RegisterModal';
 import { PAGES } from './pages';
+import { IGNITE_DATA } from './data/igniteData';
 
 // Other pages load their code only when visited, keeping the first load small
 const IgniteStructure = lazy(() => import('./components/IgniteStructure'));
@@ -18,6 +19,7 @@ const OverarchingTheme = lazy(() => import('./components/OverarchingTheme'));
 const IdeaToImpact = lazy(() => import('./components/IdeaToImpact'));
 const ParticipantChecklist = lazy(() => import('./components/ParticipantChecklist'));
 const FAQ = lazy(() => import('./components/FAQ'));
+const People = lazy(() => import('./components/People'));
 
 const meta = typeof document !== 'undefined' ? document.querySelector('meta[name="description"]') : null;
 
@@ -86,6 +88,26 @@ export default function App() {
             />
 
             <Route path="/gallery" element={<Gallery />} />
+            <Route
+              path="/committee"
+              element={
+                <People
+                  title="Organising Committee"
+                  intro="The people from the Design Department bringing IGNITE to life."
+                  people={IGNITE_DATA.committee}
+                />
+              }
+            />
+            <Route
+              path="/judges"
+              element={
+                <People
+                  title="Judges"
+                  intro="The experts who will review and score every team's work."
+                  people={IGNITE_DATA.judges}
+                />
+              }
+            />
             <Route
               path="/faq"
               element={

@@ -28,6 +28,20 @@
     "description": "Photos from Sreenidhi IGNITE: students prototyping, building and presenting their creations at Sreenidhi International School, Hyderabad."
   },
   {
+    "path": "/committee",
+    "label": "Committee",
+    "title": "Organising Committee — Sreenidhi IGNITE",
+    "blurb": "The team organising IGNITE",
+    "description": "Meet the organising committee behind Sreenidhi IGNITE 2026-27, the Hackathon & Makeathon run by the Design Department at Sreenidhi International School."
+  },
+  {
+    "path": "/judges",
+    "label": "Judges",
+    "title": "Judges — Sreenidhi IGNITE",
+    "blurb": "Who reviews and scores the teams",
+    "description": "Meet the judges of Sreenidhi IGNITE 2026-27, who review and score the Hackathon and Makeathon teams at Sreenidhi International School."
+  },
+  {
     "path": "/faq",
     "label": "FAQs",
     "title": "FAQs — Sreenidhi IGNITE",
