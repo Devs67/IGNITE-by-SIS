@@ -51,17 +51,17 @@ export default function App() {
         <main>
           <Suspense fallback={<div className="min-h-screen" />}>
           <Routes>
-            {/* Home: welcome popup, overview, flow chart, dates, who can take part, gallery, question form */}
+            {/* Home: welcome popup, flow chart, register, overview, dates, who can take part, gallery, question form */}
             <Route
               path="/"
               element={
                 <>
                   <WelcomePopup onOpenRegister={() => handleOpenRegister()} />
                   <Hero onOpenRegister={() => handleOpenRegister()} />
-                  <WhatIsIgnite />
                   <IgniteStructure onSelectPathway={() => handleOpenRegister()} />
-                  <WhenAndWho />
                   <ReadyToIgnite onOpenRegister={() => handleOpenRegister()} />
+                  <WhatIsIgnite />
+                  <WhenAndWho />
                   <Gallery />
                   <ContactForm standalone />
                 </>
