@@ -10,11 +10,12 @@ import ReadyToIgnite from './components/ReadyToIgnite';
 import PageNav from './components/PageNav';
 import Footer from './components/Footer';
 import RegisterModal from './components/RegisterModal';
+import IgniteStructure from './components/IgniteStructure';
+import WelcomePopup from './components/WelcomePopup';
 import { PAGES } from './pages';
 import { IGNITE_DATA } from './data/igniteData';
 
 // Other pages load their code only when visited, keeping the first load small
-const IgniteStructure = lazy(() => import('./components/IgniteStructure'));
 const OverarchingTheme = lazy(() => import('./components/OverarchingTheme'));
 const IdeaToImpact = lazy(() => import('./components/IdeaToImpact'));
 const ParticipantChecklist = lazy(() => import('./components/ParticipantChecklist'));
@@ -50,13 +51,15 @@ export default function App() {
         <main>
           <Suspense fallback={<div className="min-h-screen" />}>
           <Routes>
-            {/* Home: overview, dates, who can take part, gallery, question form */}
+            {/* Home: welcome popup, overview, flow chart, dates, who can take part, gallery, question form */}
             <Route
               path="/"
               element={
                 <>
+                  <WelcomePopup onOpenRegister={() => handleOpenRegister()} />
                   <Hero onOpenRegister={() => handleOpenRegister()} />
                   <WhatIsIgnite />
+                  <IgniteStructure onSelectPathway={() => handleOpenRegister()} />
                   <WhenAndWho />
                   <ReadyToIgnite onOpenRegister={() => handleOpenRegister()} />
                   <Gallery />
