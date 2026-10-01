@@ -1,6 +1,7 @@
 import { ArrowUp, ArrowUpRight, Calendar, Instagram, Mail, MapPin } from 'lucide-react';
 import { Link, NavLink } from 'react-router';
 import IgniteLogo from './IgniteLogo';
+import VisitCounter from './VisitCounter';
 import { PAGES } from '../pages';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -118,6 +119,7 @@ export default function Footer({ onOpenRegister }: FooterProps) {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#f4f0e8]/60 text-center md:text-left">
           <p>© 2026 Sreenidhi International School · Design Department</p>
+          <VisitCounter />
           <p className="font-mono text-[11px] tracking-wider text-[#8fb9aa]/90">
             {accreditations.map((acc) => acc.label.replace(' Accredited', '')).join(' · ')}
           </p>
