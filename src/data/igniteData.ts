@@ -17,6 +17,15 @@ export interface ChallengePathway {
 export interface Person {
   name: string;
   role: string;
+  quote?: string;
+}
+
+export interface StudentTeam {
+  name: string;
+  focus: string;
+  icon: 'event' | 'logistics' | 'finance' | 'participants' | 'technical' | 'media';
+  lead: string;
+  members: string[];
 }
 
 export const IGNITE_DATA = {
@@ -104,8 +113,31 @@ export const IGNITE_DATA = {
     }
   ],
 
-  // Add people as { name: '...', role: '...' }. While a list is empty its page says "announced soon".
-  committee: [] as Person[],
+  // Organising committee page. Any name left as '' shows as "To be announced".
+  committee: {
+    // Shown side by side at the top. The quote is optional.
+    leaders: [
+      { name: '', role: 'Head of School', quote: '' },
+      { name: '', role: 'Secondary School Principal', quote: '' }
+    ] as Person[],
+    // Student organising committee. Add names as members: ['Name', 'Name'].
+    studentTeams: [
+      { name: 'Event Coordinator', focus: 'Leads the plan and keeps both days on schedule', icon: 'event', lead: '', members: [] },
+      { name: 'Logistics Manager', focus: 'Venue, materials, and setup', icon: 'logistics', lead: '', members: [] },
+      { name: 'Sponsorship & Finance Coordinator', focus: 'Sponsors, budget, and prizes', icon: 'finance', lead: '', members: [] },
+      { name: 'Participant Relations and Registration Team', focus: 'Registrations and help for visiting teams', icon: 'participants', lead: '', members: [] },
+      { name: 'Technical Support Team', focus: 'Devices, setup, and tech help on the day', icon: 'technical', lead: '', members: [] },
+      { name: 'Media Team', focus: 'Photos, social media, and promotion', icon: 'media', lead: '', members: [] }
+    ] as StudentTeam[],
+    // Design Department. The first person is shown as the head.
+    design: [
+      { name: '', role: 'Head of Design' },
+      { name: '', role: 'Design Facilitator' },
+      { name: '', role: 'Design Facilitator' }
+    ] as Person[]
+  },
+
+  // Add people as { name: '...', role: '...' }. While the list is empty its page says "announced soon".
   judges: [] as Person[],
 
   accreditations: [

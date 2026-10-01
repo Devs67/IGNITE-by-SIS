@@ -2,6 +2,7 @@ import { ArrowUp, ArrowUpRight, Calendar, Instagram, Mail, MapPin } from 'lucide
 import { Link, NavLink } from 'react-router';
 import IgniteLogo from './IgniteLogo';
 import VisitCounter from './VisitCounter';
+import ContactForm from './ContactForm';
 import { PAGES } from '../pages';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -22,6 +23,9 @@ export default function Footer({ onOpenRegister }: FooterProps) {
   return (
     <footer className="border-t-2 border-[#0b302e] bg-[#172220] text-[#f4f0e8]/80 text-sm py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Enquiry form, on every page */}
+        <ContactForm />
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_1.2fr_1fr] gap-10 lg:gap-12 mb-14">
           {/* About */}
           <div className="space-y-4">

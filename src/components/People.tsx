@@ -8,7 +8,7 @@ interface PeopleProps {
   people: Person[];
 }
 
-const initials = (name: string) =>
+export const initials = (name: string) =>
   name
     .split(/\s+/)
     .filter((w) => /^[A-Za-z]/.test(w) && !/^(dr|mr|mrs|ms|prof)\.?$/i.test(w))
@@ -16,7 +16,7 @@ const initials = (name: string) =>
     .map((w) => w[0].toUpperCase())
     .join('');
 
-// A page listing people (organising committee, judges) as cards
+// A page listing people (judges) as cards
 export default function People({ title, intro, people }: PeopleProps) {
   return (
     <section className="py-24 sm:py-32 relative bg-[#f4f0e8] border-t-2 border-[#0b302e]/10 text-[#172220]">
