@@ -90,7 +90,9 @@ export default function App() {
             />
 
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/committee" element={<Committee />} />
+            <Route path="/team" element={<Committee />} />
+            {/* Old address of the Team page */}
+            <Route path="/committee" element={<Navigate to="/team" replace />} />
             <Route
               path="/judges"
               element={

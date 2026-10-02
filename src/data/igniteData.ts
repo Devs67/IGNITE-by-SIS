@@ -1,3 +1,9 @@
+import timBoulton from '../assets/images/team/tim-boulton.jpg';
+import aprajitaRalli from '../assets/images/team/aprajita-ralli.jpg';
+import ishitaBhattacharjee from '../assets/images/team/ishita-bhattacharjee.jpg';
+import chaitraR from '../assets/images/team/chaitra-r.jpg';
+import suhailKhan from '../assets/images/team/suhail-khan.jpg';
+
 export interface ChallengePathway {
   id: string;
   num: string;
@@ -17,15 +23,20 @@ export interface ChallengePathway {
 export interface Person {
   name: string;
   role: string;
+  grade?: string;
   quote?: string;
+  photo?: string;
+  bio?: string;
+  linkedin?: string;
+  mentoring?: string;
 }
 
 export interface StudentTeam {
   name: string;
   focus: string;
-  icon: 'event' | 'logistics' | 'finance' | 'participants' | 'technical' | 'media';
-  lead: string;
-  members: string[];
+  icon: 'logistics' | 'finance' | 'participants' | 'technical' | 'media';
+  // bio: a line or two on the student's expertise, shown in the popup when the tile is clicked
+  members: { name: string; grade: string; photo?: string; bio?: string }[];
 }
 
 export const IGNITE_DATA = {
@@ -113,27 +124,129 @@ export const IGNITE_DATA = {
     }
   ],
 
-  // Organising committee page. Any name left as '' shows as "To be announced".
+  // Team page. Any name left as '' shows as "To be announced".
   committee: {
     // Shown side by side at the top. The quote is optional.
+    // quote: add each leader's approved words here; it shows under the name. Empty shows nothing.
     leaders: [
-      { name: '', role: 'Head of School', quote: '' },
-      { name: '', role: 'Secondary School Principal', quote: '' }
+      {
+        name: 'Mr Tim Boulton',
+        role: 'Head of School',
+        quote: '',
+        photo: timBoulton
+      },
+      {
+        name: 'Mrs Aprajita Ralli',
+        role: 'Secondary School Principal',
+        quote: '',
+        photo: aprajitaRalli
+      }
     ] as Person[],
-    // Student organising committee. Add names as members: ['Name', 'Name'].
+    // Event coordinators, shown together in one tile under the leaders (first on the left, second on the right).
+    // photo: import the picture at the top of this file, as for the leaders.
+    coordinators: [
+      { name: 'Sriven Reddy Battalapalli', role: 'Makeathon Coordinator', grade: 'IBCP 1' },
+      { name: 'Anvi Reddy Kolanu', role: 'Hackathon Coordinator', grade: 'IBDP 1' }
+    ] as Person[],
+    // Student organising committee. Add members as { name: '...', grade: '...' }.
     studentTeams: [
-      { name: 'Event Coordinator', focus: 'Leads the plan and keeps both days on schedule', icon: 'event', lead: '', members: [] },
-      { name: 'Logistics Manager', focus: 'Venue, materials, and setup', icon: 'logistics', lead: '', members: [] },
-      { name: 'Sponsorship & Finance Coordinator', focus: 'Sponsors, budget, and prizes', icon: 'finance', lead: '', members: [] },
-      { name: 'Participant Relations and Registration Team', focus: 'Registrations and help for visiting teams', icon: 'participants', lead: '', members: [] },
-      { name: 'Technical Support Team', focus: 'Devices, setup, and tech help on the day', icon: 'technical', lead: '', members: [] },
-      { name: 'Media Team', focus: 'Photos, social media, and promotion', icon: 'media', lead: '', members: [] }
+      {
+        name: 'Logistics Managers',
+        focus: 'Venue, materials, and setup',
+        icon: 'logistics',
+        members: [
+          { name: 'Medha Reddy Gopireddy', grade: 'IBDP 1' },
+          { name: 'Varunika Neerati', grade: 'IBDP 1' },
+          { name: 'Vrithi Gouthareddy', grade: 'MYP 4' }
+        ]
+      },
+      {
+        name: 'Media Team',
+        focus: 'Photos, social media, and promotion',
+        icon: 'media',
+        members: [
+          { name: 'Risha Srivastava', grade: 'IBDP 1' },
+          { name: 'Srinika Mukherjee', grade: 'IBDP 1' },
+          { name: 'Akshara Saddi', grade: 'IBDP 1' },
+          { name: 'Ridhi Murari', grade: 'IBDP 1' }
+        ]
+      },
+      {
+        name: 'Participant Registration & Relations',
+        focus: 'Registrations and help for visiting teams',
+        icon: 'participants',
+        members: [
+          { name: 'Adith Reddy Adla', grade: 'MYP 4' },
+          { name: 'Aaryan Reddy Karra', grade: 'MYP 5' },
+          { name: 'Lasya Kandikatla', grade: '' },
+          { name: 'Ishanvi Reddy M', grade: 'MYP 5' }
+        ]
+      },
+      {
+        name: 'Tech Support Team',
+        focus: 'Devices, setup, and tech help on the day',
+        icon: 'technical',
+        members: [
+          { name: 'Jay Anand Krishna', grade: 'MYP 4' },
+          { name: 'Aryan Akula', grade: 'MYP 5' },
+          { name: 'Sree Vaibhav Reddy Kamireddi', grade: 'IBDP 1' }
+        ]
+      },
+      {
+        name: 'Sponsorship & Finance Team',
+        focus: 'Sponsors, budget, and prizes',
+        icon: 'finance',
+        members: [
+          { name: 'Kalidasu Ala', grade: 'MYP 5' },
+          { name: 'Kanik Mutha', grade: 'MYP 4' },
+          { name: 'Amogh Agarwal', grade: 'IBDP 1' }
+        ]
+      }
     ] as StudentTeam[],
-    // Design Department. The first person is shown as the head.
+    // Design Department. The first person is shown as the head, full width.
+    // linkedin: full profile address (https://www.linkedin.com/in/...). bio and photo are optional too.
+    // mentoring: the student team this teacher mentors. bio: leave a blank line (\n\n) between paragraphs.
+    // quote: a sentence taken from the bio, shown on the card under the name.
     design: [
-      { name: '', role: 'Head of Design' },
-      { name: '', role: 'Design Facilitator' },
-      { name: '', role: 'Design Facilitator' }
+      {
+        name: 'Mr Suhail Khan',
+        role: 'Head of Department',
+        mentoring: 'Finance Team',
+        quote:
+          'IGNITE is more than a competition. It helps students develop the curiosity to ask better questions, the confidence to share bold ideas, and the persistence to turn challenges into useful solutions.',
+        bio:
+          'As a Design educator, I see IGNITE as a chance for students to take an idea beyond the page and discover what it can become. Through designing, building, coding, testing, and refining, they experience the excitement of creating something of their own. They learn to listen to different perspectives, work as a team, and see an unexpected result as a reason to try again.' +
+          '\n\n' +
+          'IGNITE is more than a competition. It helps students develop the curiosity to ask better questions, the confidence to share bold ideas, and the persistence to turn challenges into useful solutions. Whether you love making things with your hands or creating something digital, bring your imagination and give it a go. What will you create?',
+        linkedin: '',
+        photo: suhailKhan
+      },
+      { name: 'Ms Sushma Goyal', role: 'Design Facilitator · HOD IT', mentoring: '', bio: '', linkedin: '' },
+      {
+        name: 'Ms Chaitra R',
+        role: 'Design Facilitator',
+        mentoring: 'Participant Registration & Relations',
+        quote: 'For me, the real value of IGNITE is not simply what students create at the end, but how they grow through the experience.',
+        bio:
+          'As an MYP & DP Design educator, I value opportunities that allow students to step outside the boundaries of a classroom and take ownership of their ideas. IGNITE creates that space. It challenges students to trust their thinking, take creative risks, respond to constraints, and work with others to bring an idea to life.' +
+          '\n\n' +
+          'For me, the real value of IGNITE is not simply what students create at the end, but how they grow through the experience—as confident thinkers, courageous creators, and young people who realise that their ideas have the potential to make a difference.',
+        linkedin: '',
+        photo: chaitraR
+      },
+      {
+        name: 'Ms Ishita Bhattacharjee',
+        role: 'Design Facilitator',
+        mentoring: 'Operations',
+        quote: 'If you enjoy questioning, experimenting, making, and learning through challenges, IGNITE is the place to be!',
+        bio:
+          'As an MYP Design educator, I believe IGNITE is an opportunity for students to move beyond ideas and experience the real process of designing, making, testing, and improving. It encourages students to think creatively, collaborate with others, embrace failure, and turn meaningful problems into innovative solutions.' +
+          '\n\n' +
+          'IGNITE is not just about building a product—it is about developing the mindset, skills, and confidence to become thoughtful problem-solvers and creators. If you enjoy questioning, experimenting, making, and learning through challenges, IGNITE is the place to be!',
+        linkedin: '',
+        photo: ishitaBhattacharjee
+      },
+      { name: 'Mr Dev', role: 'Design Facilitator', mentoring: '', bio: '', linkedin: '' }
     ] as Person[]
   },
 
