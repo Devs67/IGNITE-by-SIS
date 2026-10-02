@@ -246,7 +246,7 @@ export const IGNITE_DATA = {
         linkedin: '',
         photo: ishitaBhattacharjee
       },
-      { name: 'Mr Dev', role: 'Design Facilitator', mentoring: '', bio: '', linkedin: '' }
+      { name: 'Mr Devendhar B', role: 'Design Facilitator', mentoring: '', bio: '', linkedin: '' }
     ] as Person[]
   },
 
