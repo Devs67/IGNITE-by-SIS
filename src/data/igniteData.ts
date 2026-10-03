@@ -256,7 +256,7 @@ export const IGNITE_DATA = {
           "As a Design educator, I see IGNITE as a festival of innovation, where creating, building, and making take the main seat. Every child's ideas and thoughts are given the scope to be built, so they become something more than just thoughts." +
           '\n\n' +
           'When students see their own idea take shape, they start to believe that they can solve bigger problems.',
-        linkedin: '',
+        linkedin: 'https://www.linkedin.com/in/devender-bachhu-287670200/',
         photo: devendharB
       }
     ] as Person[]
