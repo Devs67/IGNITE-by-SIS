@@ -238,7 +238,7 @@ export const IGNITE_DATA = {
       {
         name: 'Ms Ishita Bhattacharjee',
         role: 'Design Facilitator',
-        mentoring: 'Operations',
+        mentoring: 'Operations & Sponsorship',
         quote: 'If you enjoy questioning, experimenting, making, and learning through challenges, IGNITE is the place to be!',
         bio:
           'As an MYP Design educator, I believe IGNITE is an opportunity for students to move beyond ideas and experience the real process of designing, making, testing, and improving. It encourages students to think creatively, collaborate with others, embrace failure, and turn meaningful problems into innovative solutions.' +

@@ -277,7 +277,7 @@ function CoordinatorsCard({ people, tileRef, onHover, onOpen }: TileProps & { pe
 function DesignCard({ person, head, delay, onOpen }: { person: Person; head: boolean; delay: number; onOpen: () => void }) {
   return (
     <motion.div {...reveal(delay)} {...opens(onOpen)} className={`p-6 sm:p-7 flex flex-col ${TILE}`}>
-      {/* LinkedIn button in the top corner; opens the profile without opening the popup */}
+      {/* LinkedIn-blue tab joined to the card's top-right corner; opens the profile without opening the popup */}
       {person.linkedin && (
         <a
           href={person.linkedin}
@@ -286,7 +286,7 @@ function DesignCard({ person, head, delay, onOpen }: { person: Person; head: boo
           aria-label={`${person.name} on LinkedIn`}
           onClick={(e) => e.stopPropagation()}
           onKeyDown={(e) => e.stopPropagation()}
-          className="absolute top-4 right-4 w-10 h-10 rounded-xl border-2 border-[#0b302e] bg-[#faf8f3] flex items-center justify-center hover:bg-[#f28c28] transition-colors"
+          className="absolute top-0 right-0 w-12 h-12 rounded-tr-[21px] rounded-bl-2xl border-l-3 border-b-3 border-[#0b302e] bg-[#0a66c2] text-white flex items-center justify-center hover:bg-[#004182] transition-colors"
         >
           <Linkedin className="w-5 h-5" aria-hidden="true" />
         </a>
