@@ -244,7 +244,7 @@ export const IGNITE_DATA = {
           'As an MYP Design educator, I believe IGNITE is an opportunity for students to move beyond ideas and experience the real process of designing, making, testing, and improving. It encourages students to think creatively, collaborate with others, embrace failure, and turn meaningful problems into innovative solutions.' +
           '\n\n' +
           'IGNITE is not just about building a product—it is about developing the mindset, skills, and confidence to become thoughtful problem-solvers and creators. If you enjoy questioning, experimenting, making, and learning through challenges, IGNITE is the place to be!',
-        linkedin: '',
+        linkedin: 'https://www.linkedin.com/in/ishita-bhattacharjee-3a3984193/',
         photo: ishitaBhattacharjee
       },
       {
