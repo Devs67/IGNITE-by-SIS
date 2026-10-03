@@ -247,7 +247,18 @@ export const IGNITE_DATA = {
         linkedin: '',
         photo: ishitaBhattacharjee
       },
-      { name: 'Mr Devendhar B', role: 'Design Facilitator', mentoring: '', bio: '', linkedin: '', photo: devendharB }
+      {
+        name: 'Mr Devendhar B',
+        role: 'Design Facilitator',
+        mentoring: 'Media & Tech Support',
+        quote: 'When students see their own idea take shape, they start to believe that they can solve bigger problems.',
+        bio:
+          "As a Design educator, I see IGNITE as a festival of innovation, where creating, building, and making take the main seat. Every child's ideas and thoughts are given the scope to be built, so they become something more than just thoughts." +
+          '\n\n' +
+          'When students see their own idea take shape, they start to believe that they can solve bigger problems.',
+        linkedin: '',
+        photo: devendharB
+      }
     ] as Person[]
   },
 

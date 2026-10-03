@@ -277,8 +277,22 @@ function CoordinatorsCard({ people, tileRef, onHover, onOpen }: TileProps & { pe
 function DesignCard({ person, head, delay, onOpen }: { person: Person; head: boolean; delay: number; onOpen: () => void }) {
   return (
     <motion.div {...reveal(delay)} {...opens(onOpen)} className={`p-6 sm:p-7 flex flex-col ${TILE}`}>
+      {/* LinkedIn button in the top corner; opens the profile without opening the popup */}
+      {person.linkedin && (
+        <a
+          href={person.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${person.name} on LinkedIn`}
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={(e) => e.stopPropagation()}
+          className="absolute top-4 right-4 w-10 h-10 rounded-xl border-2 border-[#0b302e] bg-[#faf8f3] flex items-center justify-center hover:bg-[#f28c28] transition-colors"
+        >
+          <Linkedin className="w-5 h-5" aria-hidden="true" />
+        </a>
+      )}
       <div className="flex-1 flex flex-col justify-center">
-        <div className="flex items-center gap-4">
+        <div className={`flex items-center gap-4 ${person.linkedin ? 'pr-10' : ''}`}>
           {person.photo ? (
             <img
               src={person.photo}
@@ -297,19 +311,6 @@ function DesignCard({ person, head, delay, onOpen }: { person: Person; head: boo
               </p>
             )}
           </div>
-          {person.linkedin && (
-            <a
-              href={person.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${person.name} on LinkedIn`}
-              onClick={(e) => e.stopPropagation()}
-              onKeyDown={(e) => e.stopPropagation()}
-              className="shrink-0 w-11 h-11 rounded-xl border-2 border-[#0b302e] flex items-center justify-center hover:bg-[#f28c28] transition-colors"
-            >
-              <Linkedin className="w-5 h-5" aria-hidden="true" />
-            </a>
-          )}
         </div>
         {/* A line from their write-up, across the full width of the card */}
         {person.quote && (
