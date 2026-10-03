@@ -3,6 +3,7 @@ import aprajitaRalli from '../assets/images/team/aprajita-ralli.jpg';
 import ishitaBhattacharjee from '../assets/images/team/ishita-bhattacharjee.jpg';
 import chaitraR from '../assets/images/team/chaitra-r.jpg';
 import suhailKhan from '../assets/images/team/suhail-khan.jpg';
+import devendharB from '../assets/images/team/devendhar-b.jpg';
 
 export interface ChallengePathway {
   id: string;
@@ -246,7 +247,7 @@ export const IGNITE_DATA = {
         linkedin: '',
         photo: ishitaBhattacharjee
       },
-      { name: 'Mr Devendhar B', role: 'Design Facilitator', mentoring: '', bio: '', linkedin: '' }
+      { name: 'Mr Devendhar B', role: 'Design Facilitator', mentoring: '', bio: '', linkedin: '', photo: devendharB }
     ] as Person[]
   },
 
