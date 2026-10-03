@@ -277,22 +277,21 @@ function CoordinatorsCard({ people, tileRef, onHover, onOpen }: TileProps & { pe
 function DesignCard({ person, head, delay, onOpen }: { person: Person; head: boolean; delay: number; onOpen: () => void }) {
   return (
     <motion.div {...reveal(delay)} {...opens(onOpen)} className={`p-6 sm:p-7 flex flex-col ${TILE}`}>
-      {/* LinkedIn-blue tab joined to the card's top-right corner; opens the profile without opening the popup */}
-      {person.linkedin && (
-        <a
-          href={person.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${person.name} on LinkedIn`}
-          onClick={(e) => e.stopPropagation()}
-          onKeyDown={(e) => e.stopPropagation()}
-          className="absolute top-0 right-0 w-12 h-12 rounded-tr-[21px] rounded-bl-2xl border-l-3 border-b-3 border-[#0b302e] bg-[#0a66c2] text-white flex items-center justify-center hover:bg-[#004182] transition-colors"
-        >
-          <Linkedin className="w-5 h-5" aria-hidden="true" />
-        </a>
-      )}
+      {/* LinkedIn-blue tab joined to the card's top-right corner; opens the profile without opening the popup.
+          Until a profile link is added in igniteData.ts, it opens the LinkedIn home page. */}
+      <a
+        href={person.linkedin || 'https://www.linkedin.com/'}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${person.name} on LinkedIn`}
+        onClick={(e) => e.stopPropagation()}
+        onKeyDown={(e) => e.stopPropagation()}
+        className="absolute top-0 right-0 w-12 h-12 rounded-tr-[21px] rounded-bl-2xl border-l-3 border-b-3 border-[#0b302e] bg-[#0a66c2] text-white flex items-center justify-center hover:bg-[#004182] transition-colors"
+      >
+        <Linkedin className="w-5 h-5" aria-hidden="true" />
+      </a>
       <div className="flex-1 flex flex-col justify-center">
-        <div className={`flex items-center gap-4 ${person.linkedin ? 'pr-10' : ''}`}>
+        <div className="flex items-center gap-4 pr-10">
           {person.photo ? (
             <img
               src={person.photo}
