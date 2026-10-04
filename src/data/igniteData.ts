@@ -219,7 +219,7 @@ export const IGNITE_DATA = {
           'As a Design educator, I see IGNITE as a chance for students to take an idea beyond the page and discover what it can become. Through designing, building, coding, testing, and refining, they experience the excitement of creating something of their own. They learn to listen to different perspectives, work as a team, and see an unexpected result as a reason to try again.' +
           '\n\n' +
           'IGNITE is more than a competition. It helps students develop the curiosity to ask better questions, the confidence to share bold ideas, and the persistence to turn challenges into useful solutions. Whether you love making things with your hands or creating something digital, bring your imagination and give it a go. What will you create?',
-        linkedin: '',
+        linkedin: 'https://www.linkedin.com/in/suhail-nazir-khan-design-tech-898b73129/',
         photo: suhailKhan
       },
       { name: 'Ms Sushma Goyal', role: 'Design Facilitator · HOD IT', mentoring: '', bio: '', linkedin: '' },
