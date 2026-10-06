@@ -57,7 +57,12 @@ function LeaderCard({ person, delay }: { person: Person; delay: number }) {
         {person.quote && (
           <blockquote className="mt-3 flex gap-2 text-sm font-medium leading-relaxed text-[#0b302e]/85">
             <Quote className="w-4 h-4 shrink-0 mt-0.5 text-[#0b302e] stroke-[2.5]" aria-hidden="true" />
-            <p>{person.quote}</p>
+            {/* A blank line (\n\n) in the quote starts a new paragraph */}
+            <div className="space-y-2">
+              {person.quote.split('\n\n').map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
           </blockquote>
         )}
       </div>

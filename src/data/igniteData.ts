@@ -133,13 +133,16 @@ export const IGNITE_DATA = {
       {
         name: 'Mr Tim Boulton',
         role: 'Head of School',
-        quote: '',
+        quote: 'IGNITE is an exciting opportunity for students to step beyond the classroom, apply their creativity and technical skills to real-world challenges, and learn through collaboration, problem-solving and making.',
         photo: timBoulton
       },
       {
         name: 'Mrs Aprajita Ralli',
         role: 'Secondary School Principal',
-        quote: '',
+        quote:
+          'Every idea begins with a question, and every question opens a possibility. I am proud to see our students take ownership of their learning and use their voices to imagine, create and inspire.' +
+          '\n\n' +
+          'Here’s to the ideas that ignite possibilities and the young minds that will shape tomorrow.',
         photo: aprajitaRalli
       }
     ] as Person[],
