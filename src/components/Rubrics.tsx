@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 import { Link } from 'react-router';
-import { Bot } from 'lucide-react';
+import { Bot, OctagonAlert } from 'lucide-react';
 import { RUBRICS, RUBRIC_LEVELS } from '../data/rubrics';
 
 // Level colours, 4 (Excellent) to 1 (Beginning), matching the printed rubric sheets
@@ -69,6 +69,17 @@ export default function Rubrics() {
               {rubric.criteria.length} criteria · out of {rubric.criteria.length * 4}
             </span>
           </div>
+
+          {/* Disclaimer, when the challenge has one */}
+          {rubric.disclaimer && (
+            <p role="note" className="flex items-start gap-3 p-4 sm:px-6 rounded-2xl bg-[#b91c1c] text-[#faf8f3] text-sm sm:text-base font-semibold shadow-[4px_4px_0px_#0b302e]">
+              <OctagonAlert className="w-5 h-5 shrink-0 mt-0.5" aria-hidden="true" />
+              <span>
+                <strong className="font-display font-black uppercase tracking-wide mr-1.5">Disclaimer:</strong>
+                {rubric.disclaimer}
+              </span>
+            </p>
+          )}
 
           {/* Statement of inquiry / theme, and directions / challenge */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

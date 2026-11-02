@@ -5,6 +5,8 @@ export interface Rubric {
   id: string;
   title: string;
   subtitle: string;
+  // Optional rule shown as a red strip under the header
+  disclaimer?: string;
   context: { label: string; text: string }[];
   // One row per criterion; levels run from 4 (Excellent) down to 1 (Beginning)
   criteria: { title: string; question: string; levels: [string, string, string, string] }[];
@@ -191,6 +193,7 @@ export const RUBRICS: Rubric[] = [
     id: 'senior-hackathon',
     title: 'Senior Hackathon',
     subtitle: 'App Development',
+    disclaimer: 'Block-based coding platforms (such as Scratch, Code.org, MIT App Inventor or Thunkable) cannot be used in the Senior Hackathon.',
     context: [
       {
         label: 'Statement of inquiry',

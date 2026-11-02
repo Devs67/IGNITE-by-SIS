@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { Code2, Wrench, Smartphone, Box, X, Pointer, UsersRound } from 'lucide-react';
+import { Code2, Wrench, Smartphone, Box, X, Pointer, UsersRound, OctagonAlert } from 'lucide-react';
 import IgniteLogo from './IgniteLogo';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -345,6 +345,17 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
                 </button>
               </div>
             </div>
+
+            {/* Disclaimer, when the challenge has one */}
+            {selectedLeaf.disclaimer && (
+              <p role="note" className="px-5 sm:px-8 py-3.5 flex items-start gap-3 bg-[#b91c1c] text-[#faf8f3] text-sm font-semibold border-b-3 border-[#0b302e]">
+                <OctagonAlert className="w-5 h-5 shrink-0 mt-px" aria-hidden="true" />
+                <span>
+                  <strong className="font-display font-black uppercase tracking-wide mr-1.5">Disclaimer:</strong>
+                  {selectedLeaf.disclaimer}
+                </span>
+              </p>
+            )}
 
             {/* Body */}
             <div className="p-5 sm:p-8 grid grid-cols-1 md:grid-cols-5 gap-6">

@@ -19,6 +19,8 @@ export interface ChallengePathway {
     label: string;
     description: string;
   }[];
+  // Optional rule shown as a red warning strip in the challenge guide
+  disclaimer?: string;
 }
 
 export interface Person {
@@ -109,7 +111,7 @@ export const IGNITE_DATA = {
     },
     {
       question: 'Do I need programming experience to participate?',
-      answer: 'It depends on your challenge. The Junior Hackathon uses Scratch or code.org, so beginners are welcome. The Senior Hackathon (App Development) expects basic programming knowledge. The Makeathons need no coding: juniors build a Rube Goldberg machine by hand, and seniors should be comfortable with the basics of Fusion 360 or Blender.'
+      answer: 'It depends on your challenge. The Junior Hackathon uses Scratch or code.org, so beginners are welcome. The Senior Hackathon (App Development) expects basic programming knowledge, and block-based coding platforms cannot be used. The Makeathons need no coding: juniors build a Rube Goldberg machine by hand, and seniors should be comfortable with the basics of Fusion 360 or Blender.'
     },
     {
       question: 'What kind of projects can I create?',
@@ -408,6 +410,7 @@ export const IGNITE_DATA = {
       gradeLevel: 'MYP 4–DP 2',
       tools: 'App Development Platforms',
       quote: 'An app can be built to solve a personal problem, connect a community, or make a system run more efficiently.',
+      disclaimer: 'Block-based coding platforms (such as Scratch, Code.org, MIT App Inventor or Thunkable) cannot be used in the Senior Hackathon.',
       directions: [
         {
           label: 'Yourself',
