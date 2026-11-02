@@ -20,6 +20,8 @@ builds the site and publishes it to GitHub Pages (custom domain in `public/CNAME
 ## Where things live
 
 - Pages and their order: `src/pages.ts`
-- Text content (FAQs, challenges, vision/mission…): `src/data/igniteData.ts`
+- Text content (FAQs, challenges, event flow, vision/mission…): `src/data/igniteData.ts`
+- AI Usage Policy and judging rubrics: `src/data/aiPolicy.ts`, `src/data/rubrics.ts`
+  (copied from the IGNITE 2026–27 Graphics file in Figma; keep them in step)
 - Sections: `src/components/`
 - Photos: `src/assets/images/gallery/` (web copies; originals are kept in `Images/`, not committed)

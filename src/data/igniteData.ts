@@ -62,6 +62,38 @@ export const IGNITE_DATA = {
     mission: 'To inspire and empower young innovators through hands-on challenges in coding and making, building creativity, critical thinking, and teamwork as they design solutions that engage, challenge, and connect people.'
   },
 
+  // Two-day schedule, from the Event Flow sheet in Figma.
+  // highlight: the key moments (ceremonies, workshop, judging), shown in orange
+  eventFlow: [
+    {
+      day: 'Day 1',
+      date: 'Thursday 5 November',
+      sessions: [
+        { time: '8:30 AM', title: 'Registration', detail: 'Registration Counter, IB Block · collect goodie bag · phones collected' },
+        { time: '9:00 – 9:40 AM', title: 'Opening Ceremony', highlight: true },
+        { time: '9:40 AM', title: 'Head to Your Venue', detail: 'Follow the arrow cards and volunteers' },
+        { time: 'Until 12:55 PM', title: 'Build Session', detail: 'Repair Bay open for spare parts' },
+        { time: '12:55 – 1:30 PM', title: 'Lunch' },
+        { time: '1:30 – 3:00 PM', title: 'Project Work' },
+        { time: '3:00 – 4:00 PM', title: 'Workshop', highlight: true },
+        { time: '4:10 PM', title: 'Dispersal', detail: 'Bus bay or own transport' }
+      ]
+    },
+    {
+      day: 'Day 2',
+      date: 'Friday 6 November',
+      sessions: [
+        { time: '8:30 AM', title: 'Arrive at Your Venue', detail: 'Go directly to your challenge venue' },
+        { time: '8:30 – 10:50 AM', title: 'Final Touch-Ups', detail: 'Polish your project and pitch' },
+        { time: '11:00 AM – 12:50 PM', title: 'Judging', detail: 'Present your project to the judges', highlight: true },
+        { time: '12:50 – 1:30 PM', title: 'Lunch' },
+        { time: '1:30 – 2:50 PM', title: 'Closing Ceremony', detail: 'Certificates, winners & runners-up, vote of thanks', highlight: true },
+        { time: '3:00 – 4:00 PM', title: 'Gathering & Sponsor Time' },
+        { time: '4:15 PM', title: 'Dispersal', detail: 'Bus bay or own transport' }
+      ]
+    }
+  ] as { day: string; date: string; sessions: { time: string; title: string; detail?: string; highlight?: boolean }[] }[],
+
   faqs: [
     {
       question: 'Who can participate?',

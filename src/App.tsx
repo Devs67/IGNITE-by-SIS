@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import RegisterModal from './components/RegisterModal';
 import IgniteStructure from './components/IgniteStructure';
 import WelcomePopup from './components/WelcomePopup';
+import EventFlow from './components/EventFlow';
 import { PAGES } from './pages';
 import { IGNITE_DATA } from './data/igniteData';
 
@@ -21,6 +22,8 @@ const ParticipantChecklist = lazy(() => import('./components/ParticipantChecklis
 const FAQ = lazy(() => import('./components/FAQ'));
 const People = lazy(() => import('./components/People'));
 const Committee = lazy(() => import('./components/Committee'));
+const AiPolicy = lazy(() => import('./components/AiPolicy'));
+const Rubrics = lazy(() => import('./components/Rubrics'));
 
 const meta = typeof document !== 'undefined' ? document.querySelector('meta[name="description"]') : null;
 
@@ -51,13 +54,14 @@ export default function App() {
         <main>
           <Suspense fallback={<div className="min-h-screen" />}>
           <Routes>
-            {/* Home: welcome popup, flow chart, register, overview, dates, who can take part, gallery */}
+            {/* Home: welcome popup, event flow, flow chart, register, overview, dates, who can take part, gallery */}
             <Route
               path="/"
               element={
                 <>
                   <WelcomePopup onOpenRegister={() => handleOpenRegister()} />
                   <Hero onOpenRegister={() => handleOpenRegister()} />
+                  <EventFlow />
                   <IgniteStructure onSelectPathway={() => handleOpenRegister()} />
                   <ReadyToIgnite onOpenRegister={() => handleOpenRegister()} />
                   <WhatIsIgnite />
@@ -89,6 +93,8 @@ export default function App() {
               }
             />
 
+            <Route path="/ai-policy" element={<AiPolicy />} />
+            <Route path="/rubrics" element={<Rubrics />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/team" element={<Committee />} />
             {/* Old address of the Team page */}

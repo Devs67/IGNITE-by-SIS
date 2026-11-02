@@ -3,7 +3,7 @@
     "path": "/",
     "label": "Home",
     "title": "Sreenidhi IGNITE — Student Innovation Marathon",
-    "blurb": "What IGNITE is, when it happens, and who can take part",
+    "blurb": "What IGNITE is, the two-day event flow, and who can take part",
     "description": "Sreenidhi IGNITE 2026-27: Hackathon & Makeathon (5-6 November 2026) at Sreenidhi International School. A platform where students transform ideas into interactive systems, creative solutions, and meaningful experiences."
   },
   {
@@ -19,6 +19,20 @@
     "title": "Journey — Sreenidhi IGNITE",
     "blurb": "From idea to impact, plus your participant checklist",
     "description": "The IGNITE journey: identify a challenge, ideate, design, create, test and present. Plus a participant checklist for the Hackathon and Makeathon."
+  },
+  {
+    "path": "/ai-policy",
+    "label": "AI Policy",
+    "title": "AI Usage Policy — Sreenidhi IGNITE",
+    "blurb": "What AI can and can't be used for at IGNITE",
+    "description": "The IGNITE 2026-27 AI Usage Policy: how participants may use AI for research, coding, design and CAD, what is prohibited, the rules for each challenge, and how judges verify work."
+  },
+  {
+    "path": "/rubrics",
+    "label": "Rubrics",
+    "title": "Judging Rubrics — Sreenidhi IGNITE",
+    "blurb": "How judges score each challenge",
+    "description": "The IGNITE 2026-27 judging rubrics for the Junior and Senior Hackathon and Makeathon: criteria, score descriptors from 1 to 4, and grade bands."
   },
   {
     "path": "/gallery",

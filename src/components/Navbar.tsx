@@ -98,7 +98,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
                   to={page.path}
                   end
                   onClick={(e) => goTo(e, page.path)}
-                  className={`relative px-4 py-2 rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] ${
+                  className={`relative px-2.5 xl:px-4 py-2 rounded-full whitespace-nowrap transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f28c28] ${
                     isActive ? 'text-[#f4f0e8]' : 'text-[#0b302e] hover:bg-[#0b302e]/10'
                   }`}
                 >
@@ -112,7 +112,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenRegister}
-              className="ignite-btn-primary hidden sm:inline-flex !py-2.5 !px-5 text-xs font-display uppercase tracking-wider font-bold"
+              className="ignite-btn-primary hidden sm:inline-flex whitespace-nowrap !py-2.5 !px-5 text-xs font-display uppercase tracking-wider font-bold"
             >
               <span>Register Now</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
