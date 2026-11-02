@@ -239,7 +239,7 @@ export const IGNITE_DATA = {
         ]
       }
     ] as StudentTeam[],
-    // Design Department. The first person is shown as the head, full width.
+    // Design Department, shown as equal cards in this order.
     // linkedin: full profile address (https://www.linkedin.com/in/...). bio and photo are optional too.
     // mentoring: the student team this teacher mentors. bio: leave a blank line (\n\n) between paragraphs.
     // quote: a sentence taken from the bio, shown on the card under the name.
@@ -257,18 +257,17 @@ export const IGNITE_DATA = {
         linkedin: 'https://www.linkedin.com/in/suhail-nazir-khan-design-tech-898b73129/',
         photo: suhailKhan
       },
-      { name: 'Ms Sushma Goyal', role: 'Design Facilitator · HOD IT', mentoring: '', bio: '', linkedin: '' },
       {
-        name: 'Ms Chaitra R',
+        name: 'Mr Devendhar B',
         role: 'Design Facilitator',
-        mentoring: 'Participant Registration & Relations',
-        quote: 'For me, the real value of IGNITE is not simply what students create at the end, but how they grow through the experience.',
+        mentoring: 'Media & Tech Support',
+        quote: 'When students see their own idea take shape, they start to believe that they can solve bigger problems.',
         bio:
-          'As an MYP & DP Design educator, I value opportunities that allow students to step outside the boundaries of a classroom and take ownership of their ideas. IGNITE creates that space. It challenges students to trust their thinking, take creative risks, respond to constraints, and work with others to bring an idea to life.' +
+          "As a Design educator, I see IGNITE as a festival of innovation, where creating, building, and making take the main seat. Every child's ideas and thoughts are given the scope to be built, so they become something more than just thoughts." +
           '\n\n' +
-          'For me, the real value of IGNITE is not simply what students create at the end, but how they grow through the experience—as confident thinkers, courageous creators, and young people who realise that their ideas have the potential to make a difference.',
-        linkedin: '',
-        photo: chaitraR
+          'When students see their own idea take shape, they start to believe that they can solve bigger problems.',
+        linkedin: 'https://www.linkedin.com/in/devender-bachhu-287670200/',
+        photo: devendharB
       },
       {
         name: 'Ms Ishita Bhattacharjee',
@@ -283,17 +282,18 @@ export const IGNITE_DATA = {
         photo: ishitaBhattacharjee
       },
       {
-        name: 'Mr Devendhar B',
+        name: 'Ms Chaitra R',
         role: 'Design Facilitator',
-        mentoring: 'Media & Tech Support',
-        quote: 'When students see their own idea take shape, they start to believe that they can solve bigger problems.',
+        mentoring: 'Participant Registration & Relations',
+        quote: 'For me, the real value of IGNITE is not simply what students create at the end, but how they grow through the experience.',
         bio:
-          "As a Design educator, I see IGNITE as a festival of innovation, where creating, building, and making take the main seat. Every child's ideas and thoughts are given the scope to be built, so they become something more than just thoughts." +
+          'As an MYP & DP Design educator, I value opportunities that allow students to step outside the boundaries of a classroom and take ownership of their ideas. IGNITE creates that space. It challenges students to trust their thinking, take creative risks, respond to constraints, and work with others to bring an idea to life.' +
           '\n\n' +
-          'When students see their own idea take shape, they start to believe that they can solve bigger problems.',
-        linkedin: 'https://www.linkedin.com/in/devender-bachhu-287670200/',
-        photo: devendharB
-      }
+          'For me, the real value of IGNITE is not simply what students create at the end, but how they grow through the experience—as confident thinkers, courageous creators, and young people who realise that their ideas have the potential to make a difference.',
+        linkedin: '',
+        photo: chaitraR
+      },
+      { name: 'Ms Sushma Goyal', role: 'Design Facilitator · HOD IT', mentoring: '', bio: '', linkedin: '' }
     ] as Person[]
   },
 

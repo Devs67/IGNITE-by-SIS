@@ -279,9 +279,9 @@ function CoordinatorsCard({ people, tileRef, onHover, onOpen }: TileProps & { pe
 
 // Design Department card: photo or initials, name, the team they mentor and an optional
 // LinkedIn link, with the role tag in the About row. Clicking it opens the popup.
-function DesignCard({ person, head, delay, onOpen }: { person: Person; head: boolean; delay: number; onOpen: () => void }) {
+function DesignCard({ person, delay, className, onOpen }: { person: Person; delay: number; className: string; onOpen: () => void }) {
   return (
-    <motion.div {...reveal(delay)} {...opens(onOpen)} className={`p-6 sm:p-7 flex flex-col ${TILE}`}>
+    <motion.div {...reveal(delay)} {...opens(onOpen)} className={`p-6 sm:p-7 flex flex-col ${TILE} ${className}`}>
       {/* LinkedIn-blue tab joined to the card's top-right corner; opens the profile without opening the popup.
           Until a profile link is added in igniteData.ts, it opens the LinkedIn home page. */}
       <a
@@ -308,7 +308,7 @@ function DesignCard({ person, head, delay, onOpen }: { person: Person; head: boo
             <Avatar name={person.name} className="w-20 h-20 rounded-2xl bg-[#0b302e] text-[#f6a44e] text-xl" />
           )}
           <div className="min-w-0 flex-1">
-            <h4 className={`font-display font-black leading-tight ${head ? 'text-2xl' : 'text-xl'}`}>{person.name || TBA}</h4>
+            <h4 className="font-display text-xl font-black leading-tight">{person.name || TBA}</h4>
             {person.mentoring && (
               <p className="mt-2">
                 <MentorPill team={person.mentoring} />
@@ -550,7 +550,6 @@ function StudentCommittee({ coordinators, teams, onOpen }: StudentCommitteeProps
 // Team page: school leaders, the student teams, and the Design Department
 export default function Committee() {
   const { leaders, coordinators, studentTeams, design } = IGNITE_DATA.committee;
-  const [designHead, ...designTeam] = design;
   const [popup, setPopup] = useState<Popup | null>(null);
   const designPopup = (person: Person): Popup => ({
     title: 'Design Department',
@@ -577,22 +576,21 @@ export default function Committee() {
 
         <StudentCommittee coordinators={coordinators} teams={studentTeams} onOpen={setPopup} />
 
-        {/* Design Department: head across the top, facilitators below */}
-        {designHead && (
-          <div className="mt-20 max-w-5xl mx-auto">
+        {/* Design Department: equal cards, three to a row on desktop, with a short last row centred */}
+        {design.length > 0 && (
+          <div className="mt-20 max-w-6xl mx-auto">
             <div className="text-center mb-8">
               <h3 className="font-display text-2xl sm:text-4xl font-black text-[#0b302e] tracking-tight">Design Department</h3>
               <p className="font-mono text-xs uppercase tracking-widest font-black text-[#c2410c] mt-2">Design. Create. Make it happen.</p>
             </div>
 
-            <DesignCard person={designHead} head delay={0} onOpen={() => setPopup(designPopup(designHead))} />
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {designTeam.map((person, idx) => (
+            <div className="flex flex-wrap justify-center gap-6">
+              {design.map((person, idx) => (
                 <DesignCard
-                  key={`${person.role}-${idx}`}
+                  key={`${person.name}-${idx}`}
                   person={person}
-                  head={false}
-                  delay={idx * 0.1}
+                  delay={(idx % 3) * 0.1}
+                  className="w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)]"
                   onOpen={() => setPopup(designPopup(person))}
                 />
               ))}
