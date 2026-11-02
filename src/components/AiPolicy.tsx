@@ -1,10 +1,11 @@
-import { CircleCheck, CircleX, Layers } from 'lucide-react';
+import { CircleCheck, CircleX, Layers, OctagonAlert } from 'lucide-react';
 import { AI_POLICY, type PolicyBlock } from '../data/aiPolicy';
 
+// Prohibited rules stand out (red border and shadow); permitted ones stay quiet
 const RULE_STYLES = {
-  permitted: { box: 'bg-[#10b981]/10 border-[#10b981]/40', icon: <CircleCheck className="w-5 h-5 text-[#047857]" aria-hidden="true" />, bullet: 'text-[#047857]' },
-  prohibited: { box: 'bg-[#dc2626]/[0.06] border-[#dc2626]/30', icon: <CircleX className="w-5 h-5 text-[#b91c1c]" aria-hidden="true" />, bullet: 'text-[#b91c1c]' },
-  category: { box: 'bg-[#faf8f3] border-[#0b302e]/20', icon: <Layers className="w-5 h-5 text-[#c2410c]" aria-hidden="true" />, bullet: 'text-[#c2410c]' },
+  permitted: { box: 'bg-[#faf8f3] border-2 border-[#0b302e]/10', title: 'text-base', icon: <CircleCheck className="w-4 h-4 text-[#047857]" aria-hidden="true" />, bullet: 'text-[#047857]' },
+  prohibited: { box: 'bg-[#dc2626]/[0.07] border-3 border-[#b91c1c] shadow-[4px_4px_0px_#b91c1c]', title: 'text-lg', icon: <CircleX className="w-5 h-5 text-[#b91c1c]" aria-hidden="true" />, bullet: 'text-[#b91c1c]' },
+  category: { box: 'bg-[#faf8f3] border-2 border-[#0b302e]/20', title: 'text-lg', icon: <Layers className="w-5 h-5 text-[#c2410c]" aria-hidden="true" />, bullet: 'text-[#c2410c]' },
 };
 
 function Bullets({ items, className = '' }: { items: string[]; className?: string }) {
@@ -42,8 +43,8 @@ function Block({ block }: { block: PolicyBlock }) {
     case 'rule': {
       const style = RULE_STYLES[block.tone];
       return (
-        <div className={`p-5 sm:p-6 rounded-2xl border-2 ${style.box}`}>
-          <h4 className="flex items-start gap-2.5 font-display text-lg font-black text-[#0b302e] leading-snug">
+        <div className={`p-5 sm:p-6 rounded-2xl ${style.box}`}>
+          <h4 className={`flex items-start gap-2.5 font-display font-black text-[#0b302e] leading-snug ${style.title}`}>
             <span className="mt-0.5 shrink-0">{style.icon}</span>
             <span>
               <span className="text-[#c2410c] mr-1.5">{block.num}</span>
@@ -70,6 +71,17 @@ function Block({ block }: { block: PolicyBlock }) {
       );
 
     case 'callout':
+      if (block.tone === 'warning') {
+        return (
+          <p role="note" className="flex gap-3 p-5 sm:p-6 rounded-2xl bg-[#b91c1c] text-[#faf8f3] font-semibold shadow-[4px_4px_0px_#0b302e]">
+            <OctagonAlert className="w-6 h-6 shrink-0" aria-hidden="true" />
+            <span>
+              {block.lead && <strong className="block font-display text-lg font-black">{block.lead}</strong>}
+              {block.text}
+            </span>
+          </p>
+        );
+      }
       return (
         <p className="p-5 sm:p-6 rounded-2xl bg-[#f28c28]/10 border-2 border-[#f28c28]/50 font-semibold text-[#0b302e]">
           {block.text}
@@ -105,6 +117,18 @@ export default function AiPolicy() {
               <dd className="font-bold text-[#0b302e]">{issuedBy[0]}</dd>
             </div>
           </dl>
+
+          {/* Headline rule, linking to the prohibited-use section */}
+          <a
+            href="#policy-4"
+            className="mt-8 flex items-center gap-3 p-4 rounded-2xl bg-[#b91c1c] text-[#faf8f3] text-left shadow-[4px_4px_0px_#0b302e] hover:shadow-[6px_6px_0px_#f28c28] transition-shadow"
+          >
+            <OctagonAlert className="w-6 h-6 shrink-0" aria-hidden="true" />
+            <span className="text-sm sm:text-base font-semibold">
+              <strong className="font-display font-black">Most AI platforms will not be allowed.</strong>{' '}
+              See what is prohibited, and the few ways AI may be used.
+            </span>
+          </a>
         </div>
 
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8 lg:gap-12 items-start">

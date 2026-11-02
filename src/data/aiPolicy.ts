@@ -20,8 +20,8 @@ export type PolicyBlock =
     }
   // An intro line followed by bullets
   | { kind: 'list'; intro: string; items: string[] }
-  // A highlighted statement
-  | { kind: 'callout'; text: string };
+  // A highlighted statement; 'warning' is the red alert box, with an optional bold lead-in
+  | { kind: 'callout'; tone?: 'warning'; lead?: string; text: string };
 
 export interface PolicySection {
   num: string;
@@ -81,13 +81,97 @@ export const AI_POLICY = {
     },
     {
       num: '4',
+      title: 'Prohibited Use of AI',
+      blocks: [
+        { kind: 'text', text: 'The following practices are prohibited during IGNITE. Breaking these rules can lead to a scoring penalty or disqualification.' },
+        {
+          kind: 'callout',
+          tone: 'warning',
+          lead: 'Most AI platforms will not be allowed during IGNITE 2026–27.',
+          text: 'Where AI is allowed, it may be used only for the limited purposes listed under Permitted Use of AI.'
+        },
+        {
+          kind: 'rule',
+          tone: 'prohibited',
+          num: '4.1',
+          title: 'Substitution of Participant Work',
+          paragraphs: [
+            'Participants must not submit a complete AI-generated solution as their own work without meaningful development, modification, or contribution.',
+            'This includes presenting a generated game, application, CAD model, or other project as evidence of skills that the team has not demonstrated.'
+          ]
+        },
+        {
+          kind: 'rule',
+          tone: 'prohibited',
+          num: '4.2',
+          title: 'Misrepresented Work',
+          paragraphs: [
+            'Participants must not falsely claim that AI-generated work was created entirely by the team.',
+            'They must not provide misleading information about the extent of their contribution.'
+          ]
+        },
+        {
+          kind: 'rule',
+          tone: 'prohibited',
+          num: '4.3',
+          title: 'Misrepresentation of Technical Understanding',
+          paragraphs: [
+            'Participants must not knowingly present code, models, features, or technical solutions that they cannot reasonably explain or demonstrate.',
+            'The use of AI assistance is not itself a violation. However, participants must not misrepresent their understanding or contribution.'
+          ]
+        },
+        {
+          kind: 'rule',
+          tone: 'prohibited',
+          num: '4.4',
+          title: 'Unauthorised Assistance During Judging',
+          paragraphs: [
+            'Participants must not use AI to generate answers during a judging interaction when judges have asked them to respond independently.',
+            'If judges instruct participants to explain, modify, or demonstrate their work without AI assistance, those instructions must be followed.'
+          ]
+        },
+        {
+          kind: 'rule',
+          tone: 'prohibited',
+          num: '4.5',
+          title: 'Plagiarism and Unauthorised Copying',
+          paragraphs: [
+            'AI must not be used to reproduce another team’s work, obtain another participant’s files without permission, or disguise copied work as original.',
+            'Participants must also comply with applicable intellectual property requirements when using third-party code, images, models, or other resources.'
+          ]
+        },
+        {
+          kind: 'rule',
+          tone: 'prohibited',
+          num: '4.6',
+          title: 'Fabrication of Evidence',
+          listLabel: 'Participants must not use AI to fabricate:',
+          list: [
+            'Testing results or performance measurements.',
+            'User feedback or survey findings.',
+            'Claims about functionality that has not been demonstrated.',
+            'Evidence of development or experimentation.',
+            'References, sources, or technical information presented as verified when they are not.'
+          ]
+        },
+        {
+          kind: 'rule',
+          tone: 'prohibited',
+          num: '4.7',
+          title: 'Interference with Other Participants',
+          paragraphs: ['AI tools must not be used to access another team’s work without authorisation, interfere with another team’s systems, or undermine the fair conduct of the competition.']
+        }
+      ]
+    },
+    {
+      num: '5',
       title: 'Permitted Use of AI',
       blocks: [
-        { kind: 'text', text: 'Participants may use AI tools for the following purposes, provided that their use complies with the remaining provisions of this policy.' },
+        { kind: 'text', text: 'Where an AI tool is allowed, it may be used only for the limited purposes below. Anything not listed in this section is not permitted.' },
         {
           kind: 'rule',
           tone: 'permitted',
-          num: '4.1',
+          num: '5.1',
           title: 'Research and Ideation',
           listLabel: 'Participants may use AI to:',
           list: [
@@ -102,23 +186,16 @@ export const AI_POLICY = {
         {
           kind: 'rule',
           tone: 'permitted',
-          num: '4.2',
-          title: 'Programming and Technical Assistance',
-          listLabel: 'Participants may use AI to:',
-          list: [
-            'Understand programming concepts, functions, and algorithms.',
-            'Identify and troubleshoot errors.',
-            'Obtain explanations of unfamiliar code.',
-            'Explore alternative approaches to a technical problem.',
-            'Improve code readability and organisation.',
-            'Receive guidance on testing and debugging.'
-          ],
-          notes: ['Participants must be able to explain the relevant code and demonstrate how it contributes to their project.']
+          num: '5.2',
+          title: 'Programming Concepts',
+          listLabel: 'Participants may use AI only to:',
+          list: ['Understand programming concepts, functions, and algorithms.'],
+          notes: ['AI must not be used to write, fix, debug, or improve the team’s code. Participants must be able to explain all of their code and how it contributes to their project.']
         },
         {
           kind: 'rule',
           tone: 'permitted',
-          num: '4.3',
+          num: '5.3',
           title: 'Design and User Interface Development',
           listLabel: 'Participants may use AI to:',
           list: [
@@ -133,7 +210,7 @@ export const AI_POLICY = {
         {
           kind: 'rule',
           tone: 'permitted',
-          num: '4.4',
+          num: '5.4',
           title: 'CAD and Physical Product Development',
           listLabel: 'Participants may use AI to:',
           list: [
@@ -148,90 +225,12 @@ export const AI_POLICY = {
         {
           kind: 'rule',
           tone: 'permitted',
-          num: '4.5',
+          num: '5.5',
           title: 'Documentation and Presentation',
           paragraphs: [
             'AI may be used to obtain feedback on grammar, improve clarity, organise notes, and understand technical terminology.',
             'Participants remain responsible for the accuracy of all statements, explanations, testing records, and claims included in their documentation and presentations.'
           ]
-        }
-      ]
-    },
-    {
-      num: '5',
-      title: 'Prohibited Use of AI',
-      blocks: [
-        { kind: 'text', text: 'The following practices are prohibited during IGNITE.' },
-        {
-          kind: 'rule',
-          tone: 'prohibited',
-          num: '5.1',
-          title: 'Substitution of Participant Work',
-          paragraphs: [
-            'Participants must not submit a complete AI-generated solution as their own work without meaningful development, modification, or contribution.',
-            'This includes presenting a generated game, application, CAD model, or other project as evidence of skills that the team has not demonstrated.'
-          ]
-        },
-        {
-          kind: 'rule',
-          tone: 'prohibited',
-          num: '5.2',
-          title: 'Misrepresented Work',
-          paragraphs: [
-            'Participants must not falsely claim that AI-generated work was created entirely by the team.',
-            'They must not provide misleading information about the extent of their contribution.'
-          ]
-        },
-        {
-          kind: 'rule',
-          tone: 'prohibited',
-          num: '5.3',
-          title: 'Misrepresentation of Technical Understanding',
-          paragraphs: [
-            'Participants must not knowingly present code, models, features, or technical solutions that they cannot reasonably explain or demonstrate.',
-            'The use of AI assistance is not itself a violation. However, participants must not misrepresent their understanding or contribution.'
-          ]
-        },
-        {
-          kind: 'rule',
-          tone: 'prohibited',
-          num: '5.4',
-          title: 'Unauthorised Assistance During Judging',
-          paragraphs: [
-            'Participants must not use AI to generate answers during a judging interaction when judges have asked them to respond independently.',
-            'If judges instruct participants to explain, modify, or demonstrate their work without AI assistance, those instructions must be followed.'
-          ]
-        },
-        {
-          kind: 'rule',
-          tone: 'prohibited',
-          num: '5.5',
-          title: 'Plagiarism and Unauthorised Copying',
-          paragraphs: [
-            'AI must not be used to reproduce another team’s work, obtain another participant’s files without permission, or disguise copied work as original.',
-            'Participants must also comply with applicable intellectual property requirements when using third-party code, images, models, or other resources.'
-          ]
-        },
-        {
-          kind: 'rule',
-          tone: 'prohibited',
-          num: '5.6',
-          title: 'Fabrication of Evidence',
-          listLabel: 'Participants must not use AI to fabricate:',
-          list: [
-            'Testing results or performance measurements.',
-            'User feedback or survey findings.',
-            'Claims about functionality that has not been demonstrated.',
-            'Evidence of development or experimentation.',
-            'References, sources, or technical information presented as verified when they are not.'
-          ]
-        },
-        {
-          kind: 'rule',
-          tone: 'prohibited',
-          num: '5.7',
-          title: 'Interference with Other Participants',
-          paragraphs: ['AI tools must not be used to access another team’s work without authorisation, interfere with another team’s systems, or undermine the fair conduct of the competition.']
         }
       ]
     },
@@ -246,7 +245,7 @@ export const AI_POLICY = {
           num: '6.1',
           title: 'Junior Hackathon – Game Development',
           meta: 'Platforms: Scratch and Code.org',
-          paragraphs: ['Participants may use AI to understand programming concepts, explore game mechanics, troubleshoot errors, and develop initial ideas.'],
+          paragraphs: ['Participants may use AI only to understand programming concepts, explore game mechanics, and develop initial ideas.'],
           listLabel: 'However:',
           list: [
             'The team must make the principal decisions concerning its game’s rules, mechanics, structure, and intended user experience.',
@@ -276,12 +275,12 @@ export const AI_POLICY = {
           tone: 'category',
           num: '6.3',
           title: 'Senior Hackathon – Mobile and Web Application Development',
-          paragraphs: ['Participants may use AI to assist with programming, debugging, interface development, and technical research.'],
+          paragraphs: ['Participants may use AI only to understand programming concepts, explore interface ideas, and support technical research.'],
           listLabel: 'However:',
           list: [
             'The team must retain meaningful responsibility for the application’s architecture, features, and implementation.',
             'Participants must understand the code and systems that form the basis of their submission.',
-            'AI-generated code must be reviewed and tested before it is incorporated into the application.',
+            'AI must not be used to write or debug the application’s code.',
             'Teams must not claim that proposed or AI-generated features are functional unless they have been implemented and verified.',
             'Participants must be able to explain their application’s purpose, functionality, and major technical decisions.'
           ]
