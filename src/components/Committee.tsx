@@ -78,6 +78,7 @@ interface Profile {
   bio?: string;
   linkedin?: string;
   mentoring?: string;
+  itSupport?: string;
 }
 
 interface Popup {
@@ -117,13 +118,24 @@ function TileHint({ label, tag }: { label: string; tag?: string }) {
   );
 }
 
-// Frosted-glass pill naming the student team a teacher mentors.
+// Frosted-glass pill naming the student team a teacher mentors (or another area, with its own prefix).
 // The fixed corner radius keeps it a pill on one line and a tidy box if the name wraps.
-function MentorPill({ team }: { team: string }) {
+function MentorPill({ team, prefix = 'Mentor' }: { team: string; prefix?: string }) {
   return (
     <span className="inline-block font-mono text-[10px] uppercase tracking-wider font-black px-2.5 py-1 rounded-[14px] bg-white/55 text-[#0b302e] border border-[#0b302e]/20 shadow-[0_2px_8px_rgba(11,48,46,0.12),inset_0_1px_0_rgba(255,255,255,0.9)]">
-      Mentor · {team}
+      {prefix} · {team}
     </span>
+  );
+}
+
+// The pills under a teacher's name: the team they mentor and any IT support role
+function RolePills({ person }: { person: { mentoring?: string; itSupport?: string } }) {
+  if (!person.mentoring && !person.itSupport) return null;
+  return (
+    <p className="mt-2 flex flex-wrap gap-1.5">
+      {person.mentoring && <MentorPill team={person.mentoring} />}
+      {person.itSupport && <MentorPill prefix="IT Support" team={person.itSupport} />}
+    </p>
   );
 }
 
@@ -194,11 +206,7 @@ function ProfilePopup({ popup, onClose }: { popup: Popup; onClose: () => void })
               <div className={single ? 'mt-3 sm:mt-0 min-w-0' : 'mt-3'}>
                 <p className="font-mono text-[11px] uppercase tracking-widest font-black text-[#c2410c]">{person.label}</p>
                 <h4 className="font-display text-lg font-black leading-tight mt-0.5">{person.name || TBA}</h4>
-                {person.mentoring && (
-                  <p className="mt-2">
-                    <MentorPill team={person.mentoring} />
-                  </p>
-                )}
+                <RolePills person={person} />
                 {person.bio ? (
                   person.bio.split('\n\n').map((paragraph) => (
                     <p key={paragraph} className="mt-2 text-sm font-medium leading-relaxed text-[#0b302e]/85">
@@ -309,11 +317,7 @@ function DesignCard({ person, delay, className, onOpen }: { person: Person; dela
           )}
           <div className="min-w-0 flex-1">
             <h4 className="font-display text-xl font-black leading-tight">{person.name || TBA}</h4>
-            {person.mentoring && (
-              <p className="mt-2">
-                <MentorPill team={person.mentoring} />
-              </p>
-            )}
+            <RolePills person={person} />
           </div>
         </div>
         {/* A line from their write-up, across the full width of the card */}

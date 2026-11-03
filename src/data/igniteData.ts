@@ -33,6 +33,8 @@ export interface Person {
   bio?: string;
   linkedin?: string;
   mentoring?: string;
+  // What this teacher looks after other than mentoring, shown as an "IT Support · …" pill
+  itSupport?: string;
 }
 
 export interface StudentTeam {
@@ -296,7 +298,7 @@ export const IGNITE_DATA = {
         linkedin: '',
         photo: chaitraR
       },
-      { name: 'Ms Sushma Goyal', role: 'Design Facilitator · HOD IT', mentoring: '', bio: '', linkedin: '', photo: sushmaGoyal }
+      { name: 'Ms Sushma Goyal', role: 'Design Facilitator · HOD IT', mentoring: '', itSupport: 'Devices & Setup', bio: '', linkedin: '', photo: sushmaGoyal }
     ] as Person[]
   },
 
