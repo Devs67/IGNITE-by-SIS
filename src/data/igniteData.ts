@@ -4,6 +4,7 @@ import ishitaBhattacharjee from '../assets/images/team/ishita-bhattacharjee.jpg'
 import chaitraR from '../assets/images/team/chaitra-r.jpg';
 import suhailKhan from '../assets/images/team/suhail-khan.jpg';
 import devendharB from '../assets/images/team/devendhar-b.jpg';
+import sushmaGoyal from '../assets/images/team/sushma-goyal.jpg';
 
 export interface ChallengePathway {
   id: string;
@@ -295,7 +296,7 @@ export const IGNITE_DATA = {
         linkedin: '',
         photo: chaitraR
       },
-      { name: 'Ms Sushma Goyal', role: 'Design Facilitator · HOD IT', mentoring: '', bio: '', linkedin: '' }
+      { name: 'Ms Sushma Goyal', role: 'Design Facilitator · HOD IT', mentoring: '', bio: '', linkedin: '', photo: sushmaGoyal }
     ] as Person[]
   },
 
