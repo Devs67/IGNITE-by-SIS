@@ -314,7 +314,7 @@ export const IGNITE_DATA = {
     { name: 'Mr. Venkatesh Datla', role: 'Co-Founder & Director', organisation: 'Creya Learning & Research', photo: venkateshDatla },
     { name: 'Mr. Tamilselvan M', role: 'Co-Founder', organisation: 'Gephr Labs', photo: tamilselvanM },
     { name: 'Mr. Yashwanth Tudimilla', role: 'Co-Founder & CEO', organisation: 'Edwisely', photo: yashwanthTudimilla },
-    { name: 'Ms. Nishigandha Sahasrabudhe', role: 'Instructional Designer & Design Coach', photo: nishigandhaSahasrabudhe }
+    { name: 'Ms. Nishigandha Sahasrabudhe', role: 'Instructional Designer and Design Coach', photo: nishigandhaSahasrabudhe }
   ] as Person[],
 
   accreditations: [
