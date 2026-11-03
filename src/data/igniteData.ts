@@ -5,6 +5,10 @@ import chaitraR from '../assets/images/team/chaitra-r.jpg';
 import suhailKhan from '../assets/images/team/suhail-khan.jpg';
 import devendharB from '../assets/images/team/devendhar-b.jpg';
 import sushmaGoyal from '../assets/images/team/sushma-goyal.jpg';
+import venkateshDatla from '../assets/images/judges/venkatesh-datla.jpg';
+import tamilselvanM from '../assets/images/judges/tamilselvan-m.jpg';
+import yashwanthTudimilla from '../assets/images/judges/yashwanth-tudimilla.jpg';
+import nishigandhaSahasrabudhe from '../assets/images/judges/nishigandha-sahasrabudhe.jpg';
 
 export interface ChallengePathway {
   id: string;
@@ -35,6 +39,8 @@ export interface Person {
   mentoring?: string;
   // What this teacher looks after other than mentoring, shown as an "IT Support · …" pill
   itSupport?: string;
+  // Judges: the company or institution they come from
+  organisation?: string;
 }
 
 export interface StudentTeam {
@@ -302,8 +308,14 @@ export const IGNITE_DATA = {
     ] as Person[]
   },
 
-  // Add people as { name: '...', role: '...' }. While the list is empty its page says "announced soon".
-  judges: [] as Person[],
+  // From the "Meet the judges" LinkedIn post in Figma. Shown in this order as Judge 01, 02…
+  // While the list is empty the Judges page says "announced soon".
+  judges: [
+    { name: 'Mr. Venkatesh Datla', role: 'Co-Founder & Director', organisation: 'Creya Learning & Research', photo: venkateshDatla },
+    { name: 'Mr. Tamilselvan M', role: 'Co-Founder', organisation: 'Gephr Labs', photo: tamilselvanM },
+    { name: 'Mr. Yashwanth Tudimilla', role: 'Co-Founder & CEO', organisation: 'Edwisely', photo: yashwanthTudimilla },
+    { name: 'Ms. Nishigandha Sahasrabudhe', role: 'Instructional Designer & Design Coach', photo: nishigandhaSahasrabudhe }
+  ] as Person[],
 
   accreditations: [
     { label: 'IB Continuum', sub: 'Continuum de l\'IB' },
