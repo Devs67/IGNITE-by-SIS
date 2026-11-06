@@ -124,6 +124,7 @@ export const RUBRICS: Rubric[] = [
     id: 'junior-makeathon',
     title: 'Junior Makeathon',
     subtitle: 'Rube Goldberg Machine',
+    disclaimer: 'You are not allowed to take your products away from the venue, or to touch other teams’ work.',
     context: [
       {
         label: 'Overarching IGNITE theme',
@@ -273,6 +274,7 @@ export const RUBRICS: Rubric[] = [
     id: 'senior-makeathon',
     title: 'Senior Makeathon',
     subtitle: 'CAD Design · Fusion 360 / SketchUp',
+    disclaimer: 'You are not allowed to take your products away from the venue, or to touch other teams’ work.',
     context: [
       {
         label: 'Statement of inquiry',

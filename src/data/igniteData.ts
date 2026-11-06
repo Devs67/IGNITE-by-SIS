@@ -400,6 +400,7 @@ export const IGNITE_DATA = {
       gradeLevel: 'MYP 1–3',
       tools: 'Recycled & Everyday Household Materials',
       quote: 'A Rube Goldberg machine turns one simple task into a chain reaction — and the choices you make about steps, materials, and energy transfer decide whether it works, and how cleverly.',
+      disclaimer: 'You are not allowed to take your products away from the venue, or to touch other teams’ work.',
       directions: [
         {
           label: 'Task',
@@ -451,6 +452,7 @@ export const IGNITE_DATA = {
       gradeLevel: 'MYP 4–DP 2',
       tools: 'Fusion 360, Blender',
       quote: 'A well-designed object doesn’t just work — it decides who it works for, and a good designer can choose to widen that circle.',
+      disclaimer: 'You are not allowed to take your products away from the venue, or to touch other teams’ work.',
       directions: [
         {
           label: 'Solve',
