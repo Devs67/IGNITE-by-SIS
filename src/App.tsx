@@ -59,7 +59,7 @@ export default function App() {
               path="/"
               element={
                 <>
-                  <WelcomePopup onOpenRegister={() => handleOpenRegister()} />
+                  <WelcomePopup />
                   <Hero onOpenRegister={() => handleOpenRegister()} />
                   <EventFlow />
                   <IgniteStructure onSelectPathway={() => handleOpenRegister()} />
