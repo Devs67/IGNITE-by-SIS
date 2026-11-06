@@ -1,4 +1,4 @@
-import { ArrowRight, Bot, ClipboardCheck, MapPin } from 'lucide-react';
+import { ArrowRight, Bot, Check, ClipboardCheck, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { IGNITE_DATA } from '../data/igniteData';
@@ -13,10 +13,17 @@ export default function EventFlow() {
 
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-14">
+          {event.wrapped && (
+            <span className="inline-flex items-center gap-1.5 mb-4 px-3 py-1 rounded-full bg-[#0b302e] text-[#f4f0e8] font-mono text-[11px] uppercase tracking-widest font-black">
+              <Check className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
+              Completed
+            </span>
+          )}
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-black text-[#0b302e] tracking-tight">
             Event Flow
           </h2>
           <p className="text-base sm:text-lg text-[#0b302e]/80 mt-3 font-medium">
+            {event.wrapped && 'Here’s how the two days ran. '}
             {event.subtitle} · {event.dates}
           </p>
           <p className="mt-2 inline-flex items-center gap-1.5 text-sm font-bold text-[#0b302e]">

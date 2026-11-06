@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import IgniteLogo from './IgniteLogo';
 import CountdownTimer from './CountdownTimer';
+import EventStats from './EventStats';
 import { IGNITE_DATA } from '../data/igniteData';
 
 const MotionLink = motion.create(Link);
@@ -96,7 +97,7 @@ export default function Hero({ onOpenRegister }: HeroProps) {
                 </div>
                 <div className="text-left leading-tight">
                   <span className="block font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-[#0b302e]">
-                    Save the date
+                    {event.wrapped ? 'Held on' : 'Save the date'}
                   </span>
                   <span className="block font-display text-lg sm:text-2xl font-black tracking-tight">{event.dates}</span>
                 </div>
@@ -120,8 +121,22 @@ export default function Hero({ onOpenRegister }: HeroProps) {
               </p>
             </div>
 
-            {/* Premium Animated Countdown Timer */}
-            <CountdownTimer />
+            {/* Countdown before the event; the event in numbers once it has wrapped up */}
+            {event.wrapped ? (
+              <div className="my-6 sm:my-8 max-w-2xl mx-auto px-2">
+                <div className="p-5 sm:p-7 rounded-3xl bg-[#082423]/90 backdrop-blur-xl border-2 border-white/20 shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
+                  <p className="pb-4 mb-5 border-b border-white/15 font-mono text-[11px] sm:text-xs font-bold tracking-widest text-[#f6a44e] uppercase">
+                    {event.title} in numbers
+                  </p>
+                  <EventStats tone="dark" />
+                  <p className="mt-5 pt-3 border-t border-white/10 font-display text-xs sm:text-sm font-bold text-white/80">
+                    That’s a wrap. Thank you for making IGNITE unforgettable!
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <CountdownTimer />
+            )}
           </motion.div>
 
           {/* Interactive Actions */}

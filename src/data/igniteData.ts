@@ -58,6 +58,15 @@ export const IGNITE_DATA = {
     dates: '5-6 November 2026',
     // false: every Register button shows "Registration Closed" and can't be clicked
     registrationOpen: false,
+    // true once the event is over: the Home page shows the wrap-up and the numbers below
+    // instead of the countdown and the "live" messages
+    wrapped: true,
+    stats: [
+      { value: '90', label: 'Students' },
+      { value: '4', label: 'Categories' },
+      { value: '4', label: 'Judges' },
+      { value: '4', label: 'Schools' }
+    ],
     school: 'Sreenidhi International School',
     tagline: 'Kindle the innovation within',
     prizeMoney: 'Up to ₹25,000',

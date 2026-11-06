@@ -1,5 +1,6 @@
 import { ArrowRight, Calendar, MapPin, Flame, Lock } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router';
 import IgniteLogo from './IgniteLogo';
 import { IGNITE_DATA } from '../data/igniteData';
 
@@ -36,7 +37,7 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
             </div>
 
             <h2 className="text-4xl sm:text-6xl font-display font-black text-[#f4f0e8] tracking-tight leading-tight">
-              {event.registrationOpen ? 'Register Now' : 'We’re Live!'}
+              {event.registrationOpen ? 'Register Now' : event.wrapped ? 'That’s a Wrap!' : 'We’re Live!'}
             </h2>
 
             <p className="text-xl sm:text-3xl font-display font-black text-[#f6a44e]">
@@ -73,6 +74,19 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
                 <p className="mt-5 text-sm text-[#f4f0e8]/85 font-medium">
                   <span className="font-bold text-[#f6a44e]">{event.registrationFee}</span> · Teams of {event.teamSize} · Prizes {event.prizeMoney.toLowerCase()}
                   <span className="block text-xs text-[#f4f0e8]/70 mt-1">Payment details and instructions are shared after you register.</span>
+                </p>
+              </div>
+            ) : event.wrapped ? (
+              <div className="pt-2">
+                <Link
+                  to="/gallery"
+                  className="inline-flex items-center justify-center gap-3 px-10 py-4.5 rounded-2xl bg-[#f28c28] hover:bg-[#e26f1e] text-[#172220] font-display text-sm sm:text-base font-black tracking-wider uppercase shadow-[0_10px_30px_rgba(242,140,40,0.5)] transition-all"
+                >
+                  <span>See the Gallery</span>
+                  <ArrowRight className="w-4 h-4 stroke-[3]" />
+                </Link>
+                <p className="mt-5 text-sm text-[#f4f0e8]/85 font-medium">
+                  Thank you to every student, judge, school and volunteer who made IGNITE 2026–27 happen.
                 </p>
               </div>
             ) : (
