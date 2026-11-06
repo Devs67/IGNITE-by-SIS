@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { Trophy } from 'lucide-react';
+import { School, Trophy, Users } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Lightbox } from './Gallery';
 import { IGNITE_DATA } from '../data/igniteData';
@@ -14,11 +14,13 @@ const order = ['junior-hackathon', 'senior-hackathon', 'junior-makeathon', 'seni
 
 const winners = order.map((id) => {
   const pathway = IGNITE_DATA.pathways.find((p) => p.id === id)!;
+  const team = IGNITE_DATA.event.winners[id];
   return {
     name: id,
     title: pathway.title,
     subtitle: pathway.subtitle,
-    caption: `Winners: ${pathway.title} (${pathway.subtitle})`,
+    team,
+    caption: `Winners: ${pathway.title} (${pathway.subtitle}): ${team.team}, ${team.school}`,
     thumb: thumbs[`../assets/images/winners/${id}.webp`],
     src: larges[`../assets/images/winners/large/${id}.webp`],
   };
@@ -74,7 +76,8 @@ export default function Winners() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </button>
-              <figcaption className="flex items-center justify-between gap-3 px-5 sm:px-6 py-4 border-t-3 border-[#0b302e]">
+              <figcaption className="px-5 sm:px-6 py-4 sm:py-5 border-t-3 border-[#0b302e]">
+                <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="font-display text-lg sm:text-xl font-black text-[#0b302e] leading-tight">
                     {winner.title}
@@ -87,6 +90,31 @@ export default function Winners() {
                   <Trophy className="w-3.5 h-3.5 stroke-[2.5]" />
                   Winner
                 </span>
+                </div>
+
+                {/* Team, school and members */}
+                <div className="mt-4 pt-4 border-t-2 border-dashed border-[#0b302e]/20">
+                  <p className="font-display text-2xl sm:text-[1.7rem] font-black text-[#c2410c] leading-tight">
+                    {winner.team.team}
+                  </p>
+                  <p className="mt-1.5 flex items-center gap-2 text-sm sm:text-base font-bold text-[#0b302e]">
+                    <School className="w-4 h-4 shrink-0 text-[#0b302e]/70" aria-hidden="true" />
+                    {winner.team.school}
+                  </p>
+                  <div className="mt-3 flex items-start gap-2">
+                    <Users className="w-4 h-4 shrink-0 mt-1.5 text-[#0b302e]/70" aria-label="Team members" />
+                    <ul className="flex flex-wrap gap-1.5">
+                      {winner.team.members.map((member) => (
+                        <li
+                          key={member}
+                          className="px-2.5 py-1 rounded-full bg-[#0b302e]/[0.06] border border-[#0b302e]/15 text-xs sm:text-sm font-semibold text-[#0b302e]"
+                        >
+                          {member}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </figcaption>
             </motion.figure>
           ))}

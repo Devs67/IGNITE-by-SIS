@@ -67,6 +67,29 @@ export const IGNITE_DATA = {
       { value: '4', label: 'Judges' },
       { value: '4', label: 'Schools' }
     ],
+    // Winning team of each challenge, by challenge id; shown under the winners' photos
+    winners: {
+      'junior-hackathon': {
+        team: 'The Supreme Little Men',
+        school: 'Sreenidhi International School',
+        members: ['Kayan Agarwal', 'Rishaan Maramreddy', 'Xerxees Zareer Kmaneck', 'Vishnu Sahas Gadiraju']
+      },
+      'senior-hackathon': {
+        team: 'MGs',
+        school: 'Manchester Global School',
+        members: ['Asish', 'Vrishin', 'Dhruva', 'Sai Vachan']
+      },
+      'junior-makeathon': {
+        team: 'The Unemployed',
+        school: 'Sreenidhi International School',
+        members: ['Joshua', 'Shatmanyu', 'Senna', 'Sri Nirvin']
+      },
+      'senior-makeathon': {
+        team: 'Capy Bara Designers',
+        school: 'Manchester Global School',
+        members: ['Srithan Reddy', 'Adhwika', 'Yukti Sri', 'Ashrith Reddy']
+      }
+    } as Record<string, { team: string; school: string; members: string[] }>,
     school: 'Sreenidhi International School',
     tagline: 'Kindle the innovation within',
     prizeMoney: 'Up to ₹25,000',
