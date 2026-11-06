@@ -25,8 +25,27 @@ const photos = [
   { name: 'campus-walk', caption: 'Across the SIS campus', span: 'col-span-2' },
 ];
 
+export interface LightboxPhoto {
+  name: string;
+  caption: string;
+  // Full-size image shown in the viewer
+  src: string;
+}
+
+const viewerPhotos = photos.map((p) => ({ name: p.name, caption: p.caption, src: large(p.name) }));
+
 // Full-screen photo viewer with previous/next arrows, keyboard and swipe support
-function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => void; onNav: (step: number) => void }) {
+export function Lightbox({
+  photos,
+  index,
+  onClose,
+  onNav,
+}: {
+  photos: LightboxPhoto[];
+  index: number;
+  onClose: () => void;
+  onNav: (step: number) => void;
+}) {
   const photo = photos[index];
   const touchX = useRef<number | null>(null);
 
@@ -49,9 +68,9 @@ function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => voi
   useEffect(() => {
     for (const step of [-1, 1]) {
       const next = photos[(index + step + photos.length) % photos.length];
-      new Image().src = large(next.name);
+      new Image().src = next.src;
     }
-  }, [index]);
+  }, [photos, index]);
 
   const arrow =
     'absolute top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#f28c28] text-[#172220] border-2 border-[#0b302e] shadow-[4px_4px_0px_#0b302e] hover:bg-[#f6a44e] flex items-center justify-center transition-colors';
@@ -103,7 +122,7 @@ function Lightbox({ index, onClose, onNav }: { index: number; onClose: () => voi
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.2 }}
-          src={large(photo.name)}
+          src={photo.src}
           alt={photo.caption}
           onClick={(e) => e.stopPropagation()}
           className="max-w-full max-h-full object-contain rounded-2xl border-3 border-[#f4f0e8] shadow-2xl select-none"
@@ -184,7 +203,7 @@ export default function Gallery() {
 
       </div>
 
-      {openIndex !== null && <Lightbox index={openIndex} onClose={close} onNav={nav} />}
+      {openIndex !== null && <Lightbox photos={viewerPhotos} index={openIndex} onClose={close} onNav={nav} />}
     </section>
   );
 }

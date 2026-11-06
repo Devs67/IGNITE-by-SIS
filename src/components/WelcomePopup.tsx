@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { X, ArrowRight, PartyPopper } from 'lucide-react';
+import { X, PartyPopper, Trophy } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router';
 import EventStats from './EventStats';
 import { IGNITE_DATA } from '../data/igniteData';
 
-// New key so visitors who closed the earlier "We're live" popup still see this one
-const SEEN_KEY = 'ignite-wrap-seen';
+// New key so visitors who closed the earlier wrap-up popup see it again with the winners button
+const SEEN_KEY = 'ignite-winners-seen';
 
 // Shown once per visit when someone lands on Home: the event has wrapped up,
-// with its numbers and buttons to the gallery and the judges
+// with its numbers and buttons to the winners and the judges
 export default function WelcomePopup() {
   const { event } = IGNITE_DATA;
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +44,12 @@ export default function WelcomePopup() {
   const goTo = (path: string) => {
     close();
     navigate(path);
+  };
+
+  // The winners section is on Home, below the wrap-up, so just scroll down to it
+  const showWinners = () => {
+    close();
+    requestAnimationFrame(() => document.getElementById('winners')?.scrollIntoView({ behavior: 'smooth' }));
   };
 
   return (
@@ -94,11 +100,11 @@ export default function WelcomePopup() {
             Meet the Judges
           </button>
           <button
-            onClick={() => goTo('/gallery')}
+            onClick={showWinners}
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#f28c28] hover:bg-[#e26f1e] text-[#172220] border-2 border-[#0b302e] font-display text-xs sm:text-sm font-black uppercase tracking-wider shadow-[3px_3px_0px_#0b302e] transition-colors"
           >
-            <span>See the Gallery</span>
-            <ArrowRight className="w-4 h-4 stroke-[3]" />
+            <Trophy className="w-4 h-4 stroke-[2.5]" />
+            <span>Meet Our Winners</span>
           </button>
         </div>
       </motion.div>
