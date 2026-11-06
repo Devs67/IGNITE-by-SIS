@@ -394,17 +394,26 @@ export default function IgniteFlowChart({ onSelectPathway }: IgniteFlowChartProp
                 <span className="mx-2">·</span>
                 <span className="text-[#0b302e] font-bold">{selectedLeaf.gradeLevel}</span>
               </div>
-              <button
-                onClick={() => onSelectPathway(selectedLeaf.id)}
-                className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-display text-xs font-black uppercase tracking-wider transition-all shadow-[3px_3px_0px_#0b302e] hover:shadow-[5px_5px_0px_#0b302e] ${
-                  selectedLeaf.type === 'Hackathon'
-                    ? 'bg-[#0b302e] text-[#f4f0e8] hover:bg-[#134e4a]'
-                    : 'bg-[#f28c28] text-[#172220] hover:bg-[#e26f1e]'
-                }`}
-              >
-                <span>Register for This Challenge</span>
-                <span className="font-bold text-sm">→</span>
-              </button>
+              {IGNITE_DATA.event.registrationOpen ? (
+                <button
+                  onClick={() => onSelectPathway(selectedLeaf.id)}
+                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-display text-xs font-black uppercase tracking-wider transition-all shadow-[3px_3px_0px_#0b302e] hover:shadow-[5px_5px_0px_#0b302e] ${
+                    selectedLeaf.type === 'Hackathon'
+                      ? 'bg-[#0b302e] text-[#f4f0e8] hover:bg-[#134e4a]'
+                      : 'bg-[#f28c28] text-[#172220] hover:bg-[#e26f1e]'
+                  }`}
+                >
+                  <span>Register for This Challenge</span>
+                  <span className="font-bold text-sm">→</span>
+                </button>
+              ) : (
+                <button
+                  disabled
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-display text-xs font-black uppercase tracking-wider bg-[#dcd6ca] text-[#0b302e]/70 border-2 border-[#0b302e]/20 cursor-not-allowed"
+                >
+                  Registration Closed
+                </button>
+              )}
             </div>
           </motion.div>
         )}

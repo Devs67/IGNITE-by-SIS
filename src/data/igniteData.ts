@@ -56,6 +56,8 @@ export const IGNITE_DATA = {
     title: 'IGNITE 2026-27',
     subtitle: 'Hackathon & Makeathon',
     dates: '5-6 November 2026',
+    // false: every Register button shows "Registration Closed" and can't be clicked
+    registrationOpen: false,
     school: 'Sreenidhi International School',
     tagline: 'Kindle the innovation within',
     prizeMoney: 'Up to ₹25,000',

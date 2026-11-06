@@ -1,4 +1,4 @@
-import { Calendar, MapPin, ArrowRight, Sparkles, Flame } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Sparkles, Flame, Lock } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import IgniteLogo from './IgniteLogo';
@@ -131,16 +131,26 @@ export default function Hero({ onOpenRegister }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={onOpenRegister}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#f28c28] via-[#e26f1e] to-[#f28c28] text-[#172220] font-display text-sm font-black uppercase tracking-wider shadow-[0_10px_30px_rgba(242,140,40,0.4)] hover:shadow-[0_15px_40px_rgba(242,140,40,0.6)] transition-all"
-            >
-              <Flame className="w-5 h-5 fill-current" />
-              <span>Register Now</span>
-              <ArrowRight className="w-4 h-4 stroke-[3]" />
-            </motion.button>
+            {event.registrationOpen ? (
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={onOpenRegister}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#f28c28] via-[#e26f1e] to-[#f28c28] text-[#172220] font-display text-sm font-black uppercase tracking-wider shadow-[0_10px_30px_rgba(242,140,40,0.4)] hover:shadow-[0_15px_40px_rgba(242,140,40,0.6)] transition-all"
+              >
+                <Flame className="w-5 h-5 fill-current" />
+                <span>Register Now</span>
+                <ArrowRight className="w-4 h-4 stroke-[3]" />
+              </motion.button>
+            ) : (
+              <button
+                disabled
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white/10 border border-white/25 text-[#f4f0e8]/80 font-display text-sm font-black uppercase tracking-wider cursor-not-allowed"
+              >
+                <Lock className="w-4 h-4 stroke-[2.5]" />
+                <span>Registration Closed</span>
+              </button>
+            )}
 
             <MotionLink
               whileHover={{ scale: 1.04, y: -2 }}

@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router';
 import IgniteLogo from './IgniteLogo';
 import { PAGES } from '../pages';
+import { IGNITE_DATA } from '../data/igniteData';
+
+const { registrationOpen } = IGNITE_DATA.event;
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -112,10 +115,11 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenRegister}
+              disabled={!registrationOpen}
               className="ignite-btn-primary hidden sm:inline-flex whitespace-nowrap !py-2.5 !px-5 text-xs font-display uppercase tracking-wider font-bold"
             >
-              <span>Register Now</span>
-              <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+              <span>{registrationOpen ? 'Register Now' : 'Registration Closed'}</span>
+              {registrationOpen && <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />}
             </button>
 
             {/* Mobile menu trigger */}
@@ -160,10 +164,11 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
                     setMobileMenuOpen(false);
                     onOpenRegister();
                   }}
+                  disabled={!registrationOpen}
                   className="w-full ignite-btn-primary !py-3 text-xs uppercase font-bold"
                 >
-                  <span>Register Now</span>
-                  <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                  <span>{registrationOpen ? 'Register Now' : 'Registration Closed'}</span>
+                  {registrationOpen && <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />}
                 </button>
               </div>
             </div>

@@ -85,6 +85,16 @@
   box-shadow: 2px 2px 0 #0b302e;
 }
 
+/* "Registration Closed": greyed out, no lift on hover */
+.ignite-btn-primary:disabled {
+  background-color: #dcd6ca;
+  color: rgba(11, 48, 46, 0.7);
+  border-color: rgba(11, 48, 46, 0.3);
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
 .ignite-btn-teal {
   display: inline-flex;
   align-items: center;

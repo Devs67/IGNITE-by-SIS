@@ -113,9 +113,10 @@ export default function Footer({ onOpenRegister }: FooterProps) {
             </p>
             <button
               onClick={onOpenRegister}
+              disabled={!event.registrationOpen}
               className="ignite-btn-primary mt-5 !py-2.5 !px-5 text-xs font-display font-bold uppercase tracking-wider"
             >
-              Register Now
+              {event.registrationOpen ? 'Register Now' : 'Registration Closed'}
             </button>
           </div>
         </div>

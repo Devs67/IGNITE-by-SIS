@@ -1,4 +1,4 @@
-import { ArrowRight, Calendar, MapPin, Flame } from 'lucide-react';
+import { ArrowRight, Calendar, MapPin, Flame, Lock } from 'lucide-react';
 import { motion } from 'motion/react';
 import IgniteLogo from './IgniteLogo';
 import { IGNITE_DATA } from '../data/igniteData';
@@ -36,7 +36,7 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
             </div>
 
             <h2 className="text-4xl sm:text-6xl font-display font-black text-[#f4f0e8] tracking-tight leading-tight">
-              Register Now
+              {event.registrationOpen ? 'Register Now' : 'We’re Live!'}
             </h2>
 
             <p className="text-xl sm:text-3xl font-display font-black text-[#f6a44e]">
@@ -59,21 +59,36 @@ export default function ReadyToIgnite({ onOpenRegister }: ReadyToIgniteProps) {
               </span>
             </div>
 
-            <div className="pt-2">
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={onOpenRegister}
-                className="inline-flex items-center justify-center gap-3 px-10 py-4.5 rounded-2xl bg-[#f28c28] hover:bg-[#e26f1e] text-[#172220] font-display text-sm sm:text-base font-black tracking-wider uppercase shadow-[0_10px_30px_rgba(242,140,40,0.5)] transition-all"
-              >
-                <span>Register Now</span>
-                <ArrowRight className="w-4 h-4 stroke-[3]" />
-              </motion.button>
-              <p className="mt-5 text-sm text-[#f4f0e8]/85 font-medium">
-                <span className="font-bold text-[#f6a44e]">{event.registrationFee}</span> · Teams of {event.teamSize} · Prizes {event.prizeMoney.toLowerCase()}
-                <span className="block text-xs text-[#f4f0e8]/70 mt-1">Payment details and instructions are shared after you register.</span>
-              </p>
-            </div>
+            {event.registrationOpen ? (
+              <div className="pt-2">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={onOpenRegister}
+                  className="inline-flex items-center justify-center gap-3 px-10 py-4.5 rounded-2xl bg-[#f28c28] hover:bg-[#e26f1e] text-[#172220] font-display text-sm sm:text-base font-black tracking-wider uppercase shadow-[0_10px_30px_rgba(242,140,40,0.5)] transition-all"
+                >
+                  <span>Register Now</span>
+                  <ArrowRight className="w-4 h-4 stroke-[3]" />
+                </motion.button>
+                <p className="mt-5 text-sm text-[#f4f0e8]/85 font-medium">
+                  <span className="font-bold text-[#f6a44e]">{event.registrationFee}</span> · Teams of {event.teamSize} · Prizes {event.prizeMoney.toLowerCase()}
+                  <span className="block text-xs text-[#f4f0e8]/70 mt-1">Payment details and instructions are shared after you register.</span>
+                </p>
+              </div>
+            ) : (
+              <div className="pt-2">
+                <button
+                  disabled
+                  className="inline-flex items-center justify-center gap-3 px-10 py-4.5 rounded-2xl bg-white/10 border border-white/25 text-[#f4f0e8]/80 font-display text-sm sm:text-base font-black tracking-wider uppercase cursor-not-allowed"
+                >
+                  <Lock className="w-4 h-4 stroke-[2.5]" />
+                  <span>Registration Closed</span>
+                </button>
+                <p className="mt-5 text-sm text-[#f4f0e8]/85 font-medium">
+                  Thank you to every team that registered. See you at IGNITE!
+                </p>
+              </div>
+            )}
           </div>
         </motion.div>
       </div>
