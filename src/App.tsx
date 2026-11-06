@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import WhatIsIgnite from './components/WhatIsIgnite';
 import WhenAndWho from './components/WhenAndWho';
 import Gallery from './components/Gallery';
+import Winners from './components/Winners';
 import ReadyToIgnite from './components/ReadyToIgnite';
 import PageNav from './components/PageNav';
 import Footer from './components/Footer';
@@ -54,7 +55,7 @@ export default function App() {
         <main>
           <Suspense fallback={<div className="min-h-screen" />}>
           <Routes>
-            {/* Home: welcome popup, event flow, flow chart, register, overview, dates, who can take part, gallery */}
+            {/* Home: welcome popup, event flow, flow chart, register / wrap-up, winners, overview, dates, who can take part, gallery */}
             <Route
               path="/"
               element={
@@ -64,6 +65,7 @@ export default function App() {
                   <EventFlow />
                   <IgniteStructure onSelectPathway={() => handleOpenRegister()} />
                   <ReadyToIgnite onOpenRegister={() => handleOpenRegister()} />
+                  {IGNITE_DATA.event.wrapped && <Winners />}
                   <WhatIsIgnite />
                   <WhenAndWho />
                   <Gallery />
@@ -95,7 +97,15 @@ export default function App() {
 
             <Route path="/ai-policy" element={<AiPolicy />} />
             <Route path="/rubrics" element={<Rubrics />} />
-            <Route path="/gallery" element={<Gallery />} />
+            <Route
+              path="/gallery"
+              element={
+                <>
+                  {IGNITE_DATA.event.wrapped && <Winners />}
+                  <Gallery />
+                </>
+              }
+            />
             <Route path="/team" element={<Committee />} />
             {/* Old address of the Team page */}
             <Route path="/committee" element={<Navigate to="/team" replace />} />
