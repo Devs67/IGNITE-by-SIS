@@ -42,6 +42,13 @@
     "description": "Photos from Sreenidhi IGNITE: students prototyping, building and presenting their creations at Sreenidhi International School, Hyderabad."
   },
   {
+    "path": "/showcase",
+    "label": "Showcase",
+    "title": "Showcase — Sreenidhi IGNITE",
+    "blurb": "Every team, their projects, and the winners",
+    "description": "The teams of Sreenidhi IGNITE 2026-27 and what they built: Game Development, Rube Goldberg Machine, App Development and CAD Design projects from the Hackathon and Makeathon."
+  },
+  {
     "path": "/team",
     "label": "Team",
     "title": "Meet the Team — Sreenidhi IGNITE",

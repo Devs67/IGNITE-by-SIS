@@ -25,6 +25,7 @@ const People = lazy(() => import('./components/People'));
 const Committee = lazy(() => import('./components/Committee'));
 const AiPolicy = lazy(() => import('./components/AiPolicy'));
 const Rubrics = lazy(() => import('./components/Rubrics'));
+const Showcase = lazy(() => import('./components/Showcase'));
 
 const meta = typeof document !== 'undefined' ? document.querySelector('meta[name="description"]') : null;
 
@@ -106,6 +107,7 @@ export default function App() {
                 </>
               }
             />
+            <Route path="/showcase" element={<Showcase />} />
             <Route path="/team" element={<Committee />} />
             {/* Old address of the Team page */}
             <Route path="/committee" element={<Navigate to="/team" replace />} />

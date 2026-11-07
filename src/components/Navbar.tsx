@@ -116,7 +116,7 @@ export default function Navbar({ onOpenRegister }: NavbarProps) {
             <button
               onClick={onOpenRegister}
               disabled={!registrationOpen}
-              className="ignite-btn-primary hidden sm:inline-flex whitespace-nowrap !py-2.5 !px-5 text-xs font-display uppercase tracking-wider font-bold"
+              className={`ignite-btn-primary hidden sm:inline-flex ${registrationOpen ? '' : 'lg:!hidden xl:!inline-flex'} whitespace-nowrap !py-2.5 !px-5 text-xs font-display uppercase tracking-wider font-bold`}
             >
               <span>{registrationOpen ? 'Register Now' : 'Registration Closed'}</span>
               {registrationOpen && <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />}
