@@ -25,6 +25,17 @@ function TeamCard({ team, featured = false }: { team: ShowcaseTeam; featured?: b
         featured ? 'shadow-[6px_6px_0px_#f28c28]' : 'shadow-[5px_5px_0px_#0b302e]'
       }`}
     >
+      {team.video && (
+        <video
+          src={team.video}
+          controls
+          playsInline
+          preload="metadata"
+          aria-label={`Project video by ${teamName(team)}`}
+          className="w-full rounded-2xl border-2 border-[#0b302e] bg-[#0b302e]"
+        />
+      )}
+
       <div className="flex flex-wrap gap-2">
         {team.award && (
           <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border-2 border-[#0b302e] font-display text-xs font-black text-[#0b302e] ${MEDAL[team.award]}`}>

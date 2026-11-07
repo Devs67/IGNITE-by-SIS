@@ -7,6 +7,13 @@
     "description": "Sreenidhi IGNITE 2026-27: Hackathon & Makeathon (5-6 November 2026) at Sreenidhi International School. A platform where students transform ideas into interactive systems, creative solutions, and meaningful experiences."
   },
   {
+    "path": "/showcase",
+    "label": "Showcase",
+    "title": "Showcase — Sreenidhi IGNITE",
+    "blurb": "Every team, their projects, and the winners",
+    "description": "The teams of Sreenidhi IGNITE 2026-27 and what they built: Game Development, Rube Goldberg Machine, App Development and CAD Design projects from the Hackathon and Makeathon."
+  },
+  {
     "path": "/challenges",
     "label": "Challenges",
     "title": "Challenges — Sreenidhi IGNITE",
@@ -40,13 +47,6 @@
     "title": "Gallery — Sreenidhi IGNITE",
     "blurb": "Moments of making, building, and presenting",
     "description": "Photos from Sreenidhi IGNITE: students prototyping, building and presenting their creations at Sreenidhi International School, Hyderabad."
-  },
-  {
-    "path": "/showcase",
-    "label": "Showcase",
-    "title": "Showcase — Sreenidhi IGNITE",
-    "blurb": "Every team, their projects, and the winners",
-    "description": "The teams of Sreenidhi IGNITE 2026-27 and what they built: Game Development, Rube Goldberg Machine, App Development and CAD Design projects from the Hackathon and Makeathon."
   },
   {
     "path": "/team",

@@ -7,6 +7,9 @@
 //   award: 1 | 2 | 3                      (place within its challenge)
 //   mention: 'Best use of recycled materials'  (special mention, with the reason)
 // Optional: project: 'Project name', link: 'https://...', linkLabel: 'Play the game'
+//           video: an import of a file in src/assets/videos, played on the team's card
+
+import capybaraVideo from '../assets/videos/capybara-designers.mp4';
 
 export type ChallengeKey = 'game' | 'rube' | 'app' | 'cad';
 
@@ -26,6 +29,7 @@ export interface ShowcaseTeam {
   project?: string;
   link?: string;
   linkLabel?: string;
+  video?: string;
   award?: 1 | 2 | 3;
   mention?: string;
 }
@@ -56,7 +60,7 @@ export const SHOWCASE_TEAMS: ShowcaseTeam[] = [
   { name: "MG's", school: MGS, challenge: 'app', event: 'Hackathon', award: 1, members: ['Asish Kakloori Reddy', 'Vrishin Nehar Sai Kolli', 'Dhruva Reddy Kundur', 'Sai Vachan Chigullapalli'] },
   { name: 'Oneiropolos', school: MGS, challenge: 'app', event: 'Hackathon', members: ['Revanth Kumar Narra', 'Akshay Thella', 'Anuraag Patel Manchanpally', 'Snithik Reddy Vangati'] },
   { name: 'The Filler Episodes', school: MGS, challenge: 'app', event: 'Hackathon', members: ['Havish Madham', 'Yashmit Reddy Sripati', 'Venkat Ram Kiran Pinapatruni'] },
-  { name: 'Capybara Designers', school: MGS, challenge: 'cad', event: 'Makeathon', award: 1, members: ['Srithan Reddy Dasireddy', 'Adhwika Reddy Boothkur', 'Yukti Sri Edula', 'Ashrith Reddy Pannala'], link: 'https://drive.google.com/drive/folders/1EaAPTHiMI_gX7ndRH9WkFytXLBQ1BUss?usp=sharing', linkLabel: 'See the designs' },
+  { name: 'Capybara Designers', school: MGS, challenge: 'cad', event: 'Makeathon', award: 1, video: capybaraVideo, members: ['Srithan Reddy Dasireddy', 'Adhwika Reddy Boothkur', 'Yukti Sri Edula', 'Ashrith Reddy Pannala'], link: 'https://drive.google.com/drive/folders/1EaAPTHiMI_gX7ndRH9WkFytXLBQ1BUss?usp=sharing', linkLabel: 'See the designs' },
   { name: 'The Maze Maverics', school: SIS, challenge: 'game', event: 'Hackathon', members: ['Yashaswini Jha'] },
   { name: '', school: SIS, challenge: 'game', event: 'Hackathon', members: ['Chakrahari Jairam', 'Reyansh Rao J', 'Vihaan Naredla', 'Akhil Krishnasai'] },
   { name: 'BOBs Squad', school: MGS, challenge: 'cad', event: 'Makeathon', members: ['Surya Tej Bhatt Kurapati', 'Rehan Imran Payak', 'Aman Reddy Chamala', 'Dev Tejani'], link: 'https://drive.google.com/file/d/1wqiQKHdCHPrCV63RLCmlzMKgb_paVQrH/view?usp=drive_link', linkLabel: 'See the design' },
